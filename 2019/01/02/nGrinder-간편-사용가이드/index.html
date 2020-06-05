@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Black9P Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://black9p.github.io').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="nGrinder란nGrinder는 부하테스트를 위한 플랫폼으로 웹 애플리케이션 Controller와 자바 애플리케이션 Agent로 구성 되어있다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nGrinder 간편 사용가이드">
+<meta property="og:url" content="https://black9p.github.io/2019/01/02/nGrinder-간편-사용가이드/index.html">
+<meta property="og:site_name" content="Black9P Blog">
+<meta property="og:description" content="nGrinder란nGrinder는 부하테스트를 위한 플랫폼으로 웹 애플리케이션 Controller와 자바 애플리케이션 Agent로 구성 되어있다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://black9p.github.io/images/ngrinder/Login.png">
+<meta property="og:image" content="https://black9p.github.io/images/ngrinder/Config.png">
+<meta property="og:image" content="https://black9p.github.io/images/ngrinder/RunTest.png">
+<meta property="og:image" content="https://black9p.github.io/images/ngrinder/TestResult.png">
+<meta property="og:updated_time" content="2019-11-24T13:17:11.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nGrinder 간편 사용가이드">
+<meta name="twitter:description" content="nGrinder란nGrinder는 부하테스트를 위한 플랫폼으로 웹 애플리케이션 Controller와 자바 애플리케이션 Agent로 구성 되어있다.">
+<meta name="twitter:image" content="https://black9p.github.io/images/ngrinder/Login.png">
+
+<link rel="canonical" href="https://black9p.github.io/2019/01/02/nGrinder-간편-사용가이드/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>nGrinder 간편 사용가이드 | Black9P Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Black9P Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/black9p" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://black9p.github.io/2019/01/02/nGrinder-간편-사용가이드/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Black9P">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Black9P Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          nGrinder 간편 사용가이드
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-01-02 21:37:20" itemprop="dateCreated datePublished" datetime="2019-01-02T21:37:20+09:00">2019-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-24 22:17:11" itemprop="dateModified" datetime="2019-11-24T22:17:11+09:00">2019-11-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/성능테스트/" itemprop="url" rel="index">
+                    <span itemprop="name">성능테스트</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="nGrinder란"><a href="#nGrinder란" class="headerlink" title="nGrinder란"></a>nGrinder란</h2><p>nGrinder는 부하테스트를 위한 플랫폼으로 웹 애플리케이션 Controller와 자바 애플리케이션 Agent로 구성 되어있다.<br><a id="more"></a></p>
+<h3 id="nGrinder-Controller"><a href="#nGrinder-Controller" class="headerlink" title="nGrinder Controller"></a>nGrinder Controller</h3><ul>
+<li>웹 애플리케이션으로 스크립트를 설정하여 성능테스트를 하게하는 도구이다.</li>
+</ul>
+<h3 id="nGrinder-agent"><a href="#nGrinder-agent" class="headerlink" title="nGrinder agent"></a>nGrinder agent</h3><ul>
+<li>가상 유저 생성자로 실제 부하를 주는 클라이언트이다.</li>
+</ul>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><h3 id="선행-조건"><a href="#선행-조건" class="headerlink" title="선행 조건"></a>선행 조건</h3><ul>
+<li>nGrinder의 Controller와 agent를 설치하기 위해선 Oracle JDK 1.6 이상 혹은 OpenJDK 1.7 이상이 필요하다.</li>
+<li>nGrinder는 agent간 통신을 위해 여러 포트를 사용한다. 아래의 포트들이 방화벽에 걸리지 않는지 확인이 필요하다.<ul>
+<li>Agent: Any ==&gt; Controller: 16001</li>
+<li>Agent: Any ==&gt; Controller: 12000 ~ 12000+(동시 테스트 허용수만큼)</li>
+<li>Controller: Any ==&gt; Monitor: 13243</li>
+<li>Controller ==&gt; Public user: 톰캣설정에 따르지만 기본은 8080이다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="다운로드"><a href="#다운로드" class="headerlink" title="다운로드"></a>다운로드</h3><ul>
+<li><a href="https://github.com/naver/ngrinder/releases" target="_blank" rel="noopener">https://github.com/naver/ngrinder/releases</a> 에서 ngrinder-controller WAR 파일을 받는다.</li>
+</ul>
+<h3 id="Controller-설치"><a href="#Controller-설치" class="headerlink" title="Controller 설치"></a>Controller 설치</h3><ul>
+<li>다운받은 WAR파일을 ${TOMCAT_HOME}/webapps 하위에 위치 시킨다. /ngrinder-controller 경로를 제외하고 싶다면 WAR파일명을 ROOT.war로 변경한다.</li>
+<li><p>메모리 설정을 상향 조절한다. catalina.sh 상단에 아래의 내용을 추가한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPTS=&quot;-Xms600m -Xmx1024m -XX:MaxPermSize=200m&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>톰캣 실행, ${TOMCAT_HOME}/startup.sh 후 <a href="http://localhost:8080/ngrinder-controller-X.X" target="_blank" rel="noopener">http://localhost:8080/ngrinder-controller-X.X</a> 로 접속한다.</p>
+</li>
+</ul>
+<h3 id="Agent-설치"><a href="#Agent-설치" class="headerlink" title="Agent 설치"></a>Agent 설치</h3><ul>
+<li>nGrinder 3.3 이후로는 Agent를 Controller에서 받는다.</li>
+<li><a href="http://localhost:8080/ngrinder-controller-X.X에" target="_blank" rel="noopener">http://localhost:8080/ngrinder-controller-X.X에</a> 접속후, 로그인한다. 로그인 아이디와 비번은 동일하게 admin 이다.</li>
+<li>우측 상단 메뉴에서 Download Agent를 클릭한다.</li>
+<li><p>Agent 압축을 푼다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzf ngrinder-agent-3.4.2-localhost.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nGrinder 3.3 이후로는 연결된 Agent는 Controller에 의해 자동적으로 승인된다(Agent 시작후 Controller에서 바로 사용할 수 있음을 의미한다)</p>
+</li>
+<li>Agent를 실행한다.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Agent 실행</span><br><span class="line">./run_agent.sh</span><br><span class="line"></span><br><span class="line"># Agent 백그라운드 실행</span><br><span class="line">./run_agent_bg.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><ul>
+<li>Controller 접속 후 로그인 (아이디/비번 : admin 동일)<br><img src="/images/ngrinder/Login.png" alt="Login"></li>
+<li>Quick Start는 테스트를 만들기 편리한 방법이다. 테스트할 URL을 입력만 하면 테스트 스크립트가 자동적으로 생성된다.</li>
+</ul>
+<h3 id="설정-페이지"><a href="#설정-페이지" class="headerlink" title="설정 페이지"></a>설정 페이지</h3><p><img src="/images/ngrinder/Config.png" alt="Config"></p>
+<ul>
+<li>Agent: Agent수, Controller에 연결승인된 수만큼까지만 지정할 수 있다.</li>
+<li>Vuser per agent: Agent당 가상 유저수, Process와 Thread로 구성한다.</li>
+<li>Script: 테스트할 스크립트</li>
+<li>Target Host: 테스트 대상 호스트</li>
+<li>Duration: 테스트할 시간</li>
+<li>Run Count: 테스트 실행 횟수(각 Thread당으로 전체 실행 횟수는 Vuser per agent를 곱한 값이다)</li>
+<li>Enable Ramp-Up: 트래픽을 서서히 증가하게하는 설정</li>
+</ul>
+<h3 id="테스트-실행"><a href="#테스트-실행" class="headerlink" title="테스트 실행"></a>테스트 실행</h3><p><img src="/images/ngrinder/RunTest.png" alt="RunTest"></p>
+<ul>
+<li>Save and Start 클릭시 테스트 실행</li>
+</ul>
+<h3 id="결과-화면"><a href="#결과-화면" class="headerlink" title="결과 화면"></a>결과 화면</h3><p><img src="/images/ngrinder/TestResult.png" alt="TestResult"></p>
+<ul>
+<li>Total Vusers: Vusers 수</li>
+<li>TPS: 평균 TPS</li>
+<li>Peak TPS: 최고 TPS</li>
+<li>Mean Test Time: 평균 테스트시간</li>
+<li>Executed Tests: 테스트 실행 횟수</li>
+<li>Successful Tests: 테스트 성공 횟수</li>
+<li>Errors: 에러 횟수</li>
+<li>Run time: 테스트 실행시간</li>
+</ul>
+<p>Reference : <a href="https://github.com/naver/ngrinder" target="_blank" rel="noopener">nGrinder README</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/09/13/Spring-Data-Specification-사용하기/" rel="prev" title="Spring Data, Specification 사용하기">
+      <i class="fa fa-chevron-left"></i> Spring Data, Specification 사용하기
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/01/07/웹-애플리케이션-로드테스트/" rel="next" title="웹 애플리케이션 로드테스트">
+      웹 애플리케이션 로드테스트 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nGrinder란"><span class="nav-number">1.</span> <span class="nav-text">nGrinder란</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nGrinder-Controller"><span class="nav-number">1.1.</span> <span class="nav-text">nGrinder Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nGrinder-agent"><span class="nav-number">1.2.</span> <span class="nav-text">nGrinder agent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#설치"><span class="nav-number">2.</span> <span class="nav-text">설치</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#선행-조건"><span class="nav-number">2.1.</span> <span class="nav-text">선행 조건</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#다운로드"><span class="nav-number">2.2.</span> <span class="nav-text">다운로드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller-설치"><span class="nav-number">2.3.</span> <span class="nav-text">Controller 설치</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Agent-설치"><span class="nav-number">2.4.</span> <span class="nav-text">Agent 설치</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">3.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#설정-페이지"><span class="nav-number">3.1.</span> <span class="nav-text">설정 페이지</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#테스트-실행"><span class="nav-number">3.2.</span> <span class="nav-text">테스트 실행</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#결과-화면"><span class="nav-number">3.3.</span> <span class="nav-text">결과 화면</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Black9P</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/black9p" title="GitHub → https://github.com/black9p" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dev.black9p@gmail.com" title="E-Mail → mailto:dev.black9p@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Black9P</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Black9P Blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://black9p.github.io').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Scouter란..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scouter 기본">
+<meta property="og:url" content="https://black9p.github.io/2018/05/19/Scouter-기본/index.html">
+<meta property="og:site_name" content="Black9P Blog">
+<meta property="og:description" content="Scouter란..">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://black9p.github.io/images/scouter/Scouter_structure.png">
+<meta property="og:image" content="https://black9p.github.io/images/scouter/Collector_Tomcat.png">
+<meta property="og:image" content="https://black9p.github.io/images/scouter/View_Save.png">
+<meta property="og:image" content="https://black9p.github.io/images/scouter/XLog.png">
+<meta property="og:updated_time" content="2020-06-05T14:20:28.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scouter 기본">
+<meta name="twitter:description" content="Scouter란..">
+<meta name="twitter:image" content="https://black9p.github.io/images/scouter/Scouter_structure.png">
+
+<link rel="canonical" href="https://black9p.github.io/2018/05/19/Scouter-기본/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Scouter 기본 | Black9P Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Black9P Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/black9p" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://black9p.github.io/2018/05/19/Scouter-기본/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Black9P">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Black9P Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Scouter 기본
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-05-19 23:44:31" itemprop="dateCreated datePublished" datetime="2018-05-19T23:44:31+09:00">2018-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-05 23:20:28" itemprop="dateModified" datetime="2020-06-05T23:20:28+09:00">2020-06-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Scouter/" itemprop="url" rel="index">
+                    <span itemprop="name">Scouter</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Scouter란"><a href="#Scouter란" class="headerlink" title="Scouter란.."></a>Scouter란..</h2><a id="more"></a>
+<p>Open Source APM(Application Performance Management)으로 서버의 성능을 모니터링 하기위한 도구이다.<br>오픈소스APM 종류로는 Pinpoint, Glowroot이 있고, 유료상품으로는 Jennifer, Dynatrace 등이 있다.</p>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><p>Github(<a href="https://github.com/scouter-project/scouter/releases/" target="_blank" rel="noopener">https://github.com/scouter-project/scouter/releases/</a>) 에서 다운받을 수 있다.<br>두개의 파일을 받는데 하나는 서버용이고, 하나는 클라이언트용이다.</p>
+<ul>
+<li>서버용 : scouter-all-[VERSION].tar.gz</li>
+<li>클라이언트 : scouter.client.product-[Client OS]</li>
+</ul>
+<h2 id="Scouter-구성"><a href="#Scouter-구성" class="headerlink" title="Scouter 구성"></a>Scouter 구성</h2><p><img src="/images/scouter/Scouter_structure.png" alt="Scouter_Sturcture"></p>
+<h3 id="Scouter-Collector-Server"><a href="#Scouter-Collector-Server" class="headerlink" title="Scouter(Collector) Server"></a>Scouter(Collector) Server</h3><ul>
+<li>스카우터 수집서버. 모니터링할 정보들을 수집하는 서버이다.</li>
+<li>데이터는 자체 제작된 내부파일 DB에 저장된다.</li>
+<li>최근에 Collector API가 제공되고 있으며, Scouter Paper(웹 브라우저 클라이언트인듯?). 안정될때까지 기다리자.. Scouter Paper는 이것을 사용한다.</li>
+</ul>
+<h3 id="Scouter-Agent"><a href="#Scouter-Agent" class="headerlink" title="Scouter Agent"></a>Scouter Agent</h3><ul>
+<li>Agent는 HostAgent와 JavaAgent가 있고, 모니터링대상(WAS)에 설치한다.</li>
+<li>데이터는 UDP와 TCP로 전송된다.</li>
+<li>Host Agent: CPU, MEMORY, DISK 정보를 전달한다.</li>
+<li>Java Agent: Heap, TPS, Response Time, Service Profile 정보를 전달한다.</li>
+</ul>
+<h3 id="Scouter-Client"><a href="#Scouter-Client" class="headerlink" title="Scouter Client"></a>Scouter Client</h3><ul>
+<li>스카우터 클라이언트로 스카우터 서버에 접속하여 수집된 정보를 모니터링한다.</li>
+<li>모니터링 화면은 Eclipse기반의 UI로 구성되어 있다.</li>
+</ul>
+<h2 id="Collector-하위-메뉴"><a href="#Collector-하위-메뉴" class="headerlink" title="Collector 하위 메뉴"></a>Collector 하위 메뉴</h2><p>Collector에 수집된 모니터링 정보들을 다양한 뷰로 선택해 볼 수 있다.<br>보여지는 데이터는 실시간은 아니고 살짝 delay된 지표이다.<br><img src="/images/scouter/Collector_Tomcat.png" alt="Collector_Tomcat"></p>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><p>상단메뉴 Collector &gt; Tomcat 하위의 메뉴에 대한 내용을 요약한다.</p>
+<ul>
+<li>Elapsed 90% : 전체 사용자의 90%가 받는 응답속도. 대부분의 사용자의 응답속도. 이게 좀 더 중요하다.</li>
+<li>Elapsed Time(평균속도) : 크게 의미없다</li>
+<li>Error Rate : 이건없어야 한다.</li>
+<li>GC Count : 1초 간격으로 gc가 몇번 일어나는지(이게 올라가면..)</li>
+<li>GC Time : GC 수행시간 (300ms-1s)</li>
+<li>Heap used : 톱니모양이 좋은것.. 가장 최저점들의 노드를 연결해보면 우상향그래프가 될텐데 그럼 Full GC가 발생한다.<br>그리고 다시 아래부터 올라간다. 올라가면 안좋은거..</li>
+<li>Heap Memory : Heap used 와 함께 Max 사용가능한 수치도 같이 볼수 있다.</li>
+<li>ProcessCpu : JVM CPU 사용</li>
+<li>Recent User : 최근(새로운)사용자. 믿기 어렵다. 구글 애널리틱스를 쓰자. 스카우터 쿠키를 구워서 다음에 왔을땐 새로운게 아니니까.. 믿지말자..</li>
+<li>TPS : CPU사용량과 밀접한 관계가 있다.<ul>
+<li>User Transaction : 하나의 행위(메일을쓰기, 하나의 페이지를 로딩)</li>
+<li>Server Transaction : 하나의 행위를 위해 여러번 요청을 할때 각각 트랜잭션으로..</li>
+</ul>
+</li>
+<li>Active Service EQ : 쓰레드 정보. 빨간색 8초 응답, 노란색 4초 응답, 파란색은 OK</li>
+<li>문제가 생기면 더블클릭을 해서 상세내용을 보고 판단한다.</li>
+<li>Active Service List : 톰캣에 돌고 있는 쓰레드(CPU잡아먹으니 장애났을떄만 본다)</li>
+<li>Active Service Vertical EQ : 세로로 보여준거.</li>
+<li>Active Speed : 이건 띄워놓는게 좋다. 장애가 나면 빨개진다. 장애여부를 바로볼수있다.</li>
+<li>XLog : 스카우터에서 가장 메인으로 보게될 뷰로 요청과 프로파일정보들을 제공한다.</li>
+<li>24H Service Count : 일별 문제 카운트</li>
+<li>Throughput : Thoughput을 임의로 지정해서 볼수 있다. url 기능마다 그룹지어놓으면 분석할 수 있다. 많은 수작업이 들어간다. 설정에..</li>
+<li>Today visitor : 오늘 온사람 확인용도</li>
+<li>Summary : 통계기능. 특정시간에 요청된 내용을 볼수 있음</li>
+<li>File Descriptor : 현재 오픈된 파일?</li>
+</ul>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>NET.. : 리눅스 서버 disk i/o 개수에 포함된다.</p>
+<h3 id="RequestProc"><a href="#RequestProc" class="headerlink" title="RequestProc"></a>RequestProc</h3><p>ErrorCount : 에러개수를 보여주는 뷰로 서비스 초기에 유용하다.</p>
+<h2 id="화면구성"><a href="#화면구성" class="headerlink" title="화면구성"></a>화면구성</h2><p><img src="/images/scouter/View_Save.png" alt="View_Save"></p>
+<ul>
+<li>우측상단에 각각 view를 저장할 수 있다. 화면 편집하고나서는 반드시 저장을 해야한다.</li>
+</ul>
+<h2 id="로그파일"><a href="#로그파일" class="headerlink" title="로그파일"></a>로그파일</h2><p>저장경로: ${SCOUTER_HOME}/server/database<br>한달이 넘거나 서버 디스크의 70%이상이면 가장 오래된로그부터 지운다.<br>백업을 해야할경우 해당 디렉토리를 압축해서 백업해둔다.</p>
+<h2 id="XLog"><a href="#XLog" class="headerlink" title="XLog"></a>XLog</h2><p><img src="/images/scouter/XLog.png" alt="View_Save"></p>
+<ul>
+<li>CPU Time: JVM 사용, 스카우터는 정확히 안보여 주기때문에 jvmtop(<a href="https://github.com/patric-r/jvmtop" target="_blank" rel="noopener">https://github.com/patric-r/jvmtop</a>) 으로 확인해본다.</li>
+<li>Wait Time: 기타.. 다른서비스 (api나 sql등..)</li>
+<li>Error(빨간색 표시)</li>
+<li>점은 x축 기준으로 요청끝난시간을 찍는다.(스타트타임을 찾아봐야한다.)</li>
+</ul>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><ul>
+<li>Tomcat, Host Agent 는 수정과 저장시 재시작없이 바로 설정이 적용된다.</li>
+<li>수집서버 설정은 변경해도 재시작하지 않으면 적용이 되지 않는다.</li>
+<li>object_name은 항상 추가해주어야한다. 하나의 수집서버내 object_name은 중복되어서는 안된다. 데이터가 꼬일수 있다. (호스트가 다르면 상관없지만.. 왠만하면 다르게하자.)</li>
+<li>Scouter수집서버 하나에 1000TPS가 넘으면 불안하다.</li>
+</ul>
+<h2 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h2><ul>
+<li>Capture 플러그인 : hook_method_pattern과 함께 쓸수 없다. return에서 찍는게 좋다.</li>
+<li>플러그인에 스타트말고 엔드에 넣은다. 파라미터로 들어오는게 한글일 경우 인코딩문제가 생길 수 있다.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/29/Javascript-배열/" rel="prev" title="Javascript 배열">
+      <i class="fa fa-chevron-left"></i> Javascript 배열
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/07/19/Spock-Testing/" rel="next" title="Spock Testing">
+      Spock Testing <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scouter란"><span class="nav-number">1.</span> <span class="nav-text">Scouter란..</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#설치"><span class="nav-number">2.</span> <span class="nav-text">설치</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scouter-구성"><span class="nav-number">3.</span> <span class="nav-text">Scouter 구성</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scouter-Collector-Server"><span class="nav-number">3.1.</span> <span class="nav-text">Scouter(Collector) Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scouter-Agent"><span class="nav-number">3.2.</span> <span class="nav-text">Scouter Agent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scouter-Client"><span class="nav-number">3.3.</span> <span class="nav-text">Scouter Client</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collector-하위-메뉴"><span class="nav-number">4.</span> <span class="nav-text">Collector 하위 메뉴</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">4.1.</span> <span class="nav-text">Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU"><span class="nav-number">4.2.</span> <span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RequestProc"><span class="nav-number">4.3.</span> <span class="nav-text">RequestProc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#화면구성"><span class="nav-number">5.</span> <span class="nav-text">화면구성</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#로그파일"><span class="nav-number">6.</span> <span class="nav-text">로그파일</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XLog"><span class="nav-number">7.</span> <span class="nav-text">XLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configuration"><span class="nav-number">8.</span> <span class="nav-text">Configuration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugin"><span class="nav-number">9.</span> <span class="nav-text">Plugin</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Black9P</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/black9p" title="GitHub → https://github.com/black9p" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dev.black9p@gmail.com" title="E-Mail → mailto:dev.black9p@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Black9P</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

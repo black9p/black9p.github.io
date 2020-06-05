@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Javascript 함수</title>
+    <url>/2018/03/28/Javascript-%ED%95%A8%EC%88%98/</url>
+    <content><![CDATA[<p>ES6 함수 주요기능정리<br><a id="more"></a></p>
+<h2 id="매개변수-해체"><a href="#매개변수-해체" class="headerlink" title="매개변수 해체"></a>매개변수 해체</h2><p>객체 해제가 가능하듯, 매개변수도 해체가능합니다.<br>해체 할당과 마찬가지로 프로퍼티는 유효한 식별자여야 하고, 들어오는 객체에 해당 프로퍼티가 없는 변수는 undefined를 할당받습니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">&#123;subject, verb, object&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;subject&#125;</span> <span class="subst">$&#123;verb&#125;</span> <span class="subst">$&#123;object&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  subject : <span class="string">"I"</span>,</span><br><span class="line">  verb : <span class="string">"love"</span>,</span><br><span class="line">  object : <span class="string">"JavaScript"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">print(o)  <span class="comment">// I love JavaScript</span></span><br></pre></td></tr></table></figure></p>
+<p>배열도 해체 가능합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">[subject, verb, object]</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;subject&#125;</span> <span class="subst">$&#123;verb&#125;</span> <span class="subst">$&#123;object&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="string">"I"</span>, <span class="string">"love"</span>, <span class="string">"JavaScript"</span>];</span><br><span class="line"></span><br><span class="line">print(o)  <span class="comment">// I love JavaScript</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="매개변수-기본값"><a href="#매개변수-기본값" class="headerlink" title="매개변수 기본값"></a>매개변수 기본값</h2><p>매개변수에 기본값을 지정할 수 있습니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">a, b=<span class="string">"default"</span>, c=<span class="number">1</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;a&#125;</span> <span class="subst">$&#123;b&#125;</span> <span class="subst">$&#123;c&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1 2 3</span></span><br><span class="line">print(<span class="number">1</span>,<span class="number">2</span>);   <span class="comment">// 1 2 1</span></span><br><span class="line">print(<span class="number">1</span>);     <span class="comment">// 1 default 1</span></span><br><span class="line">print();      <span class="comment">// undefined default 1</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="메서드"><a href="#메서드" class="headerlink" title="메서드"></a>메서드</h2><p>객체의 프로퍼티인 함수를 메서드라고 불러 일반함수와 구별합니다.<br>ES6에서는 간편하게 메서드를 추가할 수 있는 문법이 생겼습니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Before..</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  name: <span class="string">"BSD"</span>,</span><br><span class="line">  play: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">'yay!'</span>; &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">  name: <span class="string">"BSD"</span>,</span><br><span class="line">  play() &#123; <span class="keyword">return</span> <span class="string">'yay!'</span>; &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="화살표-표기법"><a href="#화살표-표기법" class="headerlink" title="화살표 표기법"></a>화살표 표기법</h2><p>화살표 표기법은 간단히 말해 function이라는 단어와 중괄호 숫자를 줄이려고 고안된 단축 문법 입니다.<br>아래 세가지 단축문법이 있습니다.</p>
+<ul>
+<li>function을 생략해도 됩니다.</li>
+<li>함수에 매개변수가 단 하나 뿐이라면 괄호(())도 생략할 수 있습니다.</li>
+<li>함수 바디가 표현식 하나라면 중괄호와 return문도 생략할 수 있습니다.<br>화살표 함수는 항상 익명이며, 변수에 할당할 수 있습니다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> f1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">"hello!"</span>; &#125;</span><br><span class="line"><span class="keyword">const</span> f1 = <span class="function"><span class="params">()</span> =&gt;</span> <span class="string">"hello!"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123; <span class="keyword">return</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>; &#125;</span><br><span class="line"><span class="keyword">const</span> f2 = <span class="function"><span class="params">name</span> =&gt;</span> <span class="string">`Hello, <span class="subst">$&#123;name&#125;</span>!`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f3 = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>) </span>&#123; <span class="keyword">return</span> a + b; &#125;</span><br><span class="line"><span class="keyword">const</span> f3 = <span class="function">(<span class="params">a,b</span>) =&gt;</span> a + b;</span><br></pre></td></tr></table></figure>
+<p>화살표 함수는 익명함수를 만들어 다른 곳에 전달하려 할 때 가장 유용합니다.<br>화살표 함수는 객체 생성자로 사용할 수 없고, arguments 변수도 사용할 수 없습니다. ES6에서 확산 연산자가 생겼으니 arguments 변수는 필요가 없긴 합니다.</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>ES6</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Scouter 기본</title>
+    <url>/2018/05/19/Scouter-%EA%B8%B0%EB%B3%B8/</url>
+    <content><![CDATA[<h2 id="Scouter란"><a href="#Scouter란" class="headerlink" title="Scouter란.."></a>Scouter란..</h2><a id="more"></a>
+<p>Open Source APM(Application Performance Management)으로 서버의 성능을 모니터링 하기위한 도구이다.<br>오픈소스APM 종류로는 Pinpoint, Glowroot이 있고, 유료상품으로는 Jennifer, Dynatrace 등이 있다.</p>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><p>Github(<a href="https://github.com/scouter-project/scouter/releases/" target="_blank" rel="noopener">https://github.com/scouter-project/scouter/releases/</a>) 에서 다운받을 수 있다.<br>두개의 파일을 받는데 하나는 서버용이고, 하나는 클라이언트용이다.</p>
+<ul>
+<li>서버용 : scouter-all-[VERSION].tar.gz</li>
+<li>클라이언트 : scouter.client.product-[Client OS]</li>
+</ul>
+<h2 id="Scouter-구성"><a href="#Scouter-구성" class="headerlink" title="Scouter 구성"></a>Scouter 구성</h2><p><img src="/images/scouter/Scouter_structure.png" alt="Scouter_Sturcture"></p>
+<h3 id="Scouter-Collector-Server"><a href="#Scouter-Collector-Server" class="headerlink" title="Scouter(Collector) Server"></a>Scouter(Collector) Server</h3><ul>
+<li>스카우터 수집서버. 모니터링할 정보들을 수집하는 서버이다.</li>
+<li>데이터는 자체 제작된 내부파일 DB에 저장된다.</li>
+<li>최근에 Collector API가 제공되고 있으며, Scouter Paper(웹 브라우저 클라이언트인듯?). 안정될때까지 기다리자.. Scouter Paper는 이것을 사용한다.</li>
+</ul>
+<h3 id="Scouter-Agent"><a href="#Scouter-Agent" class="headerlink" title="Scouter Agent"></a>Scouter Agent</h3><ul>
+<li>Agent는 HostAgent와 JavaAgent가 있고, 모니터링대상(WAS)에 설치한다.</li>
+<li>데이터는 UDP와 TCP로 전송된다.</li>
+<li>Host Agent: CPU, MEMORY, DISK 정보를 전달한다.</li>
+<li>Java Agent: Heap, TPS, Response Time, Service Profile 정보를 전달한다.</li>
+</ul>
+<h3 id="Scouter-Client"><a href="#Scouter-Client" class="headerlink" title="Scouter Client"></a>Scouter Client</h3><ul>
+<li>스카우터 클라이언트로 스카우터 서버에 접속하여 수집된 정보를 모니터링한다.</li>
+<li>모니터링 화면은 Eclipse기반의 UI로 구성되어 있다.</li>
+</ul>
+<h2 id="Collector-하위-메뉴"><a href="#Collector-하위-메뉴" class="headerlink" title="Collector 하위 메뉴"></a>Collector 하위 메뉴</h2><p>Collector에 수집된 모니터링 정보들을 다양한 뷰로 선택해 볼 수 있다.<br>보여지는 데이터는 실시간은 아니고 살짝 delay된 지표이다.<br><img src="/images/scouter/Collector_Tomcat.png" alt="Collector_Tomcat"></p>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><p>상단메뉴 Collector &gt; Tomcat 하위의 메뉴에 대한 내용을 요약한다.</p>
+<ul>
+<li>Elapsed 90% : 전체 사용자의 90%가 받는 응답속도. 대부분의 사용자의 응답속도. 이게 좀 더 중요하다.</li>
+<li>Elapsed Time(평균속도) : 크게 의미없다</li>
+<li>Error Rate : 이건없어야 한다.</li>
+<li>GC Count : 1초 간격으로 gc가 몇번 일어나는지(이게 올라가면..)</li>
+<li>GC Time : GC 수행시간 (300ms-1s)</li>
+<li>Heap used : 톱니모양이 좋은것.. 가장 최저점들의 노드를 연결해보면 우상향그래프가 될텐데 그럼 Full GC가 발생한다.<br>그리고 다시 아래부터 올라간다. 올라가면 안좋은거..</li>
+<li>Heap Memory : Heap used 와 함께 Max 사용가능한 수치도 같이 볼수 있다.</li>
+<li>ProcessCpu : JVM CPU 사용</li>
+<li>Recent User : 최근(새로운)사용자. 믿기 어렵다. 구글 애널리틱스를 쓰자. 스카우터 쿠키를 구워서 다음에 왔을땐 새로운게 아니니까.. 믿지말자..</li>
+<li>TPS : CPU사용량과 밀접한 관계가 있다.<ul>
+<li>User Transaction : 하나의 행위(메일을쓰기, 하나의 페이지를 로딩)</li>
+<li>Server Transaction : 하나의 행위를 위해 여러번 요청을 할때 각각 트랜잭션으로..</li>
+</ul>
+</li>
+<li>Active Service EQ : 쓰레드 정보. 빨간색 8초 응답, 노란색 4초 응답, 파란색은 OK</li>
+<li>문제가 생기면 더블클릭을 해서 상세내용을 보고 판단한다.</li>
+<li>Active Service List : 톰캣에 돌고 있는 쓰레드(CPU잡아먹으니 장애났을떄만 본다)</li>
+<li>Active Service Vertical EQ : 세로로 보여준거.</li>
+<li>Active Speed : 이건 띄워놓는게 좋다. 장애가 나면 빨개진다. 장애여부를 바로볼수있다.</li>
+<li>XLog : 스카우터에서 가장 메인으로 보게될 뷰로 요청과 프로파일정보들을 제공한다.</li>
+<li>24H Service Count : 일별 문제 카운트</li>
+<li>Throughput : Thoughput을 임의로 지정해서 볼수 있다. url 기능마다 그룹지어놓으면 분석할 수 있다. 많은 수작업이 들어간다. 설정에..</li>
+<li>Today visitor : 오늘 온사람 확인용도</li>
+<li>Summary : 통계기능. 특정시간에 요청된 내용을 볼수 있음</li>
+<li>File Descriptor : 현재 오픈된 파일?</li>
+</ul>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>NET.. : 리눅스 서버 disk i/o 개수에 포함된다.</p>
+<h3 id="RequestProc"><a href="#RequestProc" class="headerlink" title="RequestProc"></a>RequestProc</h3><p>ErrorCount : 에러개수를 보여주는 뷰로 서비스 초기에 유용하다.</p>
+<h2 id="화면구성"><a href="#화면구성" class="headerlink" title="화면구성"></a>화면구성</h2><p><img src="/images/scouter/View_Save.png" alt="View_Save"></p>
+<ul>
+<li>우측상단에 각각 view를 저장할 수 있다. 화면 편집하고나서는 반드시 저장을 해야한다.</li>
+</ul>
+<h2 id="로그파일"><a href="#로그파일" class="headerlink" title="로그파일"></a>로그파일</h2><p>저장경로: ${SCOUTER_HOME}/server/database<br>한달이 넘거나 서버 디스크의 70%이상이면 가장 오래된로그부터 지운다.<br>백업을 해야할경우 해당 디렉토리를 압축해서 백업해둔다.</p>
+<h2 id="XLog"><a href="#XLog" class="headerlink" title="XLog"></a>XLog</h2><p><img src="/images/scouter/XLog.png" alt="View_Save"></p>
+<ul>
+<li>CPU Time: JVM 사용, 스카우터는 정확히 안보여 주기때문에 jvmtop(<a href="https://github.com/patric-r/jvmtop" target="_blank" rel="noopener">https://github.com/patric-r/jvmtop</a>) 으로 확인해본다.</li>
+<li>Wait Time: 기타.. 다른서비스 (api나 sql등..)</li>
+<li>Error(빨간색 표시)</li>
+<li>점은 x축 기준으로 요청끝난시간을 찍는다.(스타트타임을 찾아봐야한다.)</li>
+</ul>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><ul>
+<li>Tomcat, Host Agent 는 수정과 저장시 재시작없이 바로 설정이 적용된다.</li>
+<li>수집서버 설정은 변경해도 재시작하지 않으면 적용이 되지 않는다.</li>
+<li>object_name은 항상 추가해주어야한다. 하나의 수집서버내 object_name은 중복되어서는 안된다. 데이터가 꼬일수 있다. (호스트가 다르면 상관없지만.. 왠만하면 다르게하자.)</li>
+<li>Scouter수집서버 하나에 1000TPS가 넘으면 불안하다.</li>
+</ul>
+<h2 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h2><ul>
+<li>Capture 플러그인 : hook_method_pattern과 함께 쓸수 없다. return에서 찍는게 좋다.</li>
+<li>플러그인에 스타트말고 엔드에 넣은다. 파라미터로 들어오는게 한글일 경우 인코딩문제가 생길 수 있다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Scouter</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Javascript 배열</title>
+    <url>/2018/03/29/Javascript-%EB%B0%B0%EC%97%B4/</url>
+    <content><![CDATA[<p>자바스크립트 배열 정리<br><a id="more"></a></p>
+<h2 id="배열-요소-조작"><a href="#배열-요소-조작" class="headerlink" title="배열 요소 조작"></a>배열 요소 조작</h2><h3 id="배열의-처음이나-끝에서-요소-하나를-추가하거나-제거하기"><a href="#배열의-처음이나-끝에서-요소-하나를-추가하거나-제거하기" class="headerlink" title="배열의 처음이나 끝에서 요소 하나를 추가하거나 제거하기"></a>배열의 처음이나 끝에서 요소 하나를 추가하거나 제거하기</h3><p>push : 마지막요소 추가하기<br>pop : 마지막요소 제거하기<br>unshift : 첫번째요소 추가하기<br>shift : 첫번째요소 제거하기<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.push(<span class="number">5</span>);    <span class="comment">// [2,3,4,5]</span></span><br><span class="line">arr.pop();      <span class="comment">// [2,3,4]</span></span><br><span class="line">arr.unshift(<span class="number">1</span>); <span class="comment">// [1,2,3,4]</span></span><br><span class="line">arr.unshift();  <span class="comment">// [2,3,4]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="배열의-끝에-여러요소-추가하기"><a href="#배열의-끝에-여러요소-추가하기" class="headerlink" title="배열의 끝에 여러요소 추가하기"></a>배열의 끝에 여러요소 추가하기</h3><p>concat은 배열 끝에 요소를 추가한 사본 반환을합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.concat(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);      <span class="comment">// [1,2,3,4,5,6]  arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.concat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]);    <span class="comment">// [1,2,3,4,5,6] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.concat([<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>]]);  <span class="comment">// [1,2,3,4,[5,6]] arr은 바뀌지 않습니다.</span></span><br></pre></td></tr></table></figure></p>
+<p>concat은 제공받은 배열은 한번만 분해하며, 배열 안에 있는 배열을 다시 분해하지 않습니다.</p>
+<h3 id="배열-일부-가져오기"><a href="#배열-일부-가져오기" class="headerlink" title="배열 일부 가져오기"></a>배열 일부 가져오기</h3><p>slice는 배열의 일부를 가져올때 사용합니다. 매개변수는 두개를 받으며, 첫번째 매개변수는 어디서부터 가져올지를, 두번째 매개변수는 어디까지 가져올지를(바로 앞 인덱스까지 가져옵니다) 지정합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.slice(<span class="number">3</span>);       <span class="comment">// [4,5] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">2</span>,<span class="number">4</span>);     <span class="comment">// [3,4] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">-2</span>);      <span class="comment">// [4,5] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">-2</span>);    <span class="comment">// [2,3] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slince(<span class="number">-2</span>,<span class="number">-1</span>);  <span class="comment">// [4] arr은 바뀌지 않습니다.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="임의의-위치에-요소-추가하거나-제거하기"><a href="#임의의-위치에-요소-추가하거나-제거하기" class="headerlink" title="임의의 위치에 요소 추가하거나 제거하기"></a>임의의 위치에 요소 추가하거나 제거하기</h3><p>splice는 배열을 자유롭게 수정할 수 있습니다. 첫번째 매개변수는 수정시작 인덱스, 두번째 매개변수는 제거할 요소 숫자입니다. 아무 요소를 제거하지 않을 때는 0을 넘깁니다. 나머지 매개변수는 배열에 추가될 요소입니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);    <span class="comment">// [1,2,3,4,5,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">5</span>,<span class="number">0</span>,<span class="number">6</span>);        <span class="comment">// [1,2,3,4,5,6,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>);          <span class="comment">// [1,4,5,6,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">'a'</span>,<span class="string">'b'</span>);  <span class="comment">// [1,4,'a','b',6,7] arr은 변경됩니다.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="배열-안에서-요소-교체하기"><a href="#배열-안에서-요소-교체하기" class="headerlink" title="배열 안에서 요소 교체하기"></a>배열 안에서 요소 교체하기</h3><p>copyWithin은 배열요소를 복사해 다른위치에붙여놓고, 기존의 요소를 덮어씁니다. 첫 번째 매개변수는 복사한 요소를 붙여넣을 위치이고, 두번째 매개변수는 복사를 시작할 위치이고, 세번 쨰 매개변수는 복사를 끝낼 위치입니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.copyWithin(<span class="number">1</span>,<span class="number">2</span>);      <span class="comment">// [1,3,4,4]</span></span><br><span class="line">arr.copyWithin(<span class="number">2</span>,<span class="number">0</span>,<span class="number">2</span>);    <span class="comment">// [1,3,1,3]</span></span><br><span class="line">arr.copyWithin(<span class="number">0</span>,<span class="number">-3</span>,<span class="number">-1</span>);  <span class="comment">// [3,1,1,3] ?? 받아지지가 않는다...</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="특정-값으로-배열-채우기"><a href="#특정-값으로-배열-채우기" class="headerlink" title="특정 값으로 배열 채우기"></a>특정 값으로 배열 채우기</h3><p>fill은 정해진 값으로 배열을 채웁니다. Array생성자와 잘 어울립니다. 일부만 채울경우, 시작 끝 인덱스를 지정하면됩니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>).fill(<span class="number">1</span>); <span class="comment">// [1,1,1,1,1];</span></span><br><span class="line">arr.fill(<span class="string">"a"</span>);                    <span class="comment">// ["a","a","a","a","a"]</span></span><br><span class="line">arr.fill(<span class="string">"b"</span>,<span class="number">1</span>);                  <span class="comment">// ["a","b","b","b","b"]</span></span><br><span class="line">arr.fill(<span class="string">"c"</span>,<span class="number">2</span>,<span class="number">4</span>);                <span class="comment">// ["a","b","c","c","b"]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="배열-정렬과-역순-정렬"><a href="#배열-정렬과-역순-정렬" class="headerlink" title="배열 정렬과 역순 정렬"></a>배열 정렬과 역순 정렬</h3><p>reverse는 요소 순서를 반대로 바꿉니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.reverse();  <span class="comment">// [5,4,3,2,1]</span></span><br></pre></td></tr></table></figure></p>
+<p>sort는 배열 요소의 순서를 정렬합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">arr.sort(); <span class="comment">// [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="map과-filter"><a href="#map과-filter" class="headerlink" title="map과 filter"></a>map과 filter</h2><p>map과 filter는 모두 사본을 반환합니다.</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>일정한 형식의 배열을 다른 형식으로 바꾸고 싶을때 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cart = [&#123;<span class="attr">name</span>:<span class="string">"MAC"</span>, <span class="attr">price</span>:<span class="number">100</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"PC"</span>, <span class="attr">price</span>:<span class="number">200</span>&#125;];</span><br><span class="line"><span class="keyword">const</span> names = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x.name);</span><br><span class="line"><span class="keyword">const</span> prices = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x.price);</span><br><span class="line"><span class="keyword">const</span> discountPrice = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x*<span class="number">0.8</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>배열이 필요한 것들만 남길 목적으로 만들어졌습니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.filter(x % <span class="number">2</span> === <span class="number">0</span>);  <span class="comment">// [2,4]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p>배열의 문자열 요소들을 몇몇 구분자로 합치려할때 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="literal">true</span>, <span class="literal">undefined</span>];</span><br><span class="line">arr.join();     <span class="comment">// "1,,hello,world,true,"</span></span><br><span class="line">arr.join(<span class="string">''</span>);   <span class="comment">// "1helloworldtrue"</span></span><br><span class="line">arr.join(<span class="string">'-'</span>);  <span class="comment">// "1-hello-world-true"</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Javascript개발환경세팅</title>
+    <url>/2018/03/09/Javascript%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%84%B8%ED%8C%85/</url>
+    <content><![CDATA[<p>ES6 개발시 프로젝트 환경구축에 대한 정리<br><a id="more"></a></p>
+<h2 id="개발-디렉토리-생성"><a href="#개발-디렉토리-생성" class="headerlink" title="개발 디렉토리 생성"></a>개발 디렉토리 생성</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mkdir project</span><br><span class="line">$ cd project</span><br></pre></td></tr></table></figure>
+<h2 id="npm-패키지-관리"><a href="#npm-패키지-관리" class="headerlink" title="npm 패키지 관리"></a>npm 패키지 관리</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 프로젝트 root디렉토리에서..</span><br><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<p>package.json 파일을 통해 의존성을 관리한다.<br>로컬 패키지 설치시 –save 또는 –save-dev 플래그를 사용하여 package.json 파일에 등록하게끔한다.</p>
+<h2 id="gulp-빌드도구"><a href="#gulp-빌드도구" class="headerlink" title="gulp 빌드도구"></a>gulp 빌드도구</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 전역으로 설치(최초 1회만..)</span><br><span class="line">$ npm install -g gulp</span><br><span class="line"></span><br><span class="line">// 프로젝트 root디렉토리에서</span><br><span class="line">$ npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
+<h2 id="babel-트랜스컴파일러"><a href="#babel-트랜스컴파일러" class="headerlink" title="babel 트랜스컴파일러"></a>babel 트랜스컴파일러</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line">$ vi .babelrc</span><br></pre></td></tr></table></figure>
+<p>바벨은 ES6,리액트,ES7 등 여러가지를 지원하는 범용 트랜스컴파일러로,<br>프로젝트에서 바벨을 사용할 때 ES6을 사용한다고 지정해야한다.<br>.babelrc<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123; &quot;presets&quot;:[&quot;es2015&quot;]&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="gulp-with-babel"><a href="#gulp-with-babel" class="headerlink" title="gulp with babel"></a>gulp with babel</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save-dev gulp-babel</span><br><span class="line">$ vi gulpfile.js</span><br></pre></td></tr></table></figure>
+<p>gulpfile.js<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">"src/*.js"</span>)</span><br><span class="line">      .pipe(babel())</span><br><span class="line">      .pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>gulp 명령 실행<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gulp</span><br></pre></td></tr></table></figure></p>
+<h2 id="프로젝트-구조"><a href="#프로젝트-구조" class="headerlink" title="프로젝트 구조"></a>프로젝트 구조</h2><p>기대되는 루트디렉토리의 모습<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package.json  // npm</span><br><span class="line">node_modules</span><br><span class="line"></span><br><span class="line">gulpfile.js   // gulp</span><br><span class="line">.babelrc      // babel</span><br><span class="line"></span><br><span class="line">src           // es6 개발소스</span><br><span class="line">dist          // es5 변환소스(배포 대상)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Spring Camp 2019 Review</title>
+    <url>/2019/04/28/Spring-Camp-2019-Review/</url>
+    <content><![CDATA[<p><a href="https://www.springcamp.io/2019/" target="_blank" rel="noopener">스프링캠프 2019</a> 참석 후기<br><a id="more"></a></p>
+<h2 id="실전에-써먹는-스프링부트"><a href="#실전에-써먹는-스프링부트" class="headerlink" title="실전에 써먹는 스프링부트"></a>실전에 써먹는 스프링부트</h2><ul>
+<li>개발자의 삶은.. B(Build), C(Code), D(Deploy)</li>
+<li>Build: Springboot Gradle Plugin, 의존성관리(BOM)</li>
+<li>Code: 스프링(애노테이션) 프로그래밍 모델, @Profile, AutoConfiguration, Application.yml</li>
+<li>Deploy: 전통적 배포방식, 자기완비적 실행가능한 배포방식</li>
+<li>spring-boot-admin</li>
+</ul>
+<h2 id="Monitoring-With-Actuator"><a href="#Monitoring-With-Actuator" class="headerlink" title="Monitoring With Actuator"></a>Monitoring With Actuator</h2><ul>
+<li>모니터링을 하는이유? 장애예방, 성능개성 등.. 을 하려면 지표가 필요하다.</li>
+<li>모니터링을 어떻게 할것인가? Spring Boot Actuator</li>
+<li>애플리케이션 제어도구 제공 : endpoint</li>
+<li>Metric Endpoint &gt; http.server.requests : RED(Rate, Errors, Duration) Method 부합 정보제공</li>
+<li>Micrometer : metric collector 추상화된 인터페이스</li>
+</ul>
+<h2 id="자바에서-null을-안전하게-사용하는-방법"><a href="#자바에서-null을-안전하게-사용하는-방법" class="headerlink" title="자바에서 null을 안전하게 사용하는 방법"></a>자바에서 null을 안전하게 사용하는 방법</h2><ul>
+<li>null의 탄생은 실수이고, 현재 구글플레이 통계상 자바진형에서 많은 결함은 NPE관련이다.</li>
+<li>API(매개변수, 반환값)에 null을 최대한 쓰지말자.</li>
+<li>사전조건과 사후조건을 확인하라: design by contract(계약에 의한 설계: OCP)</li>
+<li>(상태와 같이) null의 범위를 지역(클래스, 메서드)에 제한하라.</li>
+<li>초기화를 명확히 하라.</li>
+<li>JSR 305, JSR 308</li>
+<li>Checker Framework</li>
+</ul>
+<h2 id="무엇을-어떻게-테스트-할-것인가"><a href="#무엇을-어떻게-테스트-할-것인가" class="headerlink" title="무엇을 어떻게 테스트 할 것인가?"></a>무엇을 어떻게 테스트 할 것인가?</h2><ul>
+<li>테스트로 얻을 수 있는것? 안정감과 자신감</li>
+<li>대상은? 현재와 미래의 나, 현재와 미래의 동료</li>
+<li>구현 테스트가 아니라 설계 테스트를 해야한다.</li>
+<li><a href="https://www.slideshare.net/OKJSP/okkycon-120497749" target="_blank" rel="noopener">테스트하기 쉬운 코드로 개발하기</a></li>
+<li>Non-Testable(제어할 수 없는 영역)을 BoundaryLayer까지 빼내어 테스트한다.</li>
+<li>@SpringBootTest: SpringContext는 꼭 필요할때만 사용하자. 피드백이 느린단점이 있다.</li>
+<li>Test Double을 남용하지 말자. 무분별하게 사용하면 구현테스트가 될 수 있기 때문에..</li>
+</ul>
+<h2 id="레거시-프로젝트-개선-이야기"><a href="#레거시-프로젝트-개선-이야기" class="headerlink" title="레거시 프로젝트 개선 이야기"></a>레거시 프로젝트 개선 이야기</h2><ul>
+<li>레거시코드? 테스트코드로 커버되지 않으며 유지보수가 되지 않는 코드.</li>
+<li>레거시코드? 오랜시간 자신의 역할을 실행한 안정적인코드, 조직의 축적된 기술이 녹이 있는 코드.</li>
+<li>핵심은.. 코드를 개선하고 내 것으로 만들어야 한다.</li>
+<li>비난은 그만하고 로직파악을, 로직파악은 TC를 보면 좋은데 없을경우 만들어야한다.</li>
+<li>운영중이기 때문에 당장 해결해야할 우선순위를 정한다.</li>
+<li>Common Lib에서 실제로 쓰는것만 빼서 추가하고, 왠만하면 스프링에서 제공하는걸로 교체.</li>
+<li>배포는 카나리 릴리즈</li>
+<li>전에는 잘됐는데 지금은 안되요.. 라는 말도 들을 수 있다.</li>
+<li>CPU 사용량이 많은곳 메모리 절약 등도 고려</li>
+<li>비용이 드는 외부 API 교체</li>
+</ul>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><ul>
+<li>오전 세션(1,2)을 듣고 많은 분들이 Actuator가 Production Level에서 성능문제를 일으키지 않을지에 대해 궁금했던거 같은데, 이에 대해 만족할만한 답변을 들은 것 같진 않다. 그래도 일단 써봐야겠다는 생각은 들었다.</li>
+<li>세션 3은 null 사용에 대해 한번 더 생각하게 된 것 같다. null문제에 대해 당장은 해결이 되지 않을 것 같으니, 잘 이해하고 사용해야 할 것 같다.</li>
+<li>세션 4에서는 테스트코드를 왜 짜는지, 어떻게 짜야할지에 대해서도 한번 더 생각해보게 되었다. 개인적으로 스프링 컨텍스트 로딩과 Test Double을 너무 남용하고 있었지 않았나 싶다.</li>
+<li>세션 5는 많은 깨우침과 반성의 시간이었다. 레거시코드에 대한 마음가짐이 바뀌어야하고, 레거시코드를 내 코드로 만들어야하는 노력이 필요할 것 같다.</li>
+<li>세션 6,7은 코틀린 관련 세션을 들었는데, 아직까진 practical한 단계는 아닌것 같다는 생각이 들었다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Spock Testing</title>
+    <url>/2018/07/19/Spock-Testing/</url>
+    <content><![CDATA[<h1 id="Spock-Introduction"><a href="#Spock-Introduction" class="headerlink" title="Spock Introduction"></a>Spock Introduction</h1><h2 id="WHAT-IS-SPOCK"><a href="#WHAT-IS-SPOCK" class="headerlink" title="WHAT IS SPOCK?"></a>WHAT IS SPOCK?</h2><ul>
+<li>Groovy 문법을 사용하는 단위 테스트 프레임워크<a id="more"></a>
+</li>
+</ul>
+<h2 id="WHY-SPOCK"><a href="#WHY-SPOCK" class="headerlink" title="WHY SPOCK?"></a>WHY SPOCK?</h2><ul>
+<li>간결하고 가독성이 좋은 테스트를 작성 가능</li>
+<li>Mock 지원이 좋아서 사용이 편리</li>
+<li>그루비를 사용해서, 자바 보다 다양한 표현력 가능</li>
+</ul>
+<h2 id="Simple-Test-in-Spock"><a href="#Simple-Test-in-Spock" class="headerlink" title="Simple Test in Spock"></a>Simple Test in Spock</h2><p>먼저 Spock은 어떤것인지 어떻게 사용하는지 가볍게 살펴보자</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="string">"리스트 첫번째 요소는 2를 리턴해야 한다"</span>() &#123;</span><br><span class="line"><span class="symbol">  given:</span></span><br><span class="line">      List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="symbol">  when:</span></span><br><span class="line">      list.add(<span class="number">1</span>)</span><br><span class="line"><span class="symbol">  then:</span></span><br><span class="line">      <span class="number">2</span> == list.get(<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>기존에 JUnit을 사용하고 있던 유저라면 크게 이질적이지 않게 받아들여질법한 코드이다.<br>조금 더 감동적인 부분은 다음에 있다..<br><img src="/images/spock/Simple_test.png" alt="SimpleTest"><br>테스트 실패시 출력되는 콘솔내용으로 오류를 파악하는데 용이하게 되어 있다.</p>
+<h1 id="Spock-Basic"><a href="#Spock-Basic" class="headerlink" title="Spock Basic"></a>Spock Basic</h1><p>본격적으로 Spock 사용법을 알아보자</p>
+<h2 id="Dependency-추가"><a href="#Dependency-추가" class="headerlink" title="Dependency 추가"></a>Dependency 추가</h2><p>spock-core, 그리고 스프링을 사용한다면 spock-spring을 추가한다.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Maven기준 pom.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.spockframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spock-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1-groovy-2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.spockframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spock-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1-groovy-2.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Spock-Test-생성"><a href="#Spock-Test-생성" class="headerlink" title="Spock Test 생성"></a>Spock Test 생성</h2><p>spock.lang.Specification을 상속하기만 하면 된다<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpockTest</span> <span class="keyword">extends</span> <span class="title">Specification</span> &#123;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Fixture-Methods"><a href="#Fixture-Methods" class="headerlink" title="Fixture Methods"></a>Fixture Methods</h2><p>테스트 전후처리에 사용되는 메소드들에 대한 정리</p>
+<table>
+<thead>
+<tr>
+<th>SPOCK</th>
+<th>JUnit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>def setup()</td>
+<td>@Before</td>
+</tr>
+<tr>
+<td>def cleanup()</td>
+<td>@After</td>
+</tr>
+<tr>
+<td>def setupSpec()</td>
+<td>@BeforeClass</td>
+</tr>
+<tr>
+<td>def cleanupSpec()</td>
+<td>@AfterClass</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Feature-Methods"><a href="#Feature-Methods" class="headerlink" title="Feature Methods"></a>Feature Methods</h2><p>실제 테스트에 사용하는 메소드는 아래와 같이 정의한다<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="string">"메소드명"</span>() &#123;</span><br><span class="line">  <span class="comment">// Blocks</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Blocks"><a href="#Blocks" class="headerlink" title="Blocks"></a>Blocks</h2><ul>
+<li>setup / given: 테스트에 필요한 객체나 환경 준비</li>
+<li>when: 테스트할 코드를 실행</li>
+<li>then: 예외/조건 확인, 모킹과 몇번 호출되었는지 확인 when과 꼭 함께 사용해야 한다</li>
+<li>expect: then과 같으며, when을 필요로 하지 않기 때문에 간단한 테스트에 사용</li>
+<li>where: parameterized 테스트용</li>
+</ul>
+<h2 id="Shared"><a href="#Shared" class="headerlink" title="@Shared"></a>@Shared</h2><p>공유객체 사용을 위한 애노테이션<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Shared</span> <span class="keyword">def</span> sharedNumber = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="string">"SharedTest1"</span>() &#123;</span><br><span class="line"><span class="symbol">  when:</span></span><br><span class="line">    sharedNumber++</span><br><span class="line"><span class="symbol">  then:</span></span><br><span class="line">    <span class="number">1</span> == sharedNumber</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="string">"SharedTest2"</span>() &#123;</span><br><span class="line"><span class="symbol">  when:</span></span><br><span class="line">    sharedNumber++</span><br><span class="line"><span class="symbol">  then:</span></span><br><span class="line">    <span class="number">2</span> == sharedNumber</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Exceptions"><a href="#Exceptions" class="headerlink" title="Exceptions"></a>Exceptions</h2><p>익셉션 발생여부를 검증할 수 있다.<br>thrown()과 notThrown()을 사용한다.<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="string">"ExceptionTest"</span>() &#123;</span><br><span class="line"><span class="symbol">  when:</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"익셉션 발생 후 추가 작업 가능"</span>)</span><br><span class="line"><span class="symbol">  then:</span></span><br><span class="line">    Exception e = thrown()</span><br><span class="line">    e.getMessage() == <span class="string">"익셉션 발생 후 추가 작업 가능"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h2><p>테스트 로직은 동일하고, input값을 변경해 여러번 수행하고 싶을때 사용한다</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="string">"Parameterized Test"</span>() &#123;</span><br><span class="line"><span class="symbol">  expect:</span></span><br><span class="line">    name.size() == length</span><br><span class="line"><span class="symbol">  where:</span></span><br><span class="line">    [name,length] &lt;&lt; [[<span class="string">'Game'</span>, <span class="number">4</span>], [<span class="string">'Portal'</span>, <span class="number">6</span>]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>아래와 같이 테이블 형식으로도 사용할 수 있다<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="string">"Data Table"</span>() &#123;</span><br><span class="line"><span class="symbol">  expect:</span></span><br><span class="line">    name.size() == length</span><br><span class="line"><span class="symbol">  where:</span></span><br><span class="line">     name    | length</span><br><span class="line">    <span class="string">'Game'</span>   | <span class="number">4</span></span><br><span class="line">    <span class="string">'Portal'</span> | <span class="number">6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Unroll"><a href="#Unroll" class="headerlink" title="@Unroll"></a>@Unroll</h2><p>Iteration 결과를 독립적으로 확인 하고 싶을때 사용한다<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Unroll</span></span><br><span class="line"><span class="keyword">def</span> <span class="string">"#a와 #b 에서 더 큰 수는 #c 이다"</span>() &#123;</span><br><span class="line"><span class="symbol">    expect:</span></span><br><span class="line">        Math.max(a, b) == c</span><br><span class="line"><span class="symbol">    where:</span></span><br><span class="line">        a | b | c</span><br><span class="line">        <span class="number">1</span> | <span class="number">2</span> | <span class="number">2</span></span><br><span class="line">        <span class="number">3</span> | <span class="number">4</span> | <span class="number">4</span></span><br><span class="line">        <span class="number">6</span> | <span class="number">5</span> | <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/spock/Unroll.png" alt="Unroll"></p>
+<h2 id="Mock"><a href="#Mock" class="headerlink" title="Mock"></a>Mock</h2><p>아래와 같은 방식으로 Mock을 생성할 수 있다<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> list = Mock(List)</span><br><span class="line">List list = Mock()</span><br></pre></td></tr></table></figure></p>
+<p>기대값 설정하는 방법을 알아보자<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="string">"기대값 설정 테스트"</span>() &#123;</span><br><span class="line"><span class="symbol">  given:</span></span><br><span class="line">    List&lt;String&gt; list = Mock()</span><br><span class="line"><span class="symbol">  when:</span></span><br><span class="line">    <span class="keyword">def</span> actual = list.get(<span class="number">0</span>)</span><br><span class="line"><span class="symbol">  then:</span></span><br><span class="line">    list.get(<span class="number">0</span>) &gt;&gt; <span class="string">'GamePortal'</span> <span class="comment">// 기대값을 설정한다</span></span><br><span class="line">    actual == <span class="string">'GamePortal'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h2><ul>
+<li>@Timeout : 타임아웃 설정 (단위 : 초)</li>
+<li>@Ignore : 선택 테스트 무시</li>
+<li>@IgnoreRest : 선택 외 무시</li>
+<li>@FailsWith (value=Exception, reason=“에러메세지”)</li>
+</ul>
+<h2 id="느낀점"><a href="#느낀점" class="headerlink" title="느낀점"></a>느낀점</h2><ul>
+<li>올인원 느낌의 편리성이 있다(hamcrest, mockito등을 알필요가 없다)</li>
+<li>짧은시간에 익힐 수 있다</li>
+<li>테스트 코드가 간결해지고 쉬워졌다</li>
+<li>private field 나 메소드 접근이 가능하다</li>
+<li>테스트 실패 결과가 좀 더 원인파악에 도움이 된다</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Spock</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Spring Data, Specification 사용하기</title>
+    <url>/2018/09/13/Spring-Data-Specification-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</url>
+    <content><![CDATA[<p>Spring Data에서 Query method만으로는 모든 쿼리를 커버할 순 없다.<br>Specification을 이용한 조건쿼리 생성하는 방법에 대해 알아보자.<br><a id="more"></a></p>
+<p>명세 기능을 사용하려면 아래와 같이 JpaSepcificationExecutor 인터페이스를 상속 받으면 된다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OrderRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">Order</span>, <span class="title">Long</span>&gt;, <span class="title">JpaSpecificationExecuter</span>&lt;<span class="title">Order</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>명세를 정의하려면 Specification 인터페이스의 toPredicate() 메소드를 구현하면 된다.<br>사용그룹에 따라 다르겠지만, 딱히 정해져있지 않다면 명세는 repository 패키지에 넣어 두어도 좋겠다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OrderSpecification</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Specification&lt;Order&gt; <span class="title">memberName</span><span class="params">(<span class="keyword">final</span> String memberName)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Specification&lt;Order&gt;() &#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> Predicate <span class="title">toPredicate</span><span class="params">(Root&lt;Order&gt; root, CriteriaQuery&lt;?&gt; query, CriteriaBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isEmpty(memberName)) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        Join&lt;Order, Member&gt; m = root.join(<span class="string">"member"</span>, JoinType.INNER);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> builder.equal(m.get(<span class="string">"name"</span>), memberName);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Specification&lt;Order&gt; <span class="title">isOrderStatus</span><span class="params">(<span class="keyword">final</span> String memberName)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Specification&lt;Order&gt;() &#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> Predicate <span class="title">toPredicate</span><span class="params">(Root&lt;Order&gt; root, CriteriaQuery&lt;?&gt; query, CriteriaBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> builder.equal(root.get(<span class="string">"status"</span>), OrderStatus.ORDER);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>아래는 명세를 사용하는 코드이다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Order&gt; <span class="title">findOrders</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">  List&lt;Order&gt; result = OrderRepository.findAll(where(memberName(name)).and(isOrderStatus()));</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Reference : <a href="http://www.yes24.com/24/goods/19040233?scode=032&amp;OzSrank=3" target="_blank" rel="noopener">자바 ORM 표준 JPA 프로그래밍</a></p>
+]]></content>
+      <categories>
+        <category>JPA</category>
+        <category>Spring Data</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>nGrinder 간편 사용가이드</title>
+    <url>/2019/01/02/nGrinder-%EA%B0%84%ED%8E%B8-%EC%82%AC%EC%9A%A9%EA%B0%80%EC%9D%B4%EB%93%9C/</url>
+    <content><![CDATA[<h2 id="nGrinder란"><a href="#nGrinder란" class="headerlink" title="nGrinder란"></a>nGrinder란</h2><p>nGrinder는 부하테스트를 위한 플랫폼으로 웹 애플리케이션 Controller와 자바 애플리케이션 Agent로 구성 되어있다.<br><a id="more"></a></p>
+<h3 id="nGrinder-Controller"><a href="#nGrinder-Controller" class="headerlink" title="nGrinder Controller"></a>nGrinder Controller</h3><ul>
+<li>웹 애플리케이션으로 스크립트를 설정하여 성능테스트를 하게하는 도구이다.</li>
+</ul>
+<h3 id="nGrinder-agent"><a href="#nGrinder-agent" class="headerlink" title="nGrinder agent"></a>nGrinder agent</h3><ul>
+<li>가상 유저 생성자로 실제 부하를 주는 클라이언트이다.</li>
+</ul>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><h3 id="선행-조건"><a href="#선행-조건" class="headerlink" title="선행 조건"></a>선행 조건</h3><ul>
+<li>nGrinder의 Controller와 agent를 설치하기 위해선 Oracle JDK 1.6 이상 혹은 OpenJDK 1.7 이상이 필요하다.</li>
+<li>nGrinder는 agent간 통신을 위해 여러 포트를 사용한다. 아래의 포트들이 방화벽에 걸리지 않는지 확인이 필요하다.<ul>
+<li>Agent: Any ==&gt; Controller: 16001</li>
+<li>Agent: Any ==&gt; Controller: 12000 ~ 12000+(동시 테스트 허용수만큼)</li>
+<li>Controller: Any ==&gt; Monitor: 13243</li>
+<li>Controller ==&gt; Public user: 톰캣설정에 따르지만 기본은 8080이다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="다운로드"><a href="#다운로드" class="headerlink" title="다운로드"></a>다운로드</h3><ul>
+<li><a href="https://github.com/naver/ngrinder/releases" target="_blank" rel="noopener">https://github.com/naver/ngrinder/releases</a> 에서 ngrinder-controller WAR 파일을 받는다.</li>
+</ul>
+<h3 id="Controller-설치"><a href="#Controller-설치" class="headerlink" title="Controller 설치"></a>Controller 설치</h3><ul>
+<li>다운받은 WAR파일을 ${TOMCAT_HOME}/webapps 하위에 위치 시킨다. /ngrinder-controller 경로를 제외하고 싶다면 WAR파일명을 ROOT.war로 변경한다.</li>
+<li><p>메모리 설정을 상향 조절한다. catalina.sh 상단에 아래의 내용을 추가한다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">JAVA_OPTS=&quot;-Xms600m -Xmx1024m -XX:MaxPermSize=200m&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>톰캣 실행, ${TOMCAT_HOME}/startup.sh 후 <a href="http://localhost:8080/ngrinder-controller-X.X" target="_blank" rel="noopener">http://localhost:8080/ngrinder-controller-X.X</a> 로 접속한다.</p>
+</li>
+</ul>
+<h3 id="Agent-설치"><a href="#Agent-설치" class="headerlink" title="Agent 설치"></a>Agent 설치</h3><ul>
+<li>nGrinder 3.3 이후로는 Agent를 Controller에서 받는다.</li>
+<li><a href="http://localhost:8080/ngrinder-controller-X.X에" target="_blank" rel="noopener">http://localhost:8080/ngrinder-controller-X.X에</a> 접속후, 로그인한다. 로그인 아이디와 비번은 동일하게 admin 이다.</li>
+<li>우측 상단 메뉴에서 Download Agent를 클릭한다.</li>
+<li><p>Agent 압축을 푼다.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar xzf ngrinder-agent-3.4.2-localhost.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nGrinder 3.3 이후로는 연결된 Agent는 Controller에 의해 자동적으로 승인된다(Agent 시작후 Controller에서 바로 사용할 수 있음을 의미한다)</p>
+</li>
+<li>Agent를 실행한다.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Agent 실행</span><br><span class="line">./run_agent.sh</span><br><span class="line"></span><br><span class="line"># Agent 백그라운드 실행</span><br><span class="line">./run_agent_bg.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><ul>
+<li>Controller 접속 후 로그인 (아이디/비번 : admin 동일)<br><img src="/images/ngrinder/Login.png" alt="Login"></li>
+<li>Quick Start는 테스트를 만들기 편리한 방법이다. 테스트할 URL을 입력만 하면 테스트 스크립트가 자동적으로 생성된다.</li>
+</ul>
+<h3 id="설정-페이지"><a href="#설정-페이지" class="headerlink" title="설정 페이지"></a>설정 페이지</h3><p><img src="/images/ngrinder/Config.png" alt="Config"></p>
+<ul>
+<li>Agent: Agent수, Controller에 연결승인된 수만큼까지만 지정할 수 있다.</li>
+<li>Vuser per agent: Agent당 가상 유저수, Process와 Thread로 구성한다.</li>
+<li>Script: 테스트할 스크립트</li>
+<li>Target Host: 테스트 대상 호스트</li>
+<li>Duration: 테스트할 시간</li>
+<li>Run Count: 테스트 실행 횟수(각 Thread당으로 전체 실행 횟수는 Vuser per agent를 곱한 값이다)</li>
+<li>Enable Ramp-Up: 트래픽을 서서히 증가하게하는 설정</li>
+</ul>
+<h3 id="테스트-실행"><a href="#테스트-실행" class="headerlink" title="테스트 실행"></a>테스트 실행</h3><p><img src="/images/ngrinder/RunTest.png" alt="RunTest"></p>
+<ul>
+<li>Save and Start 클릭시 테스트 실행</li>
+</ul>
+<h3 id="결과-화면"><a href="#결과-화면" class="headerlink" title="결과 화면"></a>결과 화면</h3><p><img src="/images/ngrinder/TestResult.png" alt="TestResult"></p>
+<ul>
+<li>Total Vusers: Vusers 수</li>
+<li>TPS: 평균 TPS</li>
+<li>Peak TPS: 최고 TPS</li>
+<li>Mean Test Time: 평균 테스트시간</li>
+<li>Executed Tests: 테스트 실행 횟수</li>
+<li>Successful Tests: 테스트 성공 횟수</li>
+<li>Errors: 에러 횟수</li>
+<li>Run time: 테스트 실행시간</li>
+</ul>
+<p>Reference : <a href="https://github.com/naver/ngrinder" target="_blank" rel="noopener">nGrinder README</a></p>
+]]></content>
+      <categories>
+        <category>성능테스트</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>디폴트 메서드</title>
+    <url>/2018/02/12/%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%A9%94%EC%84%9C%EB%93%9C/</url>
+    <content><![CDATA[<p><strong>디폴트 메서드</strong>는 인터페이스내 기본구현된 메서드로 하위호환을 유지하며 API를 바꿀 수 있도록 한다. default 키워드로 시작하며 클래스에 선언된 메서드처럼 메서드 바디를 포함한다.</p>
+<a id="more"></a>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sized</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123; <span class="comment">// 디폴트 메서드</span></span><br><span class="line">    <span class="keyword">return</span> size() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="추상-클래스-vs-자바8의-인터페이스"><a href="#추상-클래스-vs-자바8의-인터페이스" class="headerlink" title="추상 클래스 vs 자바8의 인터페이스"></a>추상 클래스 vs 자바8의 인터페이스</h3><ol>
+<li>클래스는 하나의 추상 클래스만 상속받을 수 있지만 인터페이스를 여러 개 구현할 수 있다.</li>
+<li>추상 클래스는 인스턴스 변수(필드)로 공통 상태를 가질 수 있다. 하지만 인터페이스는 인스턴스 변수를 가질 수 없다.</li>
+</ol>
+<h2 id="해석-규칙"><a href="#해석-규칙" class="headerlink" title="해석 규칙"></a>해석 규칙</h2><ol>
+<li>클래스가 항상 이긴다. 클래스나 슈퍼클래스에서 정의한 메서드가 디폴트 메서드보다 우선권을 갖는다.</li>
+<li>1번 규칙 이외의 상황에서는 서브인터페이스가 이긴다. 상속관계를 갖는 인터페이스에서 같은 시그너처를 갖는 메서드를 정의할 때는 서브인터페이스가 이긴다. 즉, B가 A를 상속받는다면 B가 A를 이긴다.</li>
+<li>여전히 디폴트 메서드의 우선순위가 결정되지 않았다면 여러 인터페이스를 상속받는 클래스가 명시적으로 디폴트 메서드를 오버라이드하고 호출해야한다.</li>
+</ol>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>람다 표현식</title>
+    <url>/2018/01/06/%EB%9E%8C%EB%8B%A4-%ED%91%9C%ED%98%84%EC%8B%9D/</url>
+    <content><![CDATA[<p><strong>람다 표현식</strong> 은 메서드로 전달할 수 있는 익명 함수를 단순화한 것으로 람다의 특징은 다음과 같다.<br><a id="more"></a></p>
+<ul>
+<li>익명 : 보통 메서드와 달리 이름이 없다.</li>
+<li>함수 : 특정클래스의 종속되지 않는다.</li>
+<li>전달 : 인수로 전달하거나 변수로 저장할 수 있다.</li>
+<li>간결성 : 익명 클래스처럼 자질구레한 코드 구현이 필요없다.</li>
+</ul>
+<p>람다는 세부분으로 이루어 진다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight());</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>람다 파라미터 : (Apple a1, Apple a2)</li>
+<li>화살표 : -&gt;</li>
+<li>람다 바디 : a1.getWeight().compareTo(a2.getWeight())</li>
+</ul>
+<h2 id="람다의-기본-문법"><a href="#람다의-기본-문법" class="headerlink" title="람다의 기본 문법"></a>람다의 기본 문법</h2><p>다음은 람다의 기본 문법이다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(parameters) -&gt; expression</span><br><span class="line"></span><br><span class="line">(parameters) -&gt; &#123;statements;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="람다-사용법"><a href="#람다-사용법" class="headerlink" title="람다 사용법"></a>람다 사용법</h1><p>람다 표현식은 <strong>함수형 인터페이스</strong> 라는 문맥에서 사용할 수 있다.</p>
+<h2 id="함수형-인터페이스"><a href="#함수형-인터페이스" class="headerlink" title="함수형 인터페이스"></a>함수형 인터페이스</h2><p><strong>함수형 인터페이스</strong> 는 정확히 하나의 추상 메서드를 지정하는 인터페이스다.<br>우리가 잘 아는 자바 API의 함수형 인터페이스는 Comparator, Runnable 등이 있다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1, T o2)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="함수-디스크립터"><a href="#함수-디스크립터" class="headerlink" title="함수 디스크립터"></a>함수 디스크립터</h2><p><strong>함수 디스크립터</strong> 는 람다표현식의 시그니처를 의미한다. 다른말로 함수형 인터페이스의 추상 메서드 시그니처와 같다.<br>예) Predicate<t> 의 함수 디스크립터는 T -&gt; boolean 이다.</t></p>
+<h1 id="람다-활용-실행-어라운드-패턴"><a href="#람다-활용-실행-어라운드-패턴" class="headerlink" title="람다 활용: 실행 어라운드 패턴"></a>람다 활용: 실행 어라운드 패턴</h1><p>실행 어라운드 패턴은 실제 자원을 처리하는 코드를 설정과 정리 두 과정이 둘러싸는 형태를 갖는다.<br>파일 읽는 예제를 통해, 변환과정을 알아보자.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> (BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"data.txt"</span>))) &#123;</span><br><span class="line">    <span class="keyword">return</span> br.readLine(); <span class="comment">// 실제 필요한 작업을 하는 행</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1단계-동작-파라미터화"><a href="#1단계-동작-파라미터화" class="headerlink" title="1단계 : 동작 파라미터화"></a>1단계 : 동작 파라미터화</h2><p>실제 필요한 작업 내용이 달라질 수 있기 때문에 processFile의 동작을 파라미터화 할 필요가 있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String result = processFile((BufferedReader br) -&gt; br.readLine() + br.readLine());</span><br></pre></td></tr></table></figure>
+<h2 id="2단계-함수형-인터페이스를-이용해-동작-전달"><a href="#2단계-함수형-인터페이스를-이용해-동작-전달" class="headerlink" title="2단계 : 함수형 인터페이스를 이용해 동작 전달"></a>2단계 : 함수형 인터페이스를 이용해 동작 전달</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BufferedReaderProcessor</span> </span>&#123;</span><br><span class="line">  <span class="function">String <span class="title">process</span><span class="params">(BufferedReader b)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">(BufferedReaderProcessor p)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3단계-동작-실행"><a href="#3단계-동작-실행" class="headerlink" title="3단계 : 동작 실행"></a>3단계 : 동작 실행</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">(BufferedReaderProcessor p)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> (BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"data.txt"</span>))) &#123;</span><br><span class="line">    <span class="keyword">return</span> p.process(br);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4단계-람다-전달"><a href="#4단계-람다-전달" class="headerlink" title="4단계 : 람다 전달"></a>4단계 : 람다 전달</h2><p>이제 람다를 이용해 다양한 동작을 processFile 메서드로 전달할 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String oneLine = processFile((BufferedReader br) -&gt; br.readLine());</span><br><span class="line"></span><br><span class="line">String twoLine = processFile((BufferedReader br) -&gt; br.readLine() + br.readLine());</span><br></pre></td></tr></table></figure>
+<h1 id="함수형-인터페이스-사용"><a href="#함수형-인터페이스-사용" class="headerlink" title="함수형 인터페이스 사용"></a>함수형 인터페이스 사용</h1><p>자바 8 라이브러리 설계자들은 java.util.function 패키지로 여러가지 새로운 함수형 인터페이스를 제공한다.</p>
+<h2 id="Predicate"><a href="#Predicate" class="headerlink" title="Predicate"></a>Predicate</h2><p>Predicate<t> 인터페이스는 test 추상 메서드를 정의하고, test는 제네릭 형식 T의 객체를 인수로 받아 불린을 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Predicate</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></t></p>
+<p>##<br> Consumer<br>Consumer<t> 인터페이스는 accept 추상 메서드를 정의하고, accept는 제네릭 형식 T 객체를 받아서 void를 반환한다.</t></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Function&lt;T,R&gt; 인터페이스는 apply 추상 메서드를 정의하고, apply는 제네릭 형식 T를 인수로 받아 제네릭 형식 R 객체를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Function</span>&lt;<span class="title">T</span>, <span class="title">R</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function">R <span class="title">apply</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="기본형-특화"><a href="#기본형-특화" class="headerlink" title="기본형 특화"></a>기본형 특화</h2><p>제네릭 파라미터에는 참조형(reference type)만 사용가능하여 박싱/언박싱 작업이 필요하고, 이러한 변환 과정은 비용소모가 된다. 불필요한 비용소모를 방지하기 위해 기본형특화 버전의 함수형 이넡페이스를 제공한다.<br>예) IntPredicate, LongPredicate, DoublePredicate..</p>
+<h2 id="대표적-함수형-인터페이스"><a href="#대표적-함수형-인터페이스" class="headerlink" title="대표적 함수형 인터페이스"></a>대표적 함수형 인터페이스</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">함수형 인터페이스</th>
+<th style="text-align:left">함수 디스크립터</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Predicate<t></t></td>
+<td style="text-align:left">T -&gt; boolean</td>
+</tr>
+<tr>
+<td style="text-align:left">Consumer<t></t></td>
+<td style="text-align:left">T -&gt; void</td>
+</tr>
+<tr>
+<td style="text-align:left">Function&lt;T, R&gt;</td>
+<td style="text-align:left">T -&gt; R</td>
+</tr>
+<tr>
+<td style="text-align:left">Supplier<t></t></td>
+<td style="text-align:left">() -&gt; T</td>
+</tr>
+<tr>
+<td style="text-align:left">BinaryOperator<t></t></td>
+<td style="text-align:left">(T, T) -&gt; T</td>
+</tr>
+<tr>
+<td style="text-align:left">BiPredicate&lt;L, R&gt;</td>
+<td style="text-align:left">(L, R) -&gt; boolean</td>
+</tr>
+<tr>
+<td style="text-align:left">BiConsumer&lt;T, U&gt;</td>
+<td style="text-align:left">(T, U) -&gt; void</td>
+</tr>
+<tr>
+<td style="text-align:left">BiFunctional&lt;T, U, R&gt;</td>
+<td style="text-align:left">(T, U) -&gt; R</td>
+</tr>
+</tbody>
+</table>
+<h1 id="형식검사-형식-추론-제약"><a href="#형식검사-형식-추론-제약" class="headerlink" title="형식검사, 형식 추론, 제약"></a>형식검사, 형식 추론, 제약</h1><h2 id="같은-람다-다른-함수형-인터페이스"><a href="#같은-람다-다른-함수형-인터페이스" class="headerlink" title="같은 람다, 다른 함수형 인터페이스"></a>같은 람다, 다른 함수형 인터페이스</h2><p><strong>대상형식</strong> 이란, 어떤 콘텍스트에서 기대되는 람다 표현식의 형식을 일컫는다.<br>대상 형식이라는 특징 때문에 같은 람다 표현식이더라도 호환되는 추상 메서드를 가진 다른 함수형 인터페이스로 사용될 수 있다.</p>
+<h2 id="형식-추론"><a href="#형식-추론" class="headerlink" title="형식 추론"></a>형식 추론</h2><p>자바 컴파일러는 람다 표현식이 사용된 콘텍스트(대상 형식)를 이용해서 람다 표현식과 관련된 함수형 인터페이스를 추론한다. 컴파일러는 람다의 시그니처도 추론할 수 있고, 람다표현식의 파라미터 형식에 접근할 수 있다.</p>
+<p>자바 컴파일러는 다음처럼 람다 파라미터 형식을 추론할 수 있다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Apple&gt; greenApples = filter(inventory, a -&gt; <span class="string">"green"</span>.equals(a.getColor())); <span class="comment">// 파라미터 a에는 타입을 명시적으로 지정하지 않았다.</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="지역변수-사용"><a href="#지역변수-사용" class="headerlink" title="지역변수 사용"></a>지역변수 사용</h2><p>람다에서는 외부변수를 사용할 수 있으며 이와 같은동작을 <strong>람다 캡처링</strong> 이라고 부른다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> portNumber = <span class="number">3389</span>;</span><br><span class="line">Runnable r = () -&gt; System.out.println(portNumber);</span><br></pre></td></tr></table></figure></p>
+<p>제약이 있다면, portNumber를 final로 선언하거나 final이 선언된 변수와 같이 사용(초기화 후 변경x)되어야 한다.</p>
+<h1 id="메서드-레퍼런스"><a href="#메서드-레퍼런스" class="headerlink" title="메서드 레퍼런스"></a>메서드 레퍼런스</h1><p><strong>메서드 레퍼런스</strong> 는 특정 메서드만을 호출하는 람다의 축양형이라 생각할 수 있다.<br>메서드 레퍼런스는 세가지 유형으로 구분 할 수 있으며, 아래와 같다.</p>
+<ol>
+<li>정적 메서드 레퍼런스</li>
+<li>다양한 형식의 인스턴스 메서드 레퍼런스</li>
+<li>기존 객체의 인스턴스 메서드 레퍼런스</li>
+</ol>
+<h2 id="생성자-레퍼런스"><a href="#생성자-레퍼런스" class="headerlink" title="생성자 레퍼런스"></a>생성자 레퍼런스</h2><p>ClassName::new 처럼 클래스명과 new 키워드를 이용해서 기존 생성자의 레퍼런스를 만들 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 생성자 레퍼런스 방식</span></span><br><span class="line">Supplier&lt;Apple&gt; farm = Apple::<span class="keyword">new</span>;</span><br><span class="line">Apple apple = farm.get();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 람다 방식</span></span><br><span class="line">Supplier&lt;Apple&gt; farm = () -&gt; <span class="keyword">new</span> Apple();</span><br><span class="line">Apple apple = farm.get();</span><br></pre></td></tr></table></figure>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>리액트 정리 - 1</title>
+    <url>/2019/02/10/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%A0%95%EB%A6%AC-1/</url>
+    <content><![CDATA[<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>리액트를 이용해 전화번호부 구현한 내용 정리.<br><a id="more"></a></p>
+<h2 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h2><p>작년 하반기에 리액트에 관심이 생겨 팀내 스터디를 만들어 올초 1월까지 학습하였고, 학습한 내용을 소화할겸 전화번호부를 구현해 보았다. 본 글은 1,2편으로 나누어 작성할 것이고 1편은 리액트만을 이용해 구현한 부분까지, 2편은 리덕스를 적용한 내용에 대해 포스팅할 예정이다.</p>
+<h2 id="Mockup"><a href="#Mockup" class="headerlink" title="Mockup"></a>Mockup</h2><p>아래 그림은 구현할 전화번호부의 모습이다.<br><img src="/images/reactjs/Mockup.png" alt="Mockup"></p>
+<p>상단의 검색바에서 사람을 검색할 수 있고, 추가버튼을 눌러 전화번호부에 추가를 할 수 있다.<br>좌측 하단에는 검색된 사람의 리스트를 나열하며, x버튼을 눌러 전화번호부에서 삭제를 할 수 있다.<br>전화번호부 리스트의 사람을 선택하면 우측에 상세정보를 나타낸다.</p>
+<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>리액트로 애플리케이션 인터페이스를 설계할때 여러가지 컴포넌트로 구성할 수 있다.<br>아래의 그림은 먼저 그린 목업에 내가 구현할 방식으로 컴포넌트를 나눈 모습이다.<br><img src="/images/reactjs/Component.png" alt="Component"></p>
+<ul>
+<li>SearchBar: 검색바와 추가버튼</li>
+<li>PhoneBookList: 전화번호 리스트</li>
+<li>PhoneBook: 개별 전화번호와 삭제버튼</li>
+<li>PhoneBookDetail: 전화번호 상세</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> SearchBar <span class="keyword">from</span> <span class="string">'./components/SearchBar'</span>;</span><br><span class="line"><span class="keyword">import</span> PhoneBookList <span class="keyword">from</span> <span class="string">'./components/PhoneBookList'</span>;</span><br><span class="line"><span class="keyword">import</span> PhoneBookDetail <span class="keyword">from</span> <span class="string">'./components/PhoneBookDetail'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar/&gt;</span><br><span class="line">            &lt;PhoneBookList/&gt;</span><br><span class="line">            &lt;PhoneDetail/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>리액트 컴포넌트 내부에서 읽고 업데이트 할 수 있는 값을 지정하기위해 State를 사용한다.<br>State는 컴포넌트 내부에서 this.state 로 접근 가능하며, 상태변경을 위해선 반드시 this.setState()로만 변경해야 한다.</p>
+<ul>
+<li>allList: 전화번호부 전체리스트</li>
+<li>selectedList: 전화번호부 검색리스트(검색용)</li>
+<li>selectedPhoneBook: 상세보기 대상 전화번호부</li>
+<li>inputPhoneBook: 검색 입력값</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    allList: phoneList,</span><br><span class="line">    selectedList: phoneList,</span><br><span class="line">    selectedPhoneBook: <span class="string">''</span>,</span><br><span class="line">    inputPhoneBook: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar/&gt;</span><br><span class="line">            &lt;PhoneBookList/&gt;</span><br><span class="line">            &lt;PhoneDetail/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>props는 properties를 줄인 표현으로 컴포넌트 속성을 사용할 때 사용하는 요소이며 부모 컴포넌트(해당 컴포넌트를 불러와 사용하는 컴포넌트)에서만 설정 할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    allList: phoneList,</span><br><span class="line">    selectedList: phoneList,</span><br><span class="line">    selectedPhoneBook: <span class="string">''</span>,</span><br><span class="line">    inputPhoneBook: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; inputPhoneBook, selectedList, selectedPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            <span class="comment">// 부모 컴포넌트에서 html속성을 넣듯이 props를 넘길수 있다.</span></span><br><span class="line">            &lt;SearchBar inputPhoneBook=&#123;inputPhoneBook&#125; /&gt;</span><br><span class="line">            &lt;PhoneBookList phoneBookList=&#123;selectedList&#125;/&gt;</span><br><span class="line">            &lt;PhoneDetail phoneBook=&#123;selectedPhoneBook&#125;/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SearchBar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        <span class="comment">// 자녀 컴포넌트에서 this.props로 넘겨받은 props값을 접근할 수 있다.</span></span><br><span class="line">        &lt;input type=<span class="string">"text"</span> value=&#123;<span class="keyword">this</span>.props.inputPhoneBook&#125; placeholder=<span class="string">"Search.."</span>/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;button type=<span class="string">"button"</span>&gt;추가&lt;\/button&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">      &lt;\/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Event-Handling"><a href="#Event-Handling" class="headerlink" title="Event Handling"></a>Event Handling</h2><p>리액트의 이벤트 시스템은 html 이벤트와 사용법이 매우 비슷하지만 주의할 점이 있다.</p>
+<ul>
+<li>이벤트 이름은 camelCase로 작성한다.(예: onclick =&gt; onClick, onkeyup =&gt; onKeyUp)</li>
+<li><strong>이벤트에 실행할 자바스크립트 코드를 전달하는것이 아니라, 함수 형태의 값을 전달한다.</strong></li>
+<li>DOM 요소에만 이벤트를 설정할 수 있다.(내가 만든 컴포넌트는 이벤트를 설정 할 수 없다.)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  (...)</span><br><span class="line">  <span class="comment">// 이벤트는 함수로 넘겨야 한다.</span></span><br><span class="line">  handleSelectedList = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      selectedList: <span class="keyword">this</span>.state.allList.filter(<span class="function"><span class="params">phonebook</span> =&gt;</span> phonebook.name.search(e.target.value) !== <span class="number">-1</span>),</span><br><span class="line">      inputPhoneBook: e.target.value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addPhoneBook = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; allList, inputPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">const</span> newPhoneBook =  &#123;</span><br><span class="line">      id: <span class="keyword">this</span>.id++,</span><br><span class="line">      name: inputPhoneBook,</span><br><span class="line">      phonenumber: <span class="string">''</span>,</span><br><span class="line">      address: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState( &#123;</span><br><span class="line">      allList: [...allList, newPhoneBook],</span><br><span class="line">      selectedPhoneBook: newPhoneBook,</span><br><span class="line">      selectedList: [newPhoneBook]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; inputPhoneBook, selectedList, selectedPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">      <span class="keyword">const</span> &#123; handleSelectedList, addPhoneBook &#125; = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar inputPhoneBook=&#123;inputPhoneBook&#125; handleSelectedList = &#123;handleSelectedList&#125; addPhoneBook = &#123;addPhoneBook&#125; /&gt;</span><br><span class="line">            &lt;PhoneBookList phoneBookList=&#123;selectedList&#125;/&gt;</span><br><span class="line">            &lt;PhoneDetail phoneBook=&#123;selectedPhoneBook&#125;/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SearchBar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; inputPhoneBook, handleSelectedList, addPhoneBook &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type=<span class="string">"text"</span> onChange=&#123;handleSelectedList&#125; value=&#123;inputPhoneBook&#125; placeholder=<span class="string">"Search.."</span>/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;button type=<span class="string">"button"</span> onClick=&#123;addPhoneBook&#125;&gt;추가&lt;\/button&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">      &lt;\/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>순수 리액트만으로 전화번호부 구현 방법에 대해 살펴보았다.<br>구현에 대한 전체소스는 <a href="https://github.com/black9p/phonebook/tree/react-only" target="_blank" rel="noopener">여기</a> 에서 확인 할 수 있다.</p>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/62597469?Acode=101" target="_blank" rel="noopener">리액트를 다루는 기술</a></p>
+]]></content>
+      <categories>
+        <category>ReactJS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>리액트 정리 - 2</title>
+    <url>/2019/02/12/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%A0%95%EB%A6%AC-2/</url>
+    <content><![CDATA[<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>리액트로 구현한 전화번호부에 리덕스 적용한 내용 정리.<br><a id="more"></a></p>
+<h2 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h2><p>리덕스는 리액트에서 상태를 더 효율적으로 관리하는데 사용하는 상태관리 라이브러리다.<br>상태를 컴포넌트에서 관리하게 될 경우 앱 규모가 커지면 props가 많아질수 있고 하위 컴포넌트로 props를 전달만 하는 컴포넌트가 생길수가 있다.<br>리덕스는 상태 관리 로직을 컴포넌트 밖(스토어)에서 처리하여 위 문제를 해결 할 수 있다.<br><img src="/images/reactjs/Redux.png" alt="Redux"></p>
+<h2 id="Immutable"><a href="#Immutable" class="headerlink" title="Immutable"></a>Immutable</h2><p>리액트 컴포넌트는 state 또는 상위 컴포넌트에서 전달받은 props값이 변할 때 리렌더링되는데, 배열이나 객체를 직접 수정하며 내부 값을 수정해도 레퍼런스가 가르키는곳은 같기 때문에 똑같은 값으로 인식한다. 그래서 변경사항이 있을때 보통 새로운 배열이나 객체를 생성하고 변경내용을 저장하는 방식을 사용한다.<br>Immutable 라이브러리를 사용하면 보다 편리하게 구현 할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 배열의 요소를 삭제할때..</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Immutable 미사용시, 삭제할 요소를 뺀 새로운 배열을 생성해야한다.</span></span><br><span class="line">[...allList.slice(<span class="number">0</span>, index), ...allList.slice(index + <span class="number">1</span>, allList.length)]</span><br><span class="line"></span><br><span class="line"><span class="comment">// Immutable 사용시, delete메소드 지원한다.</span></span><br><span class="line">list.delete(index);</span><br></pre></td></tr></table></figure>
+<h2 id="Ducks"><a href="#Ducks" class="headerlink" title="Ducks"></a>Ducks</h2><p>리덕스에서 사용하는 파일은 액션타입, 액션생성함수, 리듀서 이렇게 3종류로 분리관리한다. 이렇게 관리하게되면 액션을 하나 만들때마다 파일 3개를 수정해야한다. Ducks 구조는 한 파일 모듈화하여 액션타입, 액션생성함수, 리듀서 3가지를 모두를 관리하는 구조이다.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="built_in">Map</span> &#125; <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; handleActions, createAction &#125; <span class="keyword">from</span> <span class="string">'redux-actions'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; dummyList &#125; <span class="keyword">from</span> <span class="string">'../static/DummyList'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 액션 타입</span></span><br><span class="line"><span class="keyword">const</span> SEARCH = <span class="string">'phonebook/SEARCH'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 액션 생성 함수</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> search = createAction(SEARCH);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initialState = <span class="built_in">Map</span>(&#123;</span><br><span class="line">    list: dummyList,</span><br><span class="line">    filteredList: dummyList,</span><br><span class="line">    selected: <span class="string">''</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 리듀서</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> handleActions(&#123;</span><br><span class="line">    [SEARCH]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> list = state.get(<span class="string">'list'</span>);</span><br><span class="line">        <span class="keyword">return</span> state.set(<span class="string">'filteredList'</span>, list.filter(<span class="function"><span class="params">phonebook</span> =&gt;</span> phonebook.get(<span class="string">'name'</span>).search(action.payload) !== <span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, initialState);</span><br></pre></td></tr></table></figure>
+<h2 id="redux-actions"><a href="#redux-actions" class="headerlink" title="redux-actions"></a>redux-actions</h2><p>redux-actions 패키지에는 리덕스 액션들을 관리할 때 유용한 createAction과 handleActions 함수가 있다.</p>
+<h3 id="createAction"><a href="#createAction" class="headerlink" title="createAction"></a>createAction</h3><p>리덕스에서 액션을 만들다 보면 모든 액션에서 일일이 액션생성자를 만드는 것이 번거로울 수 있다. 액션생성자는 단순히 액션타입과 필요시 payload를 넣는일만 하기 때문에 그런 것을 조금 편하게 자동화해 만든것이 createAction이다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> search = createAction(SEARCH); <span class="comment">// 검색 액션 생성자</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> select = createAction(SELECT); <span class="comment">// 선택 액션 생성자</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> insert = createAction(INSERT); <span class="comment">// 추가 액션 생성자</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> remove = createAction(REMOVE); <span class="comment">// 삭제 액션 생성자</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="handleActions"><a href="#handleActions" class="headerlink" title="handleActions"></a>handleActions</h3><p>switch문으로 리듀서를 구현할 경우 함수 스코프로 인해 서로다른 case에서 동일한 변수 선언시 오류가 발생할 수 있다. handleActions는 그런 문제를 해결하기 위한 대안으로 첫번째 파라미터는 액션에따라 실행할 함수들을 가진 객체이고, 두번째 파라미터는 기본값을 넣어준다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> handleActions(&#123;</span><br><span class="line">    <span class="comment">// 전화번호부 검색시 실행할 함수</span></span><br><span class="line">    [SEARCH]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> list = state.get(<span class="string">'list'</span>);</span><br><span class="line">        <span class="keyword">return</span> state.set(<span class="string">'filteredList'</span>, list.filter(<span class="function"><span class="params">phonebook</span> =&gt;</span> phonebook.get(<span class="string">'name'</span>).search(action.payload) !== <span class="number">-1</span>));</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 특정 전화번호부 이름 선택하는 함수</span></span><br><span class="line">    [SELECT]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> state.set(<span class="string">'selected'</span>, action.payload);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 신규 전화번호부 추가할 때 실행하는 함수</span></span><br><span class="line">    [INSERT]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> list = state.get(<span class="string">'list'</span>);</span><br><span class="line">        <span class="keyword">return</span> state.set(<span class="string">'list'</span>, list.push(action.payload));</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 전화번호부 삭제시 실행하는 함수</span></span><br><span class="line">    [REMOVE]: <span class="function">(<span class="params">state, action</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> list = state.get(<span class="string">'list'</span>);</span><br><span class="line">        <span class="keyword">const</span> index = list.findIndex(<span class="function"><span class="params">phonebook</span> =&gt;</span> phonebook.get(<span class="string">'id'</span>) === action.payload);</span><br><span class="line">        <span class="keyword">return</span> state.set(<span class="string">'list'</span>, list.delete(index));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, initialState);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Store-생성-및-연동"><a href="#Store-생성-및-연동" class="headerlink" title="Store 생성 및 연동"></a>Store 생성 및 연동</h2><p>스토어는 보통 프로젝트 엔트리포인트인 src/index.js 파일에서 생성한다.<br>스토어를 리액트 앱에 연동하기 위해서는 연동할 프로젝트의 최상위 컴포넌트를 Provider로 감싸고 props로 store를 넣어주면 된다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="keyword">import</span> modules <span class="keyword">from</span> <span class="string">'./modules'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 파라미터는 리듀서이다</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(modules);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;App /&gt;</span><br><span class="line">    &lt;\/Provider&gt;</span><br><span class="line">    , <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure></p>
+<h2 id="Container-Component"><a href="#Container-Component" class="headerlink" title="Container Component"></a>Container Component</h2><p>컨테이너 컴포넌트는 스토어를 연동하는 역할을 한다. react-redux라이브러리의 connect 함수를 사용해 컴포넌트를 스토어에 연동시킨다. 각 파라미터는 선택으로 불필요하면 생략해도 된다.<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">connect([mapStateToProps], [mapDispatchToProps], [mergeProps])</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>mapStateToProps: 스토어의 state를 파라미터로 받아 컴포넌트 props로 사용할 객체를 반환한다.</li>
+<li>mapDispatchToProps: dispatch를 파라미터로 받아 액션을 디스패치하는 함수들을 객체 안에 넣어 반환한다.</li>
+<li>mergeProps: state와 dispatch가 동시에 필요한 함수를 props로 전달해야 할 때 사용하는데, 일반적으로 사용하지 않는다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(</span><br><span class="line">    <span class="comment">// mapStateToProps: 스토어의 state를 가져와 컴포넌트내에서 this.props.value로 접근할 수 있다.</span></span><br><span class="line">    (state) =&gt; (&#123;</span><br><span class="line">        value: state.input.get(<span class="string">'value'</span>)</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">// mapDispatchToProps: bindActionCreators를 통해 액션생성함수들을 dispatch해주어 실제 컴포넌트에서는 this.props.InputActions로 접근할 수 있다.</span></span><br><span class="line">    (dispatch) =&gt; (&#123;</span><br><span class="line">        InputActions: bindActionCreators(inputActions, dispatch),</span><br><span class="line">        PhonebookActions: bindActionCreators(phonebookActions, dispatch)</span><br><span class="line">    &#125;)</span><br><span class="line">)(SearchBarContainer);</span><br></pre></td></tr></table></figure>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>리액트로 구현한 전화번호부에 리덕스를 적용하면서 주요부분들에 대한 내용을 정리해 보았다.<br>구현에 대한 전체소스는 <a href="https://github.com/black9p/phonebook/tree/master" target="_blank" rel="noopener">여기</a> 에서 확인 할 수 있다.</p>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/62597469?Acode=101" target="_blank" rel="noopener">리액트를 다루는 기술</a><br>이미지출처: <a href="https://www.smashingmagazine.com/2016/06/an-introduction-to-redux" target="_blank" rel="noopener">https://www.smashingmagazine.com/2016/06/an-introduction-to-redux</a></p>
+]]></content>
+      <categories>
+        <category>ReactJS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>스트림 API</title>
+    <url>/2018/01/13/%EC%8A%A4%ED%8A%B8%EB%A6%BC-API/</url>
+    <content><![CDATA[<p><strong>스트림</strong> 은 자바API에 새로 추가된 기능으로, 데이터 처리 연산을 지원하도록 소스에서 추출된 연속된 요소로 정의할 수 있다.<br><a id="more"></a><br>아래는 칼로리기준으로 요리를 정렬하는 자바7코드다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; lowCaloricDishes = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Dish dish : menu) &#123;</span><br><span class="line">  <span class="keyword">if</span> (dish.getCalories() &lt; <span class="number">400</span>) &#123;</span><br><span class="line">    lowCaloricDishes.add(d);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Collections.sort(lowCaloricDishes, <span class="keyword">new</span> Comparator&lt;Dish&gt;() &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Dish dish1, Dish dish2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Integer.compare(dish1.getCalories(), dish2.getCalories());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Lish&lt;String&gt; lowCaloricDishesName = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Dish dish: lowCaloricDishes) &#123;</span><br><span class="line">  lowCaloricDishesName.add(dish.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>아래는 같은내용의 자바8코드다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; lowCaloricDishesName = menu.stream()</span><br><span class="line">                                        .filter(dish -&gt; dish.getCalories() &lt; <span class="number">400</span>)</span><br><span class="line">                                        .sorted(comparing(Dish::getCalories))</span><br><span class="line">                                        .map(Dish::getName)</span><br><span class="line">                                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h2 id="스트림의-특징"><a href="#스트림의-특징" class="headerlink" title="스트림의 특징"></a>스트림의 특징</h2><ul>
+<li>선언형 : 더 간결하고 가독성이 좋아진다.</li>
+<li>조립할 수 있음 : 유연성이 좋아진다.</li>
+<li>병렬화 : 성능이 좋아진다.</li>
+</ul>
+<h2 id="스트림-이용하기"><a href="#스트림-이용하기" class="headerlink" title="스트림 이용하기"></a>스트림 이용하기</h2><p>스트림 이용 과정은 다음과 같이 세 가지로 요약할 수 있다</p>
+<ul>
+<li>질의를 수행할 <strong>데이터 소스</strong></li>
+<li>스트림 파이프라링ㄴ을 구성할 <strong>중간 연산</strong> 연결</li>
+<li>스트림 파이프라인을 실행하고 결과를 만들 <strong>최종연산</strong></li>
+</ul>
+<h1 id="스트림-활용"><a href="#스트림-활용" class="headerlink" title="스트림 활용"></a>스트림 활용</h1><h2 id="필터링과-슬라이싱"><a href="#필터링과-슬라이싱" class="headerlink" title="필터링과 슬라이싱"></a>필터링과 슬라이싱</h2><p>스트림 인터페이스는 filter 메서드를 지원한다. filter메서드는 Predicate를 인수로 받아 일치하는 모든 요소를 포함하는 스트림을 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; vegetarianMenu = menu.stream()</span><br><span class="line">                                .filter(Dish::isVegetarian) <span class="comment">// 채식요리인지 확인하는 메서드 레퍼런스</span></span><br><span class="line">                                .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><p>distinct를 사용하면 중복을 필터링한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">numbers.stream()</span><br><span class="line">.filter(i -&gt; i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">.distinct() <span class="comment">// 중복된 요소를 제거</span></span><br><span class="line">.forEach(System.out::println);</span><br></pre></td></tr></table></figure></p>
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><p>limit를 사용하면 스트림 사이즈를 제한할 수 있다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; dishes = menu.stream()</span><br><span class="line">                        .filter(dish -&gt; dish.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                        .limit(<span class="number">3</span>) <span class="comment">// 요소수를 3개로 제한</span></span><br><span class="line">                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h3 id="skip-n"><a href="#skip-n" class="headerlink" title="skip(n)"></a>skip(n)</h3><p>skip(n)을 이용하면 n개 요소를 제외하고 나머지 요소를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; dishes = menu.stream()</span><br><span class="line">                        .filter(dish -&gt; dish.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                        .skip(<span class="number">2</span>)  <span class="comment">// 2개 요소를 건너뛴다</span></span><br><span class="line">                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h2 id="매핑"><a href="#매핑" class="headerlink" title="매핑"></a>매핑</h2><p><strong>매핑</strong> 은 특정 객체에서 특정 데이터를 선택하는 작업으로, SQL의 테이블에서 특정 열만 선택하는 것과 같은 작업이다.</p>
+<p>아래 예는 메뉴에서 요리명만 추출하는 내용이다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String dishNames = menu.stream()</span><br><span class="line">                            .map(Dish::getName)</span><br><span class="line">                            .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h2 id="검색과-매칭"><a href="#검색과-매칭" class="headerlink" title="검색과 매칭"></a>검색과 매칭</h2><h3 id="anyMatch"><a href="#anyMatch" class="headerlink" title="anyMatch"></a>anyMatch</h3><p>Predicate가 주어진 스트림에서 적어도 한 요소와 일치하는지 확인<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(menu.stream().anyMatch(Dish::isVegetarian)) &#123;</span><br><span class="line">  ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="allMatch"><a href="#allMatch" class="headerlink" title="allMatch"></a>allMatch</h3><p>모든 요소가 주어진 Predicate와 일치하는지 검사<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isHealthy = menu.stream()</span><br><span class="line">                        .allMatch(dish -&gt; dish.getCalories() &lt; <span class="number">1000</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="noneMatch"><a href="#noneMatch" class="headerlink" title="noneMatch"></a>noneMatch</h3><p>주어진 Predicate와 일치하는 요소가 없는지 확인<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isHealthy = menu.stream()</span><br><span class="line">                        .noneMatch(dish -&gt; dish.getCalories() &gt;= <span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="findAny"><a href="#findAny" class="headerlink" title="findAny"></a>findAny</h3><p>현재 스트림에서 임의의 요소를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Optional&lt;Dish&gt; dish = menu.stream()</span><br><span class="line">                          .filter(Dish::isVegetarian) <span class="comment">// filter와 연결해서 사용할 수 있다.</span></span><br><span class="line">                          .findAny();</span><br></pre></td></tr></table></figure></p>
+<h3 id="findFirst"><a href="#findFirst" class="headerlink" title="findFirst"></a>findFirst</h3><p>스트림 내 첫번째 요소를 불러온다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; someNumbers = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">Optional&lt;Integer&gt; firstSquareDicisibleByThree = someNumbers.stream()</span><br><span class="line">                                                           .map(x -&gt; x * x)</span><br><span class="line">                                                           .filter(x -&gt; x % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">                                                           .findFirst();  <span class="comment">// 9</span></span><br></pre></td></tr></table></figure></p>
+<p>findFirst는 병렬실행에 유용하며, 반환요소가 상관없다면 findAny를 사용해도 상관없다.</p>
+<h1 id="리듀싱"><a href="#리듀싱" class="headerlink" title="리듀싱"></a>리듀싱</h1><p>모든 요소를 반복적으로 처리하는 과정으로 함수형 프로그래밍에서는 폴드 라고 불리기도 한다.</p>
+<p>reduce는 두 개의 인수를 갖는다.</p>
+<ul>
+<li>초깃값 (생략될 수 있다)</li>
+<li>BinaryOperator<t></t></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = numbers.stream().reduce(<span class="number">0</span>, (a, b) -&gt; a + b);</span><br><span class="line"><span class="comment">// 초기값 : 0</span></span><br><span class="line"><span class="comment">// BinaryOperator : (a, b) -&gt; a + b</span></span><br></pre></td></tr></table></figure>
+<h1 id="스트림-만들기"><a href="#스트림-만들기" class="headerlink" title="스트림 만들기"></a>스트림 만들기</h1><p>아래의 다양한 방법으로 스트림을 만들 수 있다.</p>
+<ul>
+<li>Stream.of : 값으로 스트림 만들기</li>
+<li>Arrays.stream : 배열로 스트림 만들기</li>
+<li>File.lines : 파일로 스트림 만들기</li>
+<li>Stream.iterate : 함수로 무한스트림 만들기</li>
+<li>Stream.generate : 함수로 무한스트림 만들기</li>
+</ul>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>병렬 데이터 처리와 성능</title>
+    <url>/2018/01/20/%EB%B3%91%EB%A0%AC-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%B2%98%EB%A6%AC%EC%99%80-%EC%84%B1%EB%8A%A5/</url>
+    <content><![CDATA[<p><strong>병렬 스트림</strong> 이란, 각각의 스레드에서 처리할 수 있도록 스트림 요소를 여러 청크로 분할한 스트림이다.<br>병렬 스트림을 이용하면 모든 멀티코어 프로세서가 각각의 청크를 처리하도록 할당할 수 있다.<br><a id="more"></a></p>
+<h2 id="순차-스트림을-병렬-스트림으로-변환하기"><a href="#순차-스트림을-병렬-스트림으로-변환하기" class="headerlink" title="순차 스트림을 병렬 스트림으로 변환하기"></a>순차 스트림을 병렬 스트림으로 변환하기</h2><p>순차 스트림에 parallel 메서드를 호출하면 기존의 함수형 리듀싱 연산이 병렬로 처리된다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">parallelSum</span><span class="params">(<span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> Stream.iterate(<span class="number">1L</span>, i -&gt; i + <span class="number">1</span>)</span><br><span class="line">               .limit(n)</span><br><span class="line">               .parallel()  <span class="comment">// 스트림을 병렬 스트림으로 변환</span></span><br><span class="line">               .reduce(<span class="number">0L</span>, Long::sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>병렬 스트림에서 사용하는 스레드 풀 설정</strong><br>병렬 스트림은 내부적으로 ForkJoinPool을 사용한다. 기본적으로 ForkJoinPool은 프로세서 수, 즉 Runtime.getRuntime().availableProcessors()가 반환하는 값에 상응하는 스레드를 갖는다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.setProperty(<span class="string">"java.util.concurrent.ForkJoinPool.common.parallelism"</span>, <span class="string">"12"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>전역 설정 코드로 이후의 모든 병렬 스트림연상에 영향을 준다. 일반적으로 기기의 프로세서 수와 같으므로 특별한 이유가 없다면 ForkJoinPool의 기본값을 그대로 사용할 것을 권장한다.</p>
+<h2 id="병렬-스트림-효과적으로-사용하기"><a href="#병렬-스트림-효과적으로-사용하기" class="headerlink" title="병렬 스트림 효과적으로 사용하기"></a>병렬 스트림 효과적으로 사용하기</h2><ul>
+<li>확신이 서지 않는다면 직접 측정하자.</li>
+<li>박싱을 주의하자. 자동박싱과 언박싱은 성은을 크게 저하시킬 수 있는 요소다. 기본형 특화 스트림을 사용하자.</li>
+<li>순차 스트림보다 병렬 스트림에서 성능이 떨어지는 연산이 있다. limit나 findFirst처럼 요소의 순서에 의존하는 연산을 병렬 스트림에서 수행하면 비싼비용을 치러야 한다.</li>
+<li>소량의 데이터에서는 병렬 스트림이 도움이 되지 않는다.<br>스트림의 구성하는 자료구조가 적절한지 확인하라.</li>
+<li>최종 연산의 병합 과정 비용을 살펴보자. 병합 과정의 비용이 비싸다면 병렬 스트림으로 얻은 성능의 이익이 서브스트림의 부분결과를 합치는 과정에서 상쇄될 수 있다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">소스</th>
+<th style="text-align:left">분해성</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ArrayList</td>
+<td style="text-align:left">훌륭함</td>
+</tr>
+<tr>
+<td style="text-align:left">LinkedList</td>
+<td style="text-align:left">나쁨</td>
+</tr>
+<tr>
+<td style="text-align:left">IntStream.range</td>
+<td style="text-align:left">훌륭함</td>
+</tr>
+<tr>
+<td style="text-align:left">Stream.iterate</td>
+<td style="text-align:left">나쁨</td>
+</tr>
+<tr>
+<td style="text-align:left">HashSet</td>
+<td style="text-align:left">좋음</td>
+</tr>
+<tr>
+<td style="text-align:left">TreeSet</td>
+<td style="text-align:left">좋음</td>
+</tr>
+</tbody>
+</table>
+<h1 id="포크-조인-프레임워크"><a href="#포크-조인-프레임워크" class="headerlink" title="포크/조인 프레임워크"></a>포크/조인 프레임워크</h1><p><strong>포크/조인 프레임워크</strong> 는 병렬화할 수 있는 작업을 재귀적으로 작은 작업으로 분할한 다음에 서브태스크에 각가의 결과를 합쳐서 전체 결과를 만들도록 설계 되어 있다.<br>divide-and-conquer 알고리즘의 병렬화 버전이라 생각하면 된다.</p>
+<p><img src="/images/java8/fork_join.png" alt="fork/join"></p>
+<h2 id="RecursiveTask-활용"><a href="#RecursiveTask-활용" class="headerlink" title="RecursiveTask 활용"></a>RecursiveTask 활용</h2><p>스레드 풀을 이용하려면 RecursiveTask<r>의 서브클래스를 만들어야 한다.<br><a href="https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/RecursiveTask.html" target="_blank" rel="noopener">RecursiveTask</a>를 정의하려면 추상 메서드 compute를 구현해야 한다.</r></p>
+<p>아래 의사코드와 같이 구현하면 된다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span> <span class="title">extend</span> <span class="title">RecursiveTask</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> V <span class="title">compute</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (분할가능한경우) &#123;</span><br><span class="line">      분할;</span><br><span class="line">      재귀호출;</span><br><span class="line">      합침;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      실제할일</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 호출시..</span></span><br><span class="line">ForkJoinTask&lt;V&gt; task = <span class="keyword">new</span> Task();</span><br><span class="line"><span class="keyword">new</span> ForkJoinPool().invoke(task);</span><br></pre></td></tr></table></figure></p>
+<h1 id="Spliterator"><a href="#Spliterator" class="headerlink" title="Spliterator"></a>Spliterator</h1><p>Spliterator는 탐색하려는 데이터를 포함하는 스트림을 어떻게 병렬화할 것인지 정의한다.</p>
+<p>자바8은 컬렉션 프레임워크에 포함된 모든 자료구조에 사용할 수 있는 디폴트 Spliterator 구현을 제공하고 있다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Spliterator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">boolean</span> <span class="title">tryAdvance</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> T&gt; action)</span></span>;</span><br><span class="line">  <span class="function">Spliterator&lt;T&gt; <span class="title">trySplit</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">long</span> <span class="title">estimateSize</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">characteristics</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tryAdvance</td>
+<td style="text-align:left">탐색요소가 남아있으면 참 반환</td>
+</tr>
+<tr>
+<td style="text-align:left">trySplit</td>
+<td style="text-align:left">분할하여 Spliterator 생성</td>
+</tr>
+<tr>
+<td style="text-align:left">estimateSize</td>
+<td style="text-align:left">탐색해야할 요소 수</td>
+</tr>
+</tbody>
+</table>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>빈 라이프사이클</title>
+    <url>/2018/02/17/%EB%B9%88-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4/</url>
+    <content><![CDATA[<p>스프링 컨테이너는 다음의 두 가지 방식을 이용해서 빈의 라이프사이클을 관리할 수 있다.</p>
+<ul>
+<li>스프링이 제공하는 특정 인터페이스를 상속받아 빈을 구현한다</li>
+<li>스프링 설정에서 특정 메서드를 호출하라고 지정한다</li>
+</ul>
+<a id="more"></a>
+<h2 id="빈-라이프사이클-개요"><a href="#빈-라이프사이클-개요" class="headerlink" title="빈 라이프사이클 개요"></a>빈 라이프사이클 개요</h2><p>다음 네 단계를 거친다.<br>객체생성/프로퍼티 설정 -&gt; 초기화 -&gt; 사용 -&gt; 소멸</p>
+<p><img src="/images/spring/bean_lifecycle.png" alt="bean_lifecycle"></p>
+<h3 id="InitializingBean-DisposableBean-인터페이스"><a href="#InitializingBean-DisposableBean-인터페이스" class="headerlink" title="InitializingBean / DisposableBean 인터페이스"></a>InitializingBean / DisposableBean 인터페이스</h3><p>초기화과정/소멸과정 에서 실행될 메소드를 정의 한다. 빈 객체 생성 이외의 추가적인 초기화 작업이 필요할 때 해당 인터페이스를 구현해 사용한다. 전형적인 예가 데이터베이스 커넥션풀 기능이 있다.</p>
+<h3 id="PostConstruct-PreDestroy"><a href="#PostConstruct-PreDestroy" class="headerlink" title="@PostConstruct / @PreDestroy"></a>@PostConstruct / @PreDestroy</h3><p>각각 초기화과정/소멸 과정에서 실행될 메소드를 의미하며.. 위 InitializingBean / DisposableBean 과 내용이 같다. 다만 두 애노테이션을 사용하려면 CommonAnnotationBeanPostProcessor 전처리기를 스프링 빈으로 등록해 주어야 하는데, &lt; context:annotation-config&gt; 태그를 사용하면 된다.</p>
+<h3 id="커스텀-init-메서드와-커스텀-destroy-메서드"><a href="#커스텀-init-메서드와-커스텀-destroy-메서드" class="headerlink" title="커스텀 init 메서드와 커스텀 destroy 메서드"></a>커스텀 init 메서드와 커스텀 destroy 메서드</h3><p>외부에서 제공 받은 라이브러리가 있는데, 이 라이브러리 클래스를 스프링 빈으로 사용해야 한다고 가정하다. 해당 클래스의 초기화를 위해 init() 메서드가 있는데 @PostConstruct 애노테이션이 없다. 또한 InitializingBean 인터페이스도 상속받지 않았을때 아래와 같이 사용할 수 있다.</p>
+<p><em>XML 설정</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"externalBean"</span> <span class="attr">class</span>=<span class="string">"com.external.ExternalClass"</span> <span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"destroy"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>Java 설정</em><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span>(initMethod = <span class="string">"init"</span>, destroyMethod = <span class="string">"destroy"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ExternalClass <span class="title">externalClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> ExternalClass();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ApplicationContextAware-BeanNameAware-인터페이스"><a href="#ApplicationContextAware-BeanNameAware-인터페이스" class="headerlink" title="ApplicationContextAware / BeanNameAware 인터페이스"></a>ApplicationContextAware / BeanNameAware 인터페이스</h3><p>빈 내에서 컨테이너객체와 빈이름의 제어가 필요할 경우 사용. 위 인터페이스를 구현할 경우 초기화 과정에서 각각 컨테이너와 빈 이름을 전달 받는다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeObject</span> <span class="keyword">implements</span> <span class="title">ApplicationContextAware</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> ApplicationContext context;</span><br><span class="line"></span><br><span class="line">  setApplicationContext(ApplicationContext context) &#123;</span><br><span class="line">    <span class="keyword">this</span>.context = context;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="빈-객체-범위-scope"><a href="#빈-객체-범위-scope" class="headerlink" title="빈 객체 범위 (scope)"></a>빈 객체 범위 (scope)</h2><p>스프링의 빈은 범위를 갖는데, 주요 범위는 다음 두가지가 있다</p>
+<ul>
+<li><p>싱글톤 범위 : 별도의 설정을 하지 않으면 스프링은  빈 객체를 한번만 생성한다. 물론 명시적으로 넣어줄 수도 있다.</p>
+</li>
+<li><p>프로토타입 범위 : 싱글톤의 반대로 매번 새로운 객체를 생성한다. 사용방법은 같으며 해당 속성값에 prototype을 입력한다. 스프링 컨테이너는 프로토타입 범위를 가진 빈의 초기화까지만 관리하므로, 컨테이너 종료시 생성된 프로토타입 빈 객체의 소멸 과정이 실행되지 않는다.</p>
+</li>
+</ul>
+<p>Reference : <a href="http://www.yes24.com/24/goods/13987797?scode=032&amp;OzSrank=1" target="_blank" rel="noopener">Spring 4.0 프로그래밍</a></p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>스프링 MVC</title>
+    <url>/2018/02/21/%EC%8A%A4%ED%94%84%EB%A7%81-MVC/</url>
+    <content><![CDATA[<p>아래 그림은 스프링 기본 흐름과 주요 컴포넌트에 대해 설명한다.<br><a id="more"></a><br><img src="/images/spring/spring_mvc_process.png" alt="spring_mvc_process"></p>
+<ul>
+<li>DispatcherServlet<br>클라이언트의 요청을 전달 받는다. 컨트롤러에게 클라이언트의 요청을 전달하고, 컨트롤러가 리턴한 결과값을 View에 전달하여 알맞은 응답을 생성한다.</li>
+<li>HandlerMapping<br>클라이언트의 요청 URL을 어떤 컨트롤러가 처리할지 결정한다.</li>
+<li>HandlerAdapter<br>DispatcherServlet의 처리 요청을 변환해서 컨트롤러에게 전달하고, 컨트롤러의 응답 결과를 DispatcherServlet이 요구하는 형식으로 변환한다. 웹 브라우저 캐시등의 설정도 담당한다.</li>
+<li>Controller<br>클라이언트의 요청을 처리한 뒤, 결과를 리턴한다. 응답 결과에서 보여줄 데이터를 모델에 담아 전달한다.</li>
+<li>ModelAndView<br>컨트롤러가 처리한 결과 정보 및 뷰 선택에 필요한 정보를 담는다.</li>
+<li>ViewResolver<br>컨트롤러의 처리 결과를 보여줄 뷰를 결정한다.</li>
+<li>View<br>컨트롤러의 처리결과 화면을 생성한다.</li>
+</ul>
+<h2 id="스프링-MVC-설정-기초"><a href="#스프링-MVC-설정-기초" class="headerlink" title="스프링 MVC 설정 기초"></a>스프링 MVC 설정 기초</h2><p>스프링 MVC를 사용하기 위한 기본 설정 과정은 다음과 같다.</p>
+<ol>
+<li>web.xml에 DispatcherServlet 설정</li>
+<li>web.xml에 캐릭터 인코딩 처리 위한 필터 설정</li>
+<li>스프링 MVC 설정 (HandlerMapping, HandlerAdapter, ViewResolver 설정)</li>
+</ol>
+<h3 id="DispatcherServlet-설정"><a href="#DispatcherServlet-설정" class="headerlink" title="DispatcherServlet 설정"></a>DispatcherServlet 설정</h3><p>DispatcherServlet은 내부적으로 스프링 컨테이너를 생성한다. 별도의 초기화 파라미터 없이 DispatcherServlet을 설정하면, 웹 어플리케이션의 /WEB-INF/ 디렉터리에 위치한 [서블릿이름]-servlet.xml 파일을 스프링 설정파일로 사용한다. 아래의 경우에는 spring-servlet.xml 파일을 이용해 스프링 컨테이너를 생성한다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    org.springframework.web.servlet.DispatcherServlet</span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>한 개이상 설정파일을 사용하거나 기본형식이 아닌 파일을 사용해야 한다면 다음과 같이 contextConfigLocation 초기화 파라미터로 설정파일 목록을 지정하면 된다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>spring<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    org.springframework.web.servlet.DispatcherServlet</span><br><span class="line">  <span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span></span><br><span class="line">        /WEB-INF/dispatcher-servlet.xml</span><br><span class="line">        classpath:/common-servlet.xml</span><br><span class="line">      <span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="캐릭터-인코딩-필터-설정"><a href="#캐릭터-인코딩-필터-설정" class="headerlink" title="캐릭터 인코딩 필터 설정"></a>캐릭터 인코딩 필터 설정</h3><p>스프링은 요청 파라미터의 캐릭터 인코딩을 지정할 수 있는 서블릿 필터 CharacterEncodingFilter를 제공하고 있다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span></span><br><span class="line">    org.springframework.web.filter.CharacterEncodingFilter</span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>encodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="HandlerMapping-HandlerAdapter-빈-등록"><a href="#HandlerMapping-HandlerAdapter-빈-등록" class="headerlink" title="HandlerMapping / HandlerAdapter 빈 등록"></a>HandlerMapping / HandlerAdapter 빈 등록</h3><p>HandlerMapping, HandlerAdapter 빈 등록은 아래의 태그를 이용하면 설정이 끝난다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>위 태그를 spring-servlet.xml 에 설정해 두면 다음의 두 클래스를 빈으로 등록해준다.</p>
+<ul>
+<li>RequestMappingHandlerMapping</li>
+<li>RequestMappingHandlerAdapter</li>
+</ul>
+<h3 id="디폴트-서블릿-핸들러"><a href="#디폴트-서블릿-핸들러" class="headerlink" title="디폴트 서블릿 핸들러"></a>디폴트 서블릿 핸들러</h3><p>디폴트 서블릿 핸들러는 아래 설정을 추가함으로서 등록이 되며, 서블릿 매핑에 존재하지 않는 요청을 디폴트 서블릿에 전달해 요청을 처리하도록 한다. 요청에 맞는 컨트롤러가 없는경우 (../some/no_controller.css) 에 사용된다.<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>Reference : <a href="http://www.yes24.com/24/goods/13987797?scode=032&amp;OzSrank=1" target="_blank" rel="noopener">Spring 4.0 프로그래밍</a></p>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>스트림 데이터 수집</title>
+    <url>/2018/01/14/%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A7%91/</url>
+    <content><![CDATA[<p>Collectors에서 제공하는 메서드의 기능은 크게 세 가지로 구분할 수 있다.</p>
+<ul>
+<li>스트림 요소를 하나의 값으로 리듀스하고 요약</li>
+<li>요소 그룹화</li>
+<li>요소 분할</li>
+</ul>
+<a id="more"></a>
+<h1 id="리듀싱과-요약"><a href="#리듀싱과-요약" class="headerlink" title="리듀싱과 요약"></a>리듀싱과 요약</h1><h2 id="counting"><a href="#counting" class="headerlink" title="counting"></a>counting</h2><p>개수 카운팅<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> howManyDishes = menu.stream().collect(Collectors.counting());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이렇게도 가능하다..</span></span><br><span class="line">menu.stream().count();</span><br></pre></td></tr></table></figure></p>
+<h2 id="maxBy-minBy"><a href="#maxBy-minBy" class="headerlink" title="maxBy / minBy"></a>maxBy / minBy</h2><p>Comparator를 인수로 받아 최대값, 최소값을 구한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Comparator&lt;Dish&gt; dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);</span><br><span class="line"></span><br><span class="line">Optional&lt;Dish&gt; mostCalorieDish = menu.stream().collect(maxBy(dishCaloriesComparator));</span><br></pre></td></tr></table></figure></p>
+<h2 id="summing-Int-Long-Double"><a href="#summing-Int-Long-Double" class="headerlink" title="summing[Int/Long/Double]"></a>summing[Int/Long/Double]</h2><p>합계를 계산한다<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> totalCalories = menu.stream().collect(summingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure></p>
+<h2 id="averaging-Int-Long-Double"><a href="#averaging-Int-Long-Double" class="headerlink" title="averaging[Int/Long/Double]"></a>averaging[Int/Long/Double]</h2><p>평균을 계산한다<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> avgCalories = menu.stream().collect(averagingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure></p>
+<h2 id="summarizing-Int-Long-Double"><a href="#summarizing-Int-Long-Double" class="headerlink" title="summarizing[Int/Long/Double]"></a>summarizing[Int/Long/Double]</h2><p>여러가지 요약정보가 필요할때 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IntSummaryStatistics menuStatistics = menu.stream().collect(summarizingInt(Dish::getCalories));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력결과</span></span><br><span class="line">IntSummaryStatistics &#123; count = <span class="number">9</span>, sum = <span class="number">4300</span>, min = <span class="number">120</span>, average = <span class="number">1</span>, max = <span class="number">800</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>웹 애플리케이션 로드테스트</title>
+    <url>/2019/01/07/%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%A1%9C%EB%93%9C%ED%85%8C%EC%8A%A4%ED%8A%B8/</url>
+    <content><![CDATA[<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>성능테스트를 고려하게 되는 경우와 방법에는 여러가지가 있다.<br>본 글에서는 nGrinder를 통해 간단하게 현재 내 서비스가 감당가능한 TPS을 확인할 수 있는 방법에 대해서 알아본다.</p>
+<a id="more"></a>
+<h2 id="선행조건"><a href="#선행조건" class="headerlink" title="선행조건"></a>선행조건</h2><h3 id="부하-테스트-Tool"><a href="#부하-테스트-Tool" class="headerlink" title="부하 테스트 Tool"></a>부하 테스트 Tool</h3><ul>
+<li>nGrinder (<a href="https://black9p.github.io/2019/01/02/nGrinder-간편-사용가이드">간편 사용가이드</a>)</li>
+</ul>
+<h3 id="BMT-BenchMark-Test"><a href="#BMT-BenchMark-Test" class="headerlink" title="BMT(BenchMark Test)"></a>BMT(BenchMark Test)</h3><ul>
+<li>실제 서비스에 부하테스트를 할 수 없기 때문에, 리얼서버와 최대한 비슷한 환경의 테스트 환경을 구축한다.</li>
+<li>서버: CPU, Memory</li>
+<li>애플리케이션: JVM 옵션, 로그레벨</li>
+</ul>
+<h3 id="그-외"><a href="#그-외" class="headerlink" title="그 외"></a>그 외</h3><ul>
+<li>DDOS White List 설정: TPS 확인을 위해 많은 요청을 할 것이기 때문에 DDOS방어 설정이 있다면, nGrinder Agent 호스트 IP를 등록해둘 필요가 있다.</li>
+<li>각종 문제시 걸어둔 알람설정을 해지해둘 필요가 있다.</li>
+<li>3rd Party API를 호출하는 경우, 적절한 Mock처리가 필요하다.</li>
+</ul>
+<h2 id="로드-테스트"><a href="#로드-테스트" class="headerlink" title="로드 테스트"></a>로드 테스트</h2><h3 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h3><ul>
+<li>Peek Time의 Duration을 기준으로 부하테스트를 진행한다.</li>
+<li>본 글에서는 1시간 기준으로 부하테스트를 진행한다.</li>
+</ul>
+<h3 id="Groovy-스크립트"><a href="#Groovy-스크립트" class="headerlink" title="Groovy 스크립트"></a>Groovy 스크립트</h3><ul>
+<li>nGrinder 설정의 Vuser는 응답이오면 바로 재요청을 하는 방식이기 때문에 1초에 꼭 1회만 요청하지 않는다.</li>
+<li>1Vuser가 1초에 1회의 요청만하게하여 테스트 기준치를 정할 수 있도록 Groovy 스크립트에 1초 sleep하는 내용을 추가한다.<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">grinder.sleep(<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><ul>
+<li>아래와 같이 Vuser를 늘려가면서 적당한 TPS를 구한다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Vuser</th>
+<th>Process</th>
+<th>Thread</th>
+<th>Duration</th>
+<th>Report</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>2</td>
+<td>50</td>
+<td>1h</td>
+<td><img src="/images/performance/100TPS.png" alt="100TPS"></td>
+</tr>
+<tr>
+<td>150</td>
+<td>3</td>
+<td>50</td>
+<td>1h</td>
+<td><img src="/images/performance/150TPS.png" alt="150TPS"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Report"><a href="#Report" class="headerlink" title="Report"></a>Report</h3><ul>
+<li>위에 결과표를 클릭해서보면 100TPS 에서는 비교적 안정적으로 응답을하였고, 150TPS 에서는 그래프가 불안정함을 볼수 있다.</li>
+<li>본 테스트의 적절한 TPS는 120TPS 정도로 볼 수 있다.</li>
+</ul>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><ul>
+<li>nGrinder를 통해 서비스의 적절한 TPS 확인할 수 있는 방법에 대해 알아보았다.</li>
+<li>결과 그래프가 평평하지 않고 아래로 내려가는것은 해당시점에 응답이 느려졌다는 의미이고, 정확한 원인 판단을 위해선 APM툴(Scouter, Pinpoint등)을 이용해야 한다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>성능테스트</category>
+      </categories>
+  </entry>
+</search>
