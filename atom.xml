@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://black9p.github.io/"/>
-  <updated>2019-11-24T13:17:11.718Z</updated>
+  <updated>2021-01-04T14:19:25.776Z</updated>
   <id>https://black9p.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Clean Agile Review</title>
+    <link href="https://black9p.github.io/2021/01/04/Clean-Agile-Review/"/>
+    <id>https://black9p.github.io/2021/01/04/Clean-Agile-Review/</id>
+    <published>2021-01-04T13:57:48.000Z</published>
+    <updated>2021-01-04T14:19:25.776Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="들어가기"><a href="#들어가기" class="headerlink" title="들어가기"></a>들어가기</h2><a id="more"></a><p>소프트웨어 개발업무를 진행하다보면 정해진 마감시간과 도대체 언제 끝날지모르는 스펙변경으로 인해 고통 받은 적이 있을 것이다. 죽음의 고비를 넘기고 다음번에는 더 이상 이런상황을 만들지 말기로 마음을 먹지만 우리의 단호한 결의와는 무관하게 어김없이 또 찾아온 그 고통을 다시 마주하고 있던 기억도 있을 것이다.<br>다행히 이러한 문제들은 이미 20년 전 소프트웨어 개발자들도 겪고 있는 문제였고, 우리가 아는 엉클밥(저자), 켄트벡, 마틴파울러 등 여러 개발자들이 모여서 이 문제에 대해 고민하고 규칙을 세웠는데 그 규칙이 애자일이다.</p><h3 id="Circle-of-Life"><a href="#Circle-of-Life" class="headerlink" title="Circle of Life"></a>Circle of Life</h3><ul><li>아래 그림은 애자일의 프로토타입이자 핵심인 Extreme Programming(XP)의 실천방법을 설명하는 그림으로, 삶의 순환이라는 애칭으로 불린다.</li><li>가장 바깥쪽 그린라인은 비지니스관련 XP 실천방법이고, 가운데 블루라인은 팀과 관련된 실천방법, 그리고 가장 안쪽의 레드라인은 기술적 실천방법이다.</li></ul><p><img src="/images/agile/CircleOfLife.png" alt="CircleOfLife]"></p><h2 id="실천방법"><a href="#실천방법" class="headerlink" title="실천방법"></a>실천방법</h2><h3 id="비지니스-실천방법"><a href="#비지니스-실천방법" class="headerlink" title="비지니스 실천방법"></a>비지니스 실천방법</h3><ul><li>계획게임 : 이 고리에서 가장 중심적 역할로, 프로젝트를 기능, 스토리, 작업으로 쪼개는 방법을 알려준다. 크기를 추정하거나 우선순위를 결정하거나, 기능이나 스토리, 작업의 일정을 정하는데 필요한 지침을 제공한다.</li><li>작은 릴리스: 팀이 일을 조그만 크기로 나누어서 하도록 이끈다.</li><li>인수테스트: 기능이나 스토리, 작업의 ‘완료’를 정의할 수 있게 해준다. 완성 조건을 모호하지 않게 규정하는 방법을 보여준다.</li><li>전체 팀: 소프트웨어 개발팀이 여러가지역할로 구성되어 있음을 나타내는 개념이다. 프로그래머, 테스터, 관리자 등은 같은 목표를 위해 함께 일한다.</li></ul><h3 id="팀-실천방법"><a href="#팀-실천방법" class="headerlink" title="팀 실천방법"></a>팀 실천방법</h3><ul><li>지속가능한 속도: 개발팀이 자원을 너무 빠르게 소진한 나머지 결승선에 도달하기도 전에 탈진해 버리는것을 막기 위한 실천 방법이다.</li><li>공동소유 : 팀이 프로젝트 안에 칸막이를 쳐서 지식이 퍼지지 못하게 만드는 것을 막는다.</li><li>지속적 통합: 피드백 고리가 자주 돌게 만드는데 계속 집중하도록 만든다. 이를 통해 언제나 팀의 현재 위치를 알 수 있어야 한다.</li><li>메타포: 시스템에 대해 팀과 사업부서가 의사소통할 때 사용하는 어휘나 표현을 만들고 널리 공유하는 실천 방법이다.</li></ul><h3 id="기술-실천-방법"><a href="#기술-실천-방법" class="headerlink" title="기술 실천 방법"></a>기술 실천 방법</h3><ul><li>짝 프로그래밍 : 지식 공유, 서로 리뷰하고, 협력하도록 하여 혁신과 정확성을 끌어내는 실천방법이다.</li><li>단순한 설계: 팀이 노력을 낭비하지 않도록 도와주는 실천 방법이다.</li><li>리팩터링: 모든 작업 산출물의 지속적인 개선과 향상을 장려한다.</li><li>테스트주도개발: 기술팀이 최고의 품질을 유지하면서도 빠르게 움직이기 위해 사용하는 안전망이다.</li></ul><h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><p>그 동안 많은 소프트웨어 개발 조직들 사이에서 애자일 도입을 시도하였고 수 많은 애자일 방법론들이 나왔다. 실제로 우리가 지금 일하는 방식에서도 애자일 영향 받은 것들도 있음을 알 수 있다. 하지만 우린 여전히 사업일정과 끊임없는 스펙변경에 휘둘려 고통을 받는 경우가 있다. 이 책의 부재 “Back to Basics” 이 말하듯 애자일 기본을 다시 돌아보고, 팀 동료들에게도 권해서 우리 조직에서 어떻게 효과적으로 애자일을 적용해 나갈수 있을지 함께 고민해보고 싶다.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;들어가기&quot;&gt;&lt;a href=&quot;#들어가기&quot; class=&quot;headerlink&quot; title=&quot;들어가기&quot;&gt;&lt;/a&gt;들어가기&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Agile" scheme="https://black9p.github.io/categories/Agile/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Spring Camp 2019 Review</title>

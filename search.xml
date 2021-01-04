@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Clean Agile Review</title>
+    <url>/2021/01/04/Clean-Agile-Review/</url>
+    <content><![CDATA[<h2 id="들어가기"><a href="#들어가기" class="headerlink" title="들어가기"></a>들어가기</h2><a id="more"></a>
+<p>소프트웨어 개발업무를 진행하다보면 정해진 마감시간과 도대체 언제 끝날지모르는 스펙변경으로 인해 고통 받은 적이 있을 것이다. 죽음의 고비를 넘기고 다음번에는 더 이상 이런상황을 만들지 말기로 마음을 먹지만 우리의 단호한 결의와는 무관하게 어김없이 또 찾아온 그 고통을 다시 마주하고 있던 기억도 있을 것이다.<br>다행히 이러한 문제들은 이미 20년 전 소프트웨어 개발자들도 겪고 있는 문제였고, 우리가 아는 엉클밥(저자), 켄트벡, 마틴파울러 등 여러 개발자들이 모여서 이 문제에 대해 고민하고 규칙을 세웠는데 그 규칙이 애자일이다.</p>
+<h3 id="Circle-of-Life"><a href="#Circle-of-Life" class="headerlink" title="Circle of Life"></a>Circle of Life</h3><ul>
+<li>아래 그림은 애자일의 프로토타입이자 핵심인 Extreme Programming(XP)의 실천방법을 설명하는 그림으로, 삶의 순환이라는 애칭으로 불린다.</li>
+<li>가장 바깥쪽 그린라인은 비지니스관련 XP 실천방법이고, 가운데 블루라인은 팀과 관련된 실천방법, 그리고 가장 안쪽의 레드라인은 기술적 실천방법이다.</li>
+</ul>
+<p><img src="/images/agile/CircleOfLife.png" alt="CircleOfLife]"></p>
+<h2 id="실천방법"><a href="#실천방법" class="headerlink" title="실천방법"></a>실천방법</h2><h3 id="비지니스-실천방법"><a href="#비지니스-실천방법" class="headerlink" title="비지니스 실천방법"></a>비지니스 실천방법</h3><ul>
+<li>계획게임 : 이 고리에서 가장 중심적 역할로, 프로젝트를 기능, 스토리, 작업으로 쪼개는 방법을 알려준다. 크기를 추정하거나 우선순위를 결정하거나, 기능이나 스토리, 작업의 일정을 정하는데 필요한 지침을 제공한다.</li>
+<li>작은 릴리스: 팀이 일을 조그만 크기로 나누어서 하도록 이끈다.</li>
+<li>인수테스트: 기능이나 스토리, 작업의 ‘완료’를 정의할 수 있게 해준다. 완성 조건을 모호하지 않게 규정하는 방법을 보여준다.</li>
+<li>전체 팀: 소프트웨어 개발팀이 여러가지역할로 구성되어 있음을 나타내는 개념이다. 프로그래머, 테스터, 관리자 등은 같은 목표를 위해 함께 일한다.</li>
+</ul>
+<h3 id="팀-실천방법"><a href="#팀-실천방법" class="headerlink" title="팀 실천방법"></a>팀 실천방법</h3><ul>
+<li>지속가능한 속도: 개발팀이 자원을 너무 빠르게 소진한 나머지 결승선에 도달하기도 전에 탈진해 버리는것을 막기 위한 실천 방법이다.</li>
+<li>공동소유 : 팀이 프로젝트 안에 칸막이를 쳐서 지식이 퍼지지 못하게 만드는 것을 막는다.</li>
+<li>지속적 통합: 피드백 고리가 자주 돌게 만드는데 계속 집중하도록 만든다. 이를 통해 언제나 팀의 현재 위치를 알 수 있어야 한다.</li>
+<li>메타포: 시스템에 대해 팀과 사업부서가 의사소통할 때 사용하는 어휘나 표현을 만들고 널리 공유하는 실천 방법이다.</li>
+</ul>
+<h3 id="기술-실천-방법"><a href="#기술-실천-방법" class="headerlink" title="기술 실천 방법"></a>기술 실천 방법</h3><ul>
+<li>짝 프로그래밍 : 지식 공유, 서로 리뷰하고, 협력하도록 하여 혁신과 정확성을 끌어내는 실천방법이다.</li>
+<li>단순한 설계: 팀이 노력을 낭비하지 않도록 도와주는 실천 방법이다.</li>
+<li>리팩터링: 모든 작업 산출물의 지속적인 개선과 향상을 장려한다.</li>
+<li>테스트주도개발: 기술팀이 최고의 품질을 유지하면서도 빠르게 움직이기 위해 사용하는 안전망이다.</li>
+</ul>
+<h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><p>그 동안 많은 소프트웨어 개발 조직들 사이에서 애자일 도입을 시도하였고 수 많은 애자일 방법론들이 나왔다. 실제로 우리가 지금 일하는 방식에서도 애자일 영향 받은 것들도 있음을 알 수 있다. 하지만 우린 여전히 사업일정과 끊임없는 스펙변경에 휘둘려 고통을 받는 경우가 있다. 이 책의 부재 “Back to Basics” 이 말하듯 애자일 기본을 다시 돌아보고, 팀 동료들에게도 권해서 우리 조직에서 어떻게 효과적으로 애자일을 적용해 나갈수 있을지 함께 고민해보고 싶다.</p>
+]]></content>
+      <categories>
+        <category>Agile</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Javascript 함수</title>
     <url>/2018/03/28/Javascript-%ED%95%A8%EC%88%98/</url>
     <content><![CDATA[<p>ES6 함수 주요기능정리<br><a id="more"></a></p>
@@ -20,6 +54,47 @@
       <categories>
         <category>JavaScript</category>
         <category>ES6</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Javascript개발환경세팅</title>
+    <url>/2018/03/09/Javascript%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%84%B8%ED%8C%85/</url>
+    <content><![CDATA[<p>ES6 개발시 프로젝트 환경구축에 대한 정리<br><a id="more"></a></p>
+<h2 id="개발-디렉토리-생성"><a href="#개발-디렉토리-생성" class="headerlink" title="개발 디렉토리 생성"></a>개발 디렉토리 생성</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mkdir project</span><br><span class="line">$ cd project</span><br></pre></td></tr></table></figure>
+<h2 id="npm-패키지-관리"><a href="#npm-패키지-관리" class="headerlink" title="npm 패키지 관리"></a>npm 패키지 관리</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 프로젝트 root디렉토리에서..</span><br><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
+<p>package.json 파일을 통해 의존성을 관리한다.<br>로컬 패키지 설치시 –save 또는 –save-dev 플래그를 사용하여 package.json 파일에 등록하게끔한다.</p>
+<h2 id="gulp-빌드도구"><a href="#gulp-빌드도구" class="headerlink" title="gulp 빌드도구"></a>gulp 빌드도구</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 전역으로 설치(최초 1회만..)</span><br><span class="line">$ npm install -g gulp</span><br><span class="line"></span><br><span class="line">// 프로젝트 root디렉토리에서</span><br><span class="line">$ npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
+<h2 id="babel-트랜스컴파일러"><a href="#babel-트랜스컴파일러" class="headerlink" title="babel 트랜스컴파일러"></a>babel 트랜스컴파일러</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line">$ vi .babelrc</span><br></pre></td></tr></table></figure>
+<p>바벨은 ES6,리액트,ES7 등 여러가지를 지원하는 범용 트랜스컴파일러로,<br>프로젝트에서 바벨을 사용할 때 ES6을 사용한다고 지정해야한다.<br>.babelrc<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123; &quot;presets&quot;:[&quot;es2015&quot;]&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="gulp-with-babel"><a href="#gulp-with-babel" class="headerlink" title="gulp with babel"></a>gulp with babel</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save-dev gulp-babel</span><br><span class="line">$ vi gulpfile.js</span><br></pre></td></tr></table></figure>
+<p>gulpfile.js<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">"src/*.js"</span>)</span><br><span class="line">      .pipe(babel())</span><br><span class="line">      .pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>gulp 명령 실행<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gulp</span><br></pre></td></tr></table></figure></p>
+<h2 id="프로젝트-구조"><a href="#프로젝트-구조" class="headerlink" title="프로젝트 구조"></a>프로젝트 구조</h2><p>기대되는 루트디렉토리의 모습<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package.json  // npm</span><br><span class="line">node_modules</span><br><span class="line"></span><br><span class="line">gulpfile.js   // gulp</span><br><span class="line">.babelrc      // babel</span><br><span class="line"></span><br><span class="line">src           // es6 개발소스</span><br><span class="line">dist          // es5 변환소스(배포 대상)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Javascript 배열</title>
+    <url>/2018/03/29/Javascript-%EB%B0%B0%EC%97%B4/</url>
+    <content><![CDATA[<p>자바스크립트 배열 정리<br><a id="more"></a></p>
+<h2 id="배열-요소-조작"><a href="#배열-요소-조작" class="headerlink" title="배열 요소 조작"></a>배열 요소 조작</h2><h3 id="배열의-처음이나-끝에서-요소-하나를-추가하거나-제거하기"><a href="#배열의-처음이나-끝에서-요소-하나를-추가하거나-제거하기" class="headerlink" title="배열의 처음이나 끝에서 요소 하나를 추가하거나 제거하기"></a>배열의 처음이나 끝에서 요소 하나를 추가하거나 제거하기</h3><p>push : 마지막요소 추가하기<br>pop : 마지막요소 제거하기<br>unshift : 첫번째요소 추가하기<br>shift : 첫번째요소 제거하기<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.push(<span class="number">5</span>);    <span class="comment">// [2,3,4,5]</span></span><br><span class="line">arr.pop();      <span class="comment">// [2,3,4]</span></span><br><span class="line">arr.unshift(<span class="number">1</span>); <span class="comment">// [1,2,3,4]</span></span><br><span class="line">arr.unshift();  <span class="comment">// [2,3,4]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="배열의-끝에-여러요소-추가하기"><a href="#배열의-끝에-여러요소-추가하기" class="headerlink" title="배열의 끝에 여러요소 추가하기"></a>배열의 끝에 여러요소 추가하기</h3><p>concat은 배열 끝에 요소를 추가한 사본 반환을합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.concat(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);      <span class="comment">// [1,2,3,4,5,6]  arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.concat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]);    <span class="comment">// [1,2,3,4,5,6] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.concat([<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>]]);  <span class="comment">// [1,2,3,4,[5,6]] arr은 바뀌지 않습니다.</span></span><br></pre></td></tr></table></figure></p>
+<p>concat은 제공받은 배열은 한번만 분해하며, 배열 안에 있는 배열을 다시 분해하지 않습니다.</p>
+<h3 id="배열-일부-가져오기"><a href="#배열-일부-가져오기" class="headerlink" title="배열 일부 가져오기"></a>배열 일부 가져오기</h3><p>slice는 배열의 일부를 가져올때 사용합니다. 매개변수는 두개를 받으며, 첫번째 매개변수는 어디서부터 가져올지를, 두번째 매개변수는 어디까지 가져올지를(바로 앞 인덱스까지 가져옵니다) 지정합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.slice(<span class="number">3</span>);       <span class="comment">// [4,5] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">2</span>,<span class="number">4</span>);     <span class="comment">// [3,4] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">-2</span>);      <span class="comment">// [4,5] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">-2</span>);    <span class="comment">// [2,3] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slince(<span class="number">-2</span>,<span class="number">-1</span>);  <span class="comment">// [4] arr은 바뀌지 않습니다.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="임의의-위치에-요소-추가하거나-제거하기"><a href="#임의의-위치에-요소-추가하거나-제거하기" class="headerlink" title="임의의 위치에 요소 추가하거나 제거하기"></a>임의의 위치에 요소 추가하거나 제거하기</h3><p>splice는 배열을 자유롭게 수정할 수 있습니다. 첫번째 매개변수는 수정시작 인덱스, 두번째 매개변수는 제거할 요소 숫자입니다. 아무 요소를 제거하지 않을 때는 0을 넘깁니다. 나머지 매개변수는 배열에 추가될 요소입니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);    <span class="comment">// [1,2,3,4,5,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">5</span>,<span class="number">0</span>,<span class="number">6</span>);        <span class="comment">// [1,2,3,4,5,6,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>);          <span class="comment">// [1,4,5,6,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">'a'</span>,<span class="string">'b'</span>);  <span class="comment">// [1,4,'a','b',6,7] arr은 변경됩니다.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="배열-안에서-요소-교체하기"><a href="#배열-안에서-요소-교체하기" class="headerlink" title="배열 안에서 요소 교체하기"></a>배열 안에서 요소 교체하기</h3><p>copyWithin은 배열요소를 복사해 다른위치에붙여놓고, 기존의 요소를 덮어씁니다. 첫 번째 매개변수는 복사한 요소를 붙여넣을 위치이고, 두번째 매개변수는 복사를 시작할 위치이고, 세번 쨰 매개변수는 복사를 끝낼 위치입니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.copyWithin(<span class="number">1</span>,<span class="number">2</span>);      <span class="comment">// [1,3,4,4]</span></span><br><span class="line">arr.copyWithin(<span class="number">2</span>,<span class="number">0</span>,<span class="number">2</span>);    <span class="comment">// [1,3,1,3]</span></span><br><span class="line">arr.copyWithin(<span class="number">0</span>,<span class="number">-3</span>,<span class="number">-1</span>);  <span class="comment">// [3,1,1,3] ?? 받아지지가 않는다...</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="특정-값으로-배열-채우기"><a href="#특정-값으로-배열-채우기" class="headerlink" title="특정 값으로 배열 채우기"></a>특정 값으로 배열 채우기</h3><p>fill은 정해진 값으로 배열을 채웁니다. Array생성자와 잘 어울립니다. 일부만 채울경우, 시작 끝 인덱스를 지정하면됩니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>).fill(<span class="number">1</span>); <span class="comment">// [1,1,1,1,1];</span></span><br><span class="line">arr.fill(<span class="string">"a"</span>);                    <span class="comment">// ["a","a","a","a","a"]</span></span><br><span class="line">arr.fill(<span class="string">"b"</span>,<span class="number">1</span>);                  <span class="comment">// ["a","b","b","b","b"]</span></span><br><span class="line">arr.fill(<span class="string">"c"</span>,<span class="number">2</span>,<span class="number">4</span>);                <span class="comment">// ["a","b","c","c","b"]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="배열-정렬과-역순-정렬"><a href="#배열-정렬과-역순-정렬" class="headerlink" title="배열 정렬과 역순 정렬"></a>배열 정렬과 역순 정렬</h3><p>reverse는 요소 순서를 반대로 바꿉니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.reverse();  <span class="comment">// [5,4,3,2,1]</span></span><br></pre></td></tr></table></figure></p>
+<p>sort는 배열 요소의 순서를 정렬합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">arr.sort(); <span class="comment">// [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="map과-filter"><a href="#map과-filter" class="headerlink" title="map과 filter"></a>map과 filter</h2><p>map과 filter는 모두 사본을 반환합니다.</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>일정한 형식의 배열을 다른 형식으로 바꾸고 싶을때 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cart = [&#123;<span class="attr">name</span>:<span class="string">"MAC"</span>, <span class="attr">price</span>:<span class="number">100</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"PC"</span>, <span class="attr">price</span>:<span class="number">200</span>&#125;];</span><br><span class="line"><span class="keyword">const</span> names = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x.name);</span><br><span class="line"><span class="keyword">const</span> prices = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x.price);</span><br><span class="line"><span class="keyword">const</span> discountPrice = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x*<span class="number">0.8</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>배열이 필요한 것들만 남길 목적으로 만들어졌습니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.filter(x % <span class="number">2</span> === <span class="number">0</span>);  <span class="comment">// [2,4]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p>배열의 문자열 요소들을 몇몇 구분자로 합치려할때 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="literal">true</span>, <span class="literal">undefined</span>];</span><br><span class="line">arr.join();     <span class="comment">// "1,,hello,world,true,"</span></span><br><span class="line">arr.join(<span class="string">''</span>);   <span class="comment">// "1helloworldtrue"</span></span><br><span class="line">arr.join(<span class="string">'-'</span>);  <span class="comment">// "1-hello-world-true"</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
       </categories>
   </entry>
   <entry>
@@ -107,107 +182,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Javascript 배열</title>
-    <url>/2018/03/29/Javascript-%EB%B0%B0%EC%97%B4/</url>
-    <content><![CDATA[<p>자바스크립트 배열 정리<br><a id="more"></a></p>
-<h2 id="배열-요소-조작"><a href="#배열-요소-조작" class="headerlink" title="배열 요소 조작"></a>배열 요소 조작</h2><h3 id="배열의-처음이나-끝에서-요소-하나를-추가하거나-제거하기"><a href="#배열의-처음이나-끝에서-요소-하나를-추가하거나-제거하기" class="headerlink" title="배열의 처음이나 끝에서 요소 하나를 추가하거나 제거하기"></a>배열의 처음이나 끝에서 요소 하나를 추가하거나 제거하기</h3><p>push : 마지막요소 추가하기<br>pop : 마지막요소 제거하기<br>unshift : 첫번째요소 추가하기<br>shift : 첫번째요소 제거하기<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.push(<span class="number">5</span>);    <span class="comment">// [2,3,4,5]</span></span><br><span class="line">arr.pop();      <span class="comment">// [2,3,4]</span></span><br><span class="line">arr.unshift(<span class="number">1</span>); <span class="comment">// [1,2,3,4]</span></span><br><span class="line">arr.unshift();  <span class="comment">// [2,3,4]</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="배열의-끝에-여러요소-추가하기"><a href="#배열의-끝에-여러요소-추가하기" class="headerlink" title="배열의 끝에 여러요소 추가하기"></a>배열의 끝에 여러요소 추가하기</h3><p>concat은 배열 끝에 요소를 추가한 사본 반환을합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.concat(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);      <span class="comment">// [1,2,3,4,5,6]  arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.concat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]);    <span class="comment">// [1,2,3,4,5,6] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.concat([<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>]]);  <span class="comment">// [1,2,3,4,[5,6]] arr은 바뀌지 않습니다.</span></span><br></pre></td></tr></table></figure></p>
-<p>concat은 제공받은 배열은 한번만 분해하며, 배열 안에 있는 배열을 다시 분해하지 않습니다.</p>
-<h3 id="배열-일부-가져오기"><a href="#배열-일부-가져오기" class="headerlink" title="배열 일부 가져오기"></a>배열 일부 가져오기</h3><p>slice는 배열의 일부를 가져올때 사용합니다. 매개변수는 두개를 받으며, 첫번째 매개변수는 어디서부터 가져올지를, 두번째 매개변수는 어디까지 가져올지를(바로 앞 인덱스까지 가져옵니다) 지정합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.slice(<span class="number">3</span>);       <span class="comment">// [4,5] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">2</span>,<span class="number">4</span>);     <span class="comment">// [3,4] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">-2</span>);      <span class="comment">// [4,5] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">-2</span>);    <span class="comment">// [2,3] arr은 바뀌지 않습니다.</span></span><br><span class="line">arr.slince(<span class="number">-2</span>,<span class="number">-1</span>);  <span class="comment">// [4] arr은 바뀌지 않습니다.</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="임의의-위치에-요소-추가하거나-제거하기"><a href="#임의의-위치에-요소-추가하거나-제거하기" class="headerlink" title="임의의 위치에 요소 추가하거나 제거하기"></a>임의의 위치에 요소 추가하거나 제거하기</h3><p>splice는 배열을 자유롭게 수정할 수 있습니다. 첫번째 매개변수는 수정시작 인덱스, 두번째 매개변수는 제거할 요소 숫자입니다. 아무 요소를 제거하지 않을 때는 0을 넘깁니다. 나머지 매개변수는 배열에 추가될 요소입니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">5</span>,<span class="number">7</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);    <span class="comment">// [1,2,3,4,5,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">5</span>,<span class="number">0</span>,<span class="number">6</span>);        <span class="comment">// [1,2,3,4,5,6,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>);          <span class="comment">// [1,4,5,6,7] arr은 변경됩니다.</span></span><br><span class="line">arr.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">'a'</span>,<span class="string">'b'</span>);  <span class="comment">// [1,4,'a','b',6,7] arr은 변경됩니다.</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="배열-안에서-요소-교체하기"><a href="#배열-안에서-요소-교체하기" class="headerlink" title="배열 안에서 요소 교체하기"></a>배열 안에서 요소 교체하기</h3><p>copyWithin은 배열요소를 복사해 다른위치에붙여놓고, 기존의 요소를 덮어씁니다. 첫 번째 매개변수는 복사한 요소를 붙여넣을 위치이고, 두번째 매개변수는 복사를 시작할 위치이고, 세번 쨰 매개변수는 복사를 끝낼 위치입니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">arr.copyWithin(<span class="number">1</span>,<span class="number">2</span>);      <span class="comment">// [1,3,4,4]</span></span><br><span class="line">arr.copyWithin(<span class="number">2</span>,<span class="number">0</span>,<span class="number">2</span>);    <span class="comment">// [1,3,1,3]</span></span><br><span class="line">arr.copyWithin(<span class="number">0</span>,<span class="number">-3</span>,<span class="number">-1</span>);  <span class="comment">// [3,1,1,3] ?? 받아지지가 않는다...</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="특정-값으로-배열-채우기"><a href="#특정-값으로-배열-채우기" class="headerlink" title="특정 값으로 배열 채우기"></a>특정 값으로 배열 채우기</h3><p>fill은 정해진 값으로 배열을 채웁니다. Array생성자와 잘 어울립니다. 일부만 채울경우, 시작 끝 인덱스를 지정하면됩니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">5</span>).fill(<span class="number">1</span>); <span class="comment">// [1,1,1,1,1];</span></span><br><span class="line">arr.fill(<span class="string">"a"</span>);                    <span class="comment">// ["a","a","a","a","a"]</span></span><br><span class="line">arr.fill(<span class="string">"b"</span>,<span class="number">1</span>);                  <span class="comment">// ["a","b","b","b","b"]</span></span><br><span class="line">arr.fill(<span class="string">"c"</span>,<span class="number">2</span>,<span class="number">4</span>);                <span class="comment">// ["a","b","c","c","b"]</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="배열-정렬과-역순-정렬"><a href="#배열-정렬과-역순-정렬" class="headerlink" title="배열 정렬과 역순 정렬"></a>배열 정렬과 역순 정렬</h3><p>reverse는 요소 순서를 반대로 바꿉니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.reverse();  <span class="comment">// [5,4,3,2,1]</span></span><br></pre></td></tr></table></figure></p>
-<p>sort는 배열 요소의 순서를 정렬합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">arr.sort(); <span class="comment">// [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="map과-filter"><a href="#map과-filter" class="headerlink" title="map과 filter"></a>map과 filter</h2><p>map과 filter는 모두 사본을 반환합니다.</p>
-<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>일정한 형식의 배열을 다른 형식으로 바꾸고 싶을때 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cart = [&#123;<span class="attr">name</span>:<span class="string">"MAC"</span>, <span class="attr">price</span>:<span class="number">100</span>&#125;, &#123;<span class="attr">name</span>:<span class="string">"PC"</span>, <span class="attr">price</span>:<span class="number">200</span>&#125;];</span><br><span class="line"><span class="keyword">const</span> names = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x.name);</span><br><span class="line"><span class="keyword">const</span> prices = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x.price);</span><br><span class="line"><span class="keyword">const</span> discountPrice = cart.map(<span class="function"><span class="params">x</span> =&gt;</span> x*<span class="number">0.8</span>);</span><br></pre></td></tr></table></figure></p>
-<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>배열이 필요한 것들만 남길 목적으로 만들어졌습니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">arr.filter(x % <span class="number">2</span> === <span class="number">0</span>);  <span class="comment">// [2,4]</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="join"><a href="#join" class="headerlink" title="join"></a>join</h3><p>배열의 문자열 요소들을 몇몇 구분자로 합치려할때 사용합니다.<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="literal">null</span>, <span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="literal">true</span>, <span class="literal">undefined</span>];</span><br><span class="line">arr.join();     <span class="comment">// "1,,hello,world,true,"</span></span><br><span class="line">arr.join(<span class="string">''</span>);   <span class="comment">// "1helloworldtrue"</span></span><br><span class="line">arr.join(<span class="string">'-'</span>);  <span class="comment">// "1-hello-world-true"</span></span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Javascript개발환경세팅</title>
-    <url>/2018/03/09/Javascript%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%84%B8%ED%8C%85/</url>
-    <content><![CDATA[<p>ES6 개발시 프로젝트 환경구축에 대한 정리<br><a id="more"></a></p>
-<h2 id="개발-디렉토리-생성"><a href="#개발-디렉토리-생성" class="headerlink" title="개발 디렉토리 생성"></a>개발 디렉토리 생성</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mkdir project</span><br><span class="line">$ cd project</span><br></pre></td></tr></table></figure>
-<h2 id="npm-패키지-관리"><a href="#npm-패키지-관리" class="headerlink" title="npm 패키지 관리"></a>npm 패키지 관리</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 프로젝트 root디렉토리에서..</span><br><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
-<p>package.json 파일을 통해 의존성을 관리한다.<br>로컬 패키지 설치시 –save 또는 –save-dev 플래그를 사용하여 package.json 파일에 등록하게끔한다.</p>
-<h2 id="gulp-빌드도구"><a href="#gulp-빌드도구" class="headerlink" title="gulp 빌드도구"></a>gulp 빌드도구</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 전역으로 설치(최초 1회만..)</span><br><span class="line">$ npm install -g gulp</span><br><span class="line"></span><br><span class="line">// 프로젝트 root디렉토리에서</span><br><span class="line">$ npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
-<h2 id="babel-트랜스컴파일러"><a href="#babel-트랜스컴파일러" class="headerlink" title="babel 트랜스컴파일러"></a>babel 트랜스컴파일러</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save-dev babel-preset-es2015</span><br><span class="line">$ vi .babelrc</span><br></pre></td></tr></table></figure>
-<p>바벨은 ES6,리액트,ES7 등 여러가지를 지원하는 범용 트랜스컴파일러로,<br>프로젝트에서 바벨을 사용할 때 ES6을 사용한다고 지정해야한다.<br>.babelrc<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123; &quot;presets&quot;:[&quot;es2015&quot;]&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="gulp-with-babel"><a href="#gulp-with-babel" class="headerlink" title="gulp with babel"></a>gulp with babel</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install --save-dev gulp-babel</span><br><span class="line">$ vi gulpfile.js</span><br></pre></td></tr></table></figure>
-<p>gulpfile.js<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">const</span> babel = <span class="built_in">require</span>(<span class="string">'gulp-babel'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">"src/*.js"</span>)</span><br><span class="line">      .pipe(babel())</span><br><span class="line">      .pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>gulp 명령 실행<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gulp</span><br></pre></td></tr></table></figure></p>
-<h2 id="프로젝트-구조"><a href="#프로젝트-구조" class="headerlink" title="프로젝트 구조"></a>프로젝트 구조</h2><p>기대되는 루트디렉토리의 모습<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package.json  // npm</span><br><span class="line">node_modules</span><br><span class="line"></span><br><span class="line">gulpfile.js   // gulp</span><br><span class="line">.babelrc      // babel</span><br><span class="line"></span><br><span class="line">src           // es6 개발소스</span><br><span class="line">dist          // es5 변환소스(배포 대상)</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Spring Camp 2019 Review</title>
-    <url>/2019/04/28/Spring-Camp-2019-Review/</url>
-    <content><![CDATA[<p><a href="https://www.springcamp.io/2019/" target="_blank" rel="noopener">스프링캠프 2019</a> 참석 후기<br><a id="more"></a></p>
-<h2 id="실전에-써먹는-스프링부트"><a href="#실전에-써먹는-스프링부트" class="headerlink" title="실전에 써먹는 스프링부트"></a>실전에 써먹는 스프링부트</h2><ul>
-<li>개발자의 삶은.. B(Build), C(Code), D(Deploy)</li>
-<li>Build: Springboot Gradle Plugin, 의존성관리(BOM)</li>
-<li>Code: 스프링(애노테이션) 프로그래밍 모델, @Profile, AutoConfiguration, Application.yml</li>
-<li>Deploy: 전통적 배포방식, 자기완비적 실행가능한 배포방식</li>
-<li>spring-boot-admin</li>
-</ul>
-<h2 id="Monitoring-With-Actuator"><a href="#Monitoring-With-Actuator" class="headerlink" title="Monitoring With Actuator"></a>Monitoring With Actuator</h2><ul>
-<li>모니터링을 하는이유? 장애예방, 성능개성 등.. 을 하려면 지표가 필요하다.</li>
-<li>모니터링을 어떻게 할것인가? Spring Boot Actuator</li>
-<li>애플리케이션 제어도구 제공 : endpoint</li>
-<li>Metric Endpoint &gt; http.server.requests : RED(Rate, Errors, Duration) Method 부합 정보제공</li>
-<li>Micrometer : metric collector 추상화된 인터페이스</li>
-</ul>
-<h2 id="자바에서-null을-안전하게-사용하는-방법"><a href="#자바에서-null을-안전하게-사용하는-방법" class="headerlink" title="자바에서 null을 안전하게 사용하는 방법"></a>자바에서 null을 안전하게 사용하는 방법</h2><ul>
-<li>null의 탄생은 실수이고, 현재 구글플레이 통계상 자바진형에서 많은 결함은 NPE관련이다.</li>
-<li>API(매개변수, 반환값)에 null을 최대한 쓰지말자.</li>
-<li>사전조건과 사후조건을 확인하라: design by contract(계약에 의한 설계: OCP)</li>
-<li>(상태와 같이) null의 범위를 지역(클래스, 메서드)에 제한하라.</li>
-<li>초기화를 명확히 하라.</li>
-<li>JSR 305, JSR 308</li>
-<li>Checker Framework</li>
-</ul>
-<h2 id="무엇을-어떻게-테스트-할-것인가"><a href="#무엇을-어떻게-테스트-할-것인가" class="headerlink" title="무엇을 어떻게 테스트 할 것인가?"></a>무엇을 어떻게 테스트 할 것인가?</h2><ul>
-<li>테스트로 얻을 수 있는것? 안정감과 자신감</li>
-<li>대상은? 현재와 미래의 나, 현재와 미래의 동료</li>
-<li>구현 테스트가 아니라 설계 테스트를 해야한다.</li>
-<li><a href="https://www.slideshare.net/OKJSP/okkycon-120497749" target="_blank" rel="noopener">테스트하기 쉬운 코드로 개발하기</a></li>
-<li>Non-Testable(제어할 수 없는 영역)을 BoundaryLayer까지 빼내어 테스트한다.</li>
-<li>@SpringBootTest: SpringContext는 꼭 필요할때만 사용하자. 피드백이 느린단점이 있다.</li>
-<li>Test Double을 남용하지 말자. 무분별하게 사용하면 구현테스트가 될 수 있기 때문에..</li>
-</ul>
-<h2 id="레거시-프로젝트-개선-이야기"><a href="#레거시-프로젝트-개선-이야기" class="headerlink" title="레거시 프로젝트 개선 이야기"></a>레거시 프로젝트 개선 이야기</h2><ul>
-<li>레거시코드? 테스트코드로 커버되지 않으며 유지보수가 되지 않는 코드.</li>
-<li>레거시코드? 오랜시간 자신의 역할을 실행한 안정적인코드, 조직의 축적된 기술이 녹이 있는 코드.</li>
-<li>핵심은.. 코드를 개선하고 내 것으로 만들어야 한다.</li>
-<li>비난은 그만하고 로직파악을, 로직파악은 TC를 보면 좋은데 없을경우 만들어야한다.</li>
-<li>운영중이기 때문에 당장 해결해야할 우선순위를 정한다.</li>
-<li>Common Lib에서 실제로 쓰는것만 빼서 추가하고, 왠만하면 스프링에서 제공하는걸로 교체.</li>
-<li>배포는 카나리 릴리즈</li>
-<li>전에는 잘됐는데 지금은 안되요.. 라는 말도 들을 수 있다.</li>
-<li>CPU 사용량이 많은곳 메모리 절약 등도 고려</li>
-<li>비용이 드는 외부 API 교체</li>
-</ul>
-<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><ul>
-<li>오전 세션(1,2)을 듣고 많은 분들이 Actuator가 Production Level에서 성능문제를 일으키지 않을지에 대해 궁금했던거 같은데, 이에 대해 만족할만한 답변을 들은 것 같진 않다. 그래도 일단 써봐야겠다는 생각은 들었다.</li>
-<li>세션 3은 null 사용에 대해 한번 더 생각하게 된 것 같다. null문제에 대해 당장은 해결이 되지 않을 것 같으니, 잘 이해하고 사용해야 할 것 같다.</li>
-<li>세션 4에서는 테스트코드를 왜 짜는지, 어떻게 짜야할지에 대해서도 한번 더 생각해보게 되었다. 개인적으로 스프링 컨텍스트 로딩과 Test Double을 너무 남용하고 있었지 않았나 싶다.</li>
-<li>세션 5는 많은 깨우침과 반성의 시간이었다. 레거시코드에 대한 마음가짐이 바뀌어야하고, 레거시코드를 내 코드로 만들어야하는 노력이 필요할 것 같다.</li>
-<li>세션 6,7은 코틀린 관련 세션을 들었는데, 아직까진 practical한 단계는 아닌것 같다는 생각이 들었다.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Spring</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Spock Testing</title>
     <url>/2018/07/19/Spock-Testing/</url>
     <content><![CDATA[<h1 id="Spock-Introduction"><a href="#Spock-Introduction" class="headerlink" title="Spock Introduction"></a>Spock Introduction</h1><h2 id="WHAT-IS-SPOCK"><a href="#WHAT-IS-SPOCK" class="headerlink" title="WHAT IS SPOCK?"></a>WHAT IS SPOCK?</h2><ul>
@@ -289,6 +263,66 @@
       </categories>
   </entry>
   <entry>
+    <title>Spring Camp 2019 Review</title>
+    <url>/2019/04/28/Spring-Camp-2019-Review/</url>
+    <content><![CDATA[<p><a href="https://www.springcamp.io/2019/" target="_blank" rel="noopener">스프링캠프 2019</a> 참석 후기<br><a id="more"></a></p>
+<h2 id="실전에-써먹는-스프링부트"><a href="#실전에-써먹는-스프링부트" class="headerlink" title="실전에 써먹는 스프링부트"></a>실전에 써먹는 스프링부트</h2><ul>
+<li>개발자의 삶은.. B(Build), C(Code), D(Deploy)</li>
+<li>Build: Springboot Gradle Plugin, 의존성관리(BOM)</li>
+<li>Code: 스프링(애노테이션) 프로그래밍 모델, @Profile, AutoConfiguration, Application.yml</li>
+<li>Deploy: 전통적 배포방식, 자기완비적 실행가능한 배포방식</li>
+<li>spring-boot-admin</li>
+</ul>
+<h2 id="Monitoring-With-Actuator"><a href="#Monitoring-With-Actuator" class="headerlink" title="Monitoring With Actuator"></a>Monitoring With Actuator</h2><ul>
+<li>모니터링을 하는이유? 장애예방, 성능개성 등.. 을 하려면 지표가 필요하다.</li>
+<li>모니터링을 어떻게 할것인가? Spring Boot Actuator</li>
+<li>애플리케이션 제어도구 제공 : endpoint</li>
+<li>Metric Endpoint &gt; http.server.requests : RED(Rate, Errors, Duration) Method 부합 정보제공</li>
+<li>Micrometer : metric collector 추상화된 인터페이스</li>
+</ul>
+<h2 id="자바에서-null을-안전하게-사용하는-방법"><a href="#자바에서-null을-안전하게-사용하는-방법" class="headerlink" title="자바에서 null을 안전하게 사용하는 방법"></a>자바에서 null을 안전하게 사용하는 방법</h2><ul>
+<li>null의 탄생은 실수이고, 현재 구글플레이 통계상 자바진형에서 많은 결함은 NPE관련이다.</li>
+<li>API(매개변수, 반환값)에 null을 최대한 쓰지말자.</li>
+<li>사전조건과 사후조건을 확인하라: design by contract(계약에 의한 설계: OCP)</li>
+<li>(상태와 같이) null의 범위를 지역(클래스, 메서드)에 제한하라.</li>
+<li>초기화를 명확히 하라.</li>
+<li>JSR 305, JSR 308</li>
+<li>Checker Framework</li>
+</ul>
+<h2 id="무엇을-어떻게-테스트-할-것인가"><a href="#무엇을-어떻게-테스트-할-것인가" class="headerlink" title="무엇을 어떻게 테스트 할 것인가?"></a>무엇을 어떻게 테스트 할 것인가?</h2><ul>
+<li>테스트로 얻을 수 있는것? 안정감과 자신감</li>
+<li>대상은? 현재와 미래의 나, 현재와 미래의 동료</li>
+<li>구현 테스트가 아니라 설계 테스트를 해야한다.</li>
+<li><a href="https://www.slideshare.net/OKJSP/okkycon-120497749" target="_blank" rel="noopener">테스트하기 쉬운 코드로 개발하기</a></li>
+<li>Non-Testable(제어할 수 없는 영역)을 BoundaryLayer까지 빼내어 테스트한다.</li>
+<li>@SpringBootTest: SpringContext는 꼭 필요할때만 사용하자. 피드백이 느린단점이 있다.</li>
+<li>Test Double을 남용하지 말자. 무분별하게 사용하면 구현테스트가 될 수 있기 때문에..</li>
+</ul>
+<h2 id="레거시-프로젝트-개선-이야기"><a href="#레거시-프로젝트-개선-이야기" class="headerlink" title="레거시 프로젝트 개선 이야기"></a>레거시 프로젝트 개선 이야기</h2><ul>
+<li>레거시코드? 테스트코드로 커버되지 않으며 유지보수가 되지 않는 코드.</li>
+<li>레거시코드? 오랜시간 자신의 역할을 실행한 안정적인코드, 조직의 축적된 기술이 녹이 있는 코드.</li>
+<li>핵심은.. 코드를 개선하고 내 것으로 만들어야 한다.</li>
+<li>비난은 그만하고 로직파악을, 로직파악은 TC를 보면 좋은데 없을경우 만들어야한다.</li>
+<li>운영중이기 때문에 당장 해결해야할 우선순위를 정한다.</li>
+<li>Common Lib에서 실제로 쓰는것만 빼서 추가하고, 왠만하면 스프링에서 제공하는걸로 교체.</li>
+<li>배포는 카나리 릴리즈</li>
+<li>전에는 잘됐는데 지금은 안되요.. 라는 말도 들을 수 있다.</li>
+<li>CPU 사용량이 많은곳 메모리 절약 등도 고려</li>
+<li>비용이 드는 외부 API 교체</li>
+</ul>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><ul>
+<li>오전 세션(1,2)을 듣고 많은 분들이 Actuator가 Production Level에서 성능문제를 일으키지 않을지에 대해 궁금했던거 같은데, 이에 대해 만족할만한 답변을 들은 것 같진 않다. 그래도 일단 써봐야겠다는 생각은 들었다.</li>
+<li>세션 3은 null 사용에 대해 한번 더 생각하게 된 것 같다. null문제에 대해 당장은 해결이 되지 않을 것 같으니, 잘 이해하고 사용해야 할 것 같다.</li>
+<li>세션 4에서는 테스트코드를 왜 짜는지, 어떻게 짜야할지에 대해서도 한번 더 생각해보게 되었다. 개인적으로 스프링 컨텍스트 로딩과 Test Double을 너무 남용하고 있었지 않았나 싶다.</li>
+<li>세션 5는 많은 깨우침과 반성의 시간이었다. 레거시코드에 대한 마음가짐이 바뀌어야하고, 레거시코드를 내 코드로 만들어야하는 노력이 필요할 것 같다.</li>
+<li>세션 6,7은 코틀린 관련 세션을 들었는데, 아직까진 practical한 단계는 아닌것 같다는 생각이 들었다.</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Spring Data, Specification 사용하기</title>
     <url>/2018/09/13/Spring-Data-Specification-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</url>
     <content><![CDATA[<p>Spring Data에서 Query method만으로는 모든 쿼리를 커버할 순 없다.<br>Specification을 이용한 조건쿼리 생성하는 방법에 대해 알아보자.<br><a id="more"></a></p>
@@ -300,6 +334,45 @@
       <categories>
         <category>JPA</category>
         <category>Spring Data</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>리액트 정리 - 1</title>
+    <url>/2019/02/10/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%A0%95%EB%A6%AC-1/</url>
+    <content><![CDATA[<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>리액트를 이용해 전화번호부 구현한 내용 정리.<br><a id="more"></a></p>
+<h2 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h2><p>작년 하반기에 리액트에 관심이 생겨 팀내 스터디를 만들어 올초 1월까지 학습하였고, 학습한 내용을 소화할겸 전화번호부를 구현해 보았다. 본 글은 1,2편으로 나누어 작성할 것이고 1편은 리액트만을 이용해 구현한 부분까지, 2편은 리덕스를 적용한 내용에 대해 포스팅할 예정이다.</p>
+<h2 id="Mockup"><a href="#Mockup" class="headerlink" title="Mockup"></a>Mockup</h2><p>아래 그림은 구현할 전화번호부의 모습이다.<br><img src="/images/reactjs/Mockup.png" alt="Mockup"></p>
+<p>상단의 검색바에서 사람을 검색할 수 있고, 추가버튼을 눌러 전화번호부에 추가를 할 수 있다.<br>좌측 하단에는 검색된 사람의 리스트를 나열하며, x버튼을 눌러 전화번호부에서 삭제를 할 수 있다.<br>전화번호부 리스트의 사람을 선택하면 우측에 상세정보를 나타낸다.</p>
+<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>리액트로 애플리케이션 인터페이스를 설계할때 여러가지 컴포넌트로 구성할 수 있다.<br>아래의 그림은 먼저 그린 목업에 내가 구현할 방식으로 컴포넌트를 나눈 모습이다.<br><img src="/images/reactjs/Component.png" alt="Component"></p>
+<ul>
+<li>SearchBar: 검색바와 추가버튼</li>
+<li>PhoneBookList: 전화번호 리스트</li>
+<li>PhoneBook: 개별 전화번호와 삭제버튼</li>
+<li>PhoneBookDetail: 전화번호 상세</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> SearchBar <span class="keyword">from</span> <span class="string">'./components/SearchBar'</span>;</span><br><span class="line"><span class="keyword">import</span> PhoneBookList <span class="keyword">from</span> <span class="string">'./components/PhoneBookList'</span>;</span><br><span class="line"><span class="keyword">import</span> PhoneBookDetail <span class="keyword">from</span> <span class="string">'./components/PhoneBookDetail'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar/&gt;</span><br><span class="line">            &lt;PhoneBookList/&gt;</span><br><span class="line">            &lt;PhoneDetail/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>리액트 컴포넌트 내부에서 읽고 업데이트 할 수 있는 값을 지정하기위해 State를 사용한다.<br>State는 컴포넌트 내부에서 this.state 로 접근 가능하며, 상태변경을 위해선 반드시 this.setState()로만 변경해야 한다.</p>
+<ul>
+<li>allList: 전화번호부 전체리스트</li>
+<li>selectedList: 전화번호부 검색리스트(검색용)</li>
+<li>selectedPhoneBook: 상세보기 대상 전화번호부</li>
+<li>inputPhoneBook: 검색 입력값</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    allList: phoneList,</span><br><span class="line">    selectedList: phoneList,</span><br><span class="line">    selectedPhoneBook: <span class="string">''</span>,</span><br><span class="line">    inputPhoneBook: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar/&gt;</span><br><span class="line">            &lt;PhoneBookList/&gt;</span><br><span class="line">            &lt;PhoneDetail/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>props는 properties를 줄인 표현으로 컴포넌트 속성을 사용할 때 사용하는 요소이며 부모 컴포넌트(해당 컴포넌트를 불러와 사용하는 컴포넌트)에서만 설정 할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    allList: phoneList,</span><br><span class="line">    selectedList: phoneList,</span><br><span class="line">    selectedPhoneBook: <span class="string">''</span>,</span><br><span class="line">    inputPhoneBook: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; inputPhoneBook, selectedList, selectedPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            <span class="comment">// 부모 컴포넌트에서 html속성을 넣듯이 props를 넘길수 있다.</span></span><br><span class="line">            &lt;SearchBar inputPhoneBook=&#123;inputPhoneBook&#125; /&gt;</span><br><span class="line">            &lt;PhoneBookList phoneBookList=&#123;selectedList&#125;/&gt;</span><br><span class="line">            &lt;PhoneDetail phoneBook=&#123;selectedPhoneBook&#125;/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SearchBar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        <span class="comment">// 자녀 컴포넌트에서 this.props로 넘겨받은 props값을 접근할 수 있다.</span></span><br><span class="line">        &lt;input type=<span class="string">"text"</span> value=&#123;<span class="keyword">this</span>.props.inputPhoneBook&#125; placeholder=<span class="string">"Search.."</span>/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;button type=<span class="string">"button"</span>&gt;추가&lt;\/button&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">      &lt;\/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Event-Handling"><a href="#Event-Handling" class="headerlink" title="Event Handling"></a>Event Handling</h2><p>리액트의 이벤트 시스템은 html 이벤트와 사용법이 매우 비슷하지만 주의할 점이 있다.</p>
+<ul>
+<li>이벤트 이름은 camelCase로 작성한다.(예: onclick =&gt; onClick, onkeyup =&gt; onKeyUp)</li>
+<li><strong>이벤트에 실행할 자바스크립트 코드를 전달하는것이 아니라, 함수 형태의 값을 전달한다.</strong></li>
+<li>DOM 요소에만 이벤트를 설정할 수 있다.(내가 만든 컴포넌트는 이벤트를 설정 할 수 없다.)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  (...)</span><br><span class="line">  <span class="comment">// 이벤트는 함수로 넘겨야 한다.</span></span><br><span class="line">  handleSelectedList = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      selectedList: <span class="keyword">this</span>.state.allList.filter(<span class="function"><span class="params">phonebook</span> =&gt;</span> phonebook.name.search(e.target.value) !== <span class="number">-1</span>),</span><br><span class="line">      inputPhoneBook: e.target.value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addPhoneBook = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; allList, inputPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">const</span> newPhoneBook =  &#123;</span><br><span class="line">      id: <span class="keyword">this</span>.id++,</span><br><span class="line">      name: inputPhoneBook,</span><br><span class="line">      phonenumber: <span class="string">''</span>,</span><br><span class="line">      address: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState( &#123;</span><br><span class="line">      allList: [...allList, newPhoneBook],</span><br><span class="line">      selectedPhoneBook: newPhoneBook,</span><br><span class="line">      selectedList: [newPhoneBook]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; inputPhoneBook, selectedList, selectedPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">      <span class="keyword">const</span> &#123; handleSelectedList, addPhoneBook &#125; = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar inputPhoneBook=&#123;inputPhoneBook&#125; handleSelectedList = &#123;handleSelectedList&#125; addPhoneBook = &#123;addPhoneBook&#125; /&gt;</span><br><span class="line">            &lt;PhoneBookList phoneBookList=&#123;selectedList&#125;/&gt;</span><br><span class="line">            &lt;PhoneDetail phoneBook=&#123;selectedPhoneBook&#125;/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SearchBar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; inputPhoneBook, handleSelectedList, addPhoneBook &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type=<span class="string">"text"</span> onChange=&#123;handleSelectedList&#125; value=&#123;inputPhoneBook&#125; placeholder=<span class="string">"Search.."</span>/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;button type=<span class="string">"button"</span> onClick=&#123;addPhoneBook&#125;&gt;추가&lt;\/button&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">      &lt;\/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>순수 리액트만으로 전화번호부 구현 방법에 대해 살펴보았다.<br>구현에 대한 전체소스는 <a href="https://github.com/black9p/phonebook/tree/react-only" target="_blank" rel="noopener">여기</a> 에서 확인 할 수 있다.</p>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/62597469?Acode=101" target="_blank" rel="noopener">리액트를 다루는 기술</a></p>
+]]></content>
+      <categories>
+        <category>ReactJS</category>
       </categories>
   </entry>
   <entry>
@@ -378,27 +451,6 @@
 ]]></content>
       <categories>
         <category>성능테스트</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>디폴트 메서드</title>
-    <url>/2018/02/12/%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%A9%94%EC%84%9C%EB%93%9C/</url>
-    <content><![CDATA[<p><strong>디폴트 메서드</strong>는 인터페이스내 기본구현된 메서드로 하위호환을 유지하며 API를 바꿀 수 있도록 한다. default 키워드로 시작하며 클래스에 선언된 메서드처럼 메서드 바디를 포함한다.</p>
-<a id="more"></a>
- <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sized</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123; <span class="comment">// 디폴트 메서드</span></span><br><span class="line">    <span class="keyword">return</span> size() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="추상-클래스-vs-자바8의-인터페이스"><a href="#추상-클래스-vs-자바8의-인터페이스" class="headerlink" title="추상 클래스 vs 자바8의 인터페이스"></a>추상 클래스 vs 자바8의 인터페이스</h3><ol>
-<li>클래스는 하나의 추상 클래스만 상속받을 수 있지만 인터페이스를 여러 개 구현할 수 있다.</li>
-<li>추상 클래스는 인스턴스 변수(필드)로 공통 상태를 가질 수 있다. 하지만 인터페이스는 인스턴스 변수를 가질 수 없다.</li>
-</ol>
-<h2 id="해석-규칙"><a href="#해석-규칙" class="headerlink" title="해석 규칙"></a>해석 규칙</h2><ol>
-<li>클래스가 항상 이긴다. 클래스나 슈퍼클래스에서 정의한 메서드가 디폴트 메서드보다 우선권을 갖는다.</li>
-<li>1번 규칙 이외의 상황에서는 서브인터페이스가 이긴다. 상속관계를 갖는 인터페이스에서 같은 시그너처를 갖는 메서드를 정의할 때는 서브인터페이스가 이긴다. 즉, B가 A를 상속받는다면 B가 A를 이긴다.</li>
-<li>여전히 디폴트 메서드의 우선순위가 결정되지 않았다면 여러 인터페이스를 상속받는 클래스가 명시적으로 디폴트 메서드를 오버라이드하고 호출해야한다.</li>
-</ol>
-<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
       </categories>
   </entry>
   <entry>
@@ -497,42 +549,24 @@
       </categories>
   </entry>
   <entry>
-    <title>리액트 정리 - 1</title>
-    <url>/2019/02/10/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EC%A0%95%EB%A6%AC-1/</url>
-    <content><![CDATA[<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>리액트를 이용해 전화번호부 구현한 내용 정리.<br><a id="more"></a></p>
-<h2 id="Prologue"><a href="#Prologue" class="headerlink" title="Prologue"></a>Prologue</h2><p>작년 하반기에 리액트에 관심이 생겨 팀내 스터디를 만들어 올초 1월까지 학습하였고, 학습한 내용을 소화할겸 전화번호부를 구현해 보았다. 본 글은 1,2편으로 나누어 작성할 것이고 1편은 리액트만을 이용해 구현한 부분까지, 2편은 리덕스를 적용한 내용에 대해 포스팅할 예정이다.</p>
-<h2 id="Mockup"><a href="#Mockup" class="headerlink" title="Mockup"></a>Mockup</h2><p>아래 그림은 구현할 전화번호부의 모습이다.<br><img src="/images/reactjs/Mockup.png" alt="Mockup"></p>
-<p>상단의 검색바에서 사람을 검색할 수 있고, 추가버튼을 눌러 전화번호부에 추가를 할 수 있다.<br>좌측 하단에는 검색된 사람의 리스트를 나열하며, x버튼을 눌러 전화번호부에서 삭제를 할 수 있다.<br>전화번호부 리스트의 사람을 선택하면 우측에 상세정보를 나타낸다.</p>
-<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>리액트로 애플리케이션 인터페이스를 설계할때 여러가지 컴포넌트로 구성할 수 있다.<br>아래의 그림은 먼저 그린 목업에 내가 구현할 방식으로 컴포넌트를 나눈 모습이다.<br><img src="/images/reactjs/Component.png" alt="Component"></p>
-<ul>
-<li>SearchBar: 검색바와 추가버튼</li>
-<li>PhoneBookList: 전화번호 리스트</li>
-<li>PhoneBook: 개별 전화번호와 삭제버튼</li>
-<li>PhoneBookDetail: 전화번호 상세</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> SearchBar <span class="keyword">from</span> <span class="string">'./components/SearchBar'</span>;</span><br><span class="line"><span class="keyword">import</span> PhoneBookList <span class="keyword">from</span> <span class="string">'./components/PhoneBookList'</span>;</span><br><span class="line"><span class="keyword">import</span> PhoneBookDetail <span class="keyword">from</span> <span class="string">'./components/PhoneBookDetail'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar/&gt;</span><br><span class="line">            &lt;PhoneBookList/&gt;</span><br><span class="line">            &lt;PhoneDetail/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
-<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>리액트 컴포넌트 내부에서 읽고 업데이트 할 수 있는 값을 지정하기위해 State를 사용한다.<br>State는 컴포넌트 내부에서 this.state 로 접근 가능하며, 상태변경을 위해선 반드시 this.setState()로만 변경해야 한다.</p>
-<ul>
-<li>allList: 전화번호부 전체리스트</li>
-<li>selectedList: 전화번호부 검색리스트(검색용)</li>
-<li>selectedPhoneBook: 상세보기 대상 전화번호부</li>
-<li>inputPhoneBook: 검색 입력값</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    allList: phoneList,</span><br><span class="line">    selectedList: phoneList,</span><br><span class="line">    selectedPhoneBook: <span class="string">''</span>,</span><br><span class="line">    inputPhoneBook: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar/&gt;</span><br><span class="line">            &lt;PhoneBookList/&gt;</span><br><span class="line">            &lt;PhoneDetail/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
-<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>props는 properties를 줄인 표현으로 컴포넌트 속성을 사용할 때 사용하는 요소이며 부모 컴포넌트(해당 컴포넌트를 불러와 사용하는 컴포넌트)에서만 설정 할 수 있다.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    allList: phoneList,</span><br><span class="line">    selectedList: phoneList,</span><br><span class="line">    selectedPhoneBook: <span class="string">''</span>,</span><br><span class="line">    inputPhoneBook: <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; inputPhoneBook, selectedList, selectedPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            <span class="comment">// 부모 컴포넌트에서 html속성을 넣듯이 props를 넘길수 있다.</span></span><br><span class="line">            &lt;SearchBar inputPhoneBook=&#123;inputPhoneBook&#125; /&gt;</span><br><span class="line">            &lt;PhoneBookList phoneBookList=&#123;selectedList&#125;/&gt;</span><br><span class="line">            &lt;PhoneDetail phoneBook=&#123;selectedPhoneBook&#125;/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SearchBar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        <span class="comment">// 자녀 컴포넌트에서 this.props로 넘겨받은 props값을 접근할 수 있다.</span></span><br><span class="line">        &lt;input type=<span class="string">"text"</span> value=&#123;<span class="keyword">this</span>.props.inputPhoneBook&#125; placeholder=<span class="string">"Search.."</span>/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;button type=<span class="string">"button"</span>&gt;추가&lt;\/button&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">      &lt;\/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Event-Handling"><a href="#Event-Handling" class="headerlink" title="Event Handling"></a>Event Handling</h2><p>리액트의 이벤트 시스템은 html 이벤트와 사용법이 매우 비슷하지만 주의할 점이 있다.</p>
-<ul>
-<li>이벤트 이름은 camelCase로 작성한다.(예: onclick =&gt; onClick, onkeyup =&gt; onKeyUp)</li>
-<li><strong>이벤트에 실행할 자바스크립트 코드를 전달하는것이 아니라, 함수 형태의 값을 전달한다.</strong></li>
-<li>DOM 요소에만 이벤트를 설정할 수 있다.(내가 만든 컴포넌트는 이벤트를 설정 할 수 없다.)</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  (...)</span><br><span class="line">  <span class="comment">// 이벤트는 함수로 넘겨야 한다.</span></span><br><span class="line">  handleSelectedList = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      selectedList: <span class="keyword">this</span>.state.allList.filter(<span class="function"><span class="params">phonebook</span> =&gt;</span> phonebook.name.search(e.target.value) !== <span class="number">-1</span>),</span><br><span class="line">      inputPhoneBook: e.target.value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addPhoneBook = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; allList, inputPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">const</span> newPhoneBook =  &#123;</span><br><span class="line">      id: <span class="keyword">this</span>.id++,</span><br><span class="line">      name: inputPhoneBook,</span><br><span class="line">      phonenumber: <span class="string">''</span>,</span><br><span class="line">      address: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState( &#123;</span><br><span class="line">      allList: [...allList, newPhoneBook],</span><br><span class="line">      selectedPhoneBook: newPhoneBook,</span><br><span class="line">      selectedList: [newPhoneBook]</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; inputPhoneBook, selectedList, selectedPhoneBook &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">      <span class="keyword">const</span> &#123; handleSelectedList, addPhoneBook &#125; = <span class="keyword">this</span>;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;SearchBar inputPhoneBook=&#123;inputPhoneBook&#125; handleSelectedList = &#123;handleSelectedList&#125; addPhoneBook = &#123;addPhoneBook&#125; /&gt;</span><br><span class="line">            &lt;PhoneBookList phoneBookList=&#123;selectedList&#125;/&gt;</span><br><span class="line">            &lt;PhoneDetail phoneBook=&#123;selectedPhoneBook&#125;/&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br><span class="line"></span><br><span class="line"><span class="comment">// SearchBar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; inputPhoneBook, handleSelectedList, addPhoneBook &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type=<span class="string">"text"</span> onChange=&#123;handleSelectedList&#125; value=&#123;inputPhoneBook&#125; placeholder=<span class="string">"Search.."</span>/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;button type=<span class="string">"button"</span> onClick=&#123;addPhoneBook&#125;&gt;추가&lt;\/button&gt;</span><br><span class="line">        &lt;\/div&gt;</span><br><span class="line">      &lt;\/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>순수 리액트만으로 전화번호부 구현 방법에 대해 살펴보았다.<br>구현에 대한 전체소스는 <a href="https://github.com/black9p/phonebook/tree/react-only" target="_blank" rel="noopener">여기</a> 에서 확인 할 수 있다.</p>
-<p>Reference : <a href="http://www.yes24.com/24/Goods/62597469?Acode=101" target="_blank" rel="noopener">리액트를 다루는 기술</a></p>
+    <title>디폴트 메서드</title>
+    <url>/2018/02/12/%EB%94%94%ED%8F%B4%ED%8A%B8-%EB%A9%94%EC%84%9C%EB%93%9C/</url>
+    <content><![CDATA[<p><strong>디폴트 메서드</strong>는 인터페이스내 기본구현된 메서드로 하위호환을 유지하며 API를 바꿀 수 있도록 한다. default 키워드로 시작하며 클래스에 선언된 메서드처럼 메서드 바디를 포함한다.</p>
+<a id="more"></a>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sized</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123; <span class="comment">// 디폴트 메서드</span></span><br><span class="line">    <span class="keyword">return</span> size() == <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="추상-클래스-vs-자바8의-인터페이스"><a href="#추상-클래스-vs-자바8의-인터페이스" class="headerlink" title="추상 클래스 vs 자바8의 인터페이스"></a>추상 클래스 vs 자바8의 인터페이스</h3><ol>
+<li>클래스는 하나의 추상 클래스만 상속받을 수 있지만 인터페이스를 여러 개 구현할 수 있다.</li>
+<li>추상 클래스는 인스턴스 변수(필드)로 공통 상태를 가질 수 있다. 하지만 인터페이스는 인스턴스 변수를 가질 수 없다.</li>
+</ol>
+<h2 id="해석-규칙"><a href="#해석-규칙" class="headerlink" title="해석 규칙"></a>해석 규칙</h2><ol>
+<li>클래스가 항상 이긴다. 클래스나 슈퍼클래스에서 정의한 메서드가 디폴트 메서드보다 우선권을 갖는다.</li>
+<li>1번 규칙 이외의 상황에서는 서브인터페이스가 이긴다. 상속관계를 갖는 인터페이스에서 같은 시그너처를 갖는 메서드를 정의할 때는 서브인터페이스가 이긴다. 즉, B가 A를 상속받는다면 B가 A를 이긴다.</li>
+<li>여전히 디폴트 메서드의 우선순위가 결정되지 않았다면 여러 인터페이스를 상속받는 클래스가 명시적으로 디폴트 메서드를 오버라이드하고 호출해야한다.</li>
+</ol>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
 ]]></content>
       <categories>
-        <category>ReactJS</category>
+        <category>Java</category>
       </categories>
   </entry>
   <entry>
@@ -563,52 +597,33 @@
       </categories>
   </entry>
   <entry>
-    <title>스트림 API</title>
-    <url>/2018/01/13/%EC%8A%A4%ED%8A%B8%EB%A6%BC-API/</url>
-    <content><![CDATA[<p><strong>스트림</strong> 은 자바API에 새로 추가된 기능으로, 데이터 처리 연산을 지원하도록 소스에서 추출된 연속된 요소로 정의할 수 있다.<br><a id="more"></a><br>아래는 칼로리기준으로 요리를 정렬하는 자바7코드다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; lowCaloricDishes = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Dish dish : menu) &#123;</span><br><span class="line">  <span class="keyword">if</span> (dish.getCalories() &lt; <span class="number">400</span>) &#123;</span><br><span class="line">    lowCaloricDishes.add(d);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Collections.sort(lowCaloricDishes, <span class="keyword">new</span> Comparator&lt;Dish&gt;() &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Dish dish1, Dish dish2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Integer.compare(dish1.getCalories(), dish2.getCalories());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Lish&lt;String&gt; lowCaloricDishesName = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Dish dish: lowCaloricDishes) &#123;</span><br><span class="line">  lowCaloricDishesName.add(dish.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>아래는 같은내용의 자바8코드다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; lowCaloricDishesName = menu.stream()</span><br><span class="line">                                        .filter(dish -&gt; dish.getCalories() &lt; <span class="number">400</span>)</span><br><span class="line">                                        .sorted(comparing(Dish::getCalories))</span><br><span class="line">                                        .map(Dish::getName)</span><br><span class="line">                                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
-<h2 id="스트림의-특징"><a href="#스트림의-특징" class="headerlink" title="스트림의 특징"></a>스트림의 특징</h2><ul>
-<li>선언형 : 더 간결하고 가독성이 좋아진다.</li>
-<li>조립할 수 있음 : 유연성이 좋아진다.</li>
-<li>병렬화 : 성능이 좋아진다.</li>
-</ul>
-<h2 id="스트림-이용하기"><a href="#스트림-이용하기" class="headerlink" title="스트림 이용하기"></a>스트림 이용하기</h2><p>스트림 이용 과정은 다음과 같이 세 가지로 요약할 수 있다</p>
+    <title>빈 라이프사이클</title>
+    <url>/2018/02/17/%EB%B9%88-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4/</url>
+    <content><![CDATA[<p>스프링 컨테이너는 다음의 두 가지 방식을 이용해서 빈의 라이프사이클을 관리할 수 있다.</p>
 <ul>
-<li>질의를 수행할 <strong>데이터 소스</strong></li>
-<li>스트림 파이프라링ㄴ을 구성할 <strong>중간 연산</strong> 연결</li>
-<li>스트림 파이프라인을 실행하고 결과를 만들 <strong>최종연산</strong></li>
+<li>스프링이 제공하는 특정 인터페이스를 상속받아 빈을 구현한다</li>
+<li>스프링 설정에서 특정 메서드를 호출하라고 지정한다</li>
 </ul>
-<h1 id="스트림-활용"><a href="#스트림-활용" class="headerlink" title="스트림 활용"></a>스트림 활용</h1><h2 id="필터링과-슬라이싱"><a href="#필터링과-슬라이싱" class="headerlink" title="필터링과 슬라이싱"></a>필터링과 슬라이싱</h2><p>스트림 인터페이스는 filter 메서드를 지원한다. filter메서드는 Predicate를 인수로 받아 일치하는 모든 요소를 포함하는 스트림을 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; vegetarianMenu = menu.stream()</span><br><span class="line">                                .filter(Dish::isVegetarian) <span class="comment">// 채식요리인지 확인하는 메서드 레퍼런스</span></span><br><span class="line">                                .collect(toList());</span><br></pre></td></tr></table></figure></p>
-<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><p>distinct를 사용하면 중복을 필터링한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">numbers.stream()</span><br><span class="line">.filter(i -&gt; i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">.distinct() <span class="comment">// 중복된 요소를 제거</span></span><br><span class="line">.forEach(System.out::println);</span><br></pre></td></tr></table></figure></p>
-<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><p>limit를 사용하면 스트림 사이즈를 제한할 수 있다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; dishes = menu.stream()</span><br><span class="line">                        .filter(dish -&gt; dish.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                        .limit(<span class="number">3</span>) <span class="comment">// 요소수를 3개로 제한</span></span><br><span class="line">                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
-<h3 id="skip-n"><a href="#skip-n" class="headerlink" title="skip(n)"></a>skip(n)</h3><p>skip(n)을 이용하면 n개 요소를 제외하고 나머지 요소를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; dishes = menu.stream()</span><br><span class="line">                        .filter(dish -&gt; dish.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                        .skip(<span class="number">2</span>)  <span class="comment">// 2개 요소를 건너뛴다</span></span><br><span class="line">                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
-<h2 id="매핑"><a href="#매핑" class="headerlink" title="매핑"></a>매핑</h2><p><strong>매핑</strong> 은 특정 객체에서 특정 데이터를 선택하는 작업으로, SQL의 테이블에서 특정 열만 선택하는 것과 같은 작업이다.</p>
-<p>아래 예는 메뉴에서 요리명만 추출하는 내용이다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String dishNames = menu.stream()</span><br><span class="line">                            .map(Dish::getName)</span><br><span class="line">                            .collect(toList());</span><br></pre></td></tr></table></figure></p>
-<h2 id="검색과-매칭"><a href="#검색과-매칭" class="headerlink" title="검색과 매칭"></a>검색과 매칭</h2><h3 id="anyMatch"><a href="#anyMatch" class="headerlink" title="anyMatch"></a>anyMatch</h3><p>Predicate가 주어진 스트림에서 적어도 한 요소와 일치하는지 확인<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(menu.stream().anyMatch(Dish::isVegetarian)) &#123;</span><br><span class="line">  ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="allMatch"><a href="#allMatch" class="headerlink" title="allMatch"></a>allMatch</h3><p>모든 요소가 주어진 Predicate와 일치하는지 검사<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isHealthy = menu.stream()</span><br><span class="line">                        .allMatch(dish -&gt; dish.getCalories() &lt; <span class="number">1000</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="noneMatch"><a href="#noneMatch" class="headerlink" title="noneMatch"></a>noneMatch</h3><p>주어진 Predicate와 일치하는 요소가 없는지 확인<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isHealthy = menu.stream()</span><br><span class="line">                        .noneMatch(dish -&gt; dish.getCalories() &gt;= <span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
-<h3 id="findAny"><a href="#findAny" class="headerlink" title="findAny"></a>findAny</h3><p>현재 스트림에서 임의의 요소를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Optional&lt;Dish&gt; dish = menu.stream()</span><br><span class="line">                          .filter(Dish::isVegetarian) <span class="comment">// filter와 연결해서 사용할 수 있다.</span></span><br><span class="line">                          .findAny();</span><br></pre></td></tr></table></figure></p>
-<h3 id="findFirst"><a href="#findFirst" class="headerlink" title="findFirst"></a>findFirst</h3><p>스트림 내 첫번째 요소를 불러온다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; someNumbers = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">Optional&lt;Integer&gt; firstSquareDicisibleByThree = someNumbers.stream()</span><br><span class="line">                                                           .map(x -&gt; x * x)</span><br><span class="line">                                                           .filter(x -&gt; x % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">                                                           .findFirst();  <span class="comment">// 9</span></span><br></pre></td></tr></table></figure></p>
-<p>findFirst는 병렬실행에 유용하며, 반환요소가 상관없다면 findAny를 사용해도 상관없다.</p>
-<h1 id="리듀싱"><a href="#리듀싱" class="headerlink" title="리듀싱"></a>리듀싱</h1><p>모든 요소를 반복적으로 처리하는 과정으로 함수형 프로그래밍에서는 폴드 라고 불리기도 한다.</p>
-<p>reduce는 두 개의 인수를 갖는다.</p>
+<a id="more"></a>
+<h2 id="빈-라이프사이클-개요"><a href="#빈-라이프사이클-개요" class="headerlink" title="빈 라이프사이클 개요"></a>빈 라이프사이클 개요</h2><p>다음 네 단계를 거친다.<br>객체생성/프로퍼티 설정 -&gt; 초기화 -&gt; 사용 -&gt; 소멸</p>
+<p><img src="/images/spring/bean_lifecycle.png" alt="bean_lifecycle"></p>
+<h3 id="InitializingBean-DisposableBean-인터페이스"><a href="#InitializingBean-DisposableBean-인터페이스" class="headerlink" title="InitializingBean / DisposableBean 인터페이스"></a>InitializingBean / DisposableBean 인터페이스</h3><p>초기화과정/소멸과정 에서 실행될 메소드를 정의 한다. 빈 객체 생성 이외의 추가적인 초기화 작업이 필요할 때 해당 인터페이스를 구현해 사용한다. 전형적인 예가 데이터베이스 커넥션풀 기능이 있다.</p>
+<h3 id="PostConstruct-PreDestroy"><a href="#PostConstruct-PreDestroy" class="headerlink" title="@PostConstruct / @PreDestroy"></a>@PostConstruct / @PreDestroy</h3><p>각각 초기화과정/소멸 과정에서 실행될 메소드를 의미하며.. 위 InitializingBean / DisposableBean 과 내용이 같다. 다만 두 애노테이션을 사용하려면 CommonAnnotationBeanPostProcessor 전처리기를 스프링 빈으로 등록해 주어야 하는데, &lt; context:annotation-config&gt; 태그를 사용하면 된다.</p>
+<h3 id="커스텀-init-메서드와-커스텀-destroy-메서드"><a href="#커스텀-init-메서드와-커스텀-destroy-메서드" class="headerlink" title="커스텀 init 메서드와 커스텀 destroy 메서드"></a>커스텀 init 메서드와 커스텀 destroy 메서드</h3><p>외부에서 제공 받은 라이브러리가 있는데, 이 라이브러리 클래스를 스프링 빈으로 사용해야 한다고 가정하다. 해당 클래스의 초기화를 위해 init() 메서드가 있는데 @PostConstruct 애노테이션이 없다. 또한 InitializingBean 인터페이스도 상속받지 않았을때 아래와 같이 사용할 수 있다.</p>
+<p><em>XML 설정</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"externalBean"</span> <span class="attr">class</span>=<span class="string">"com.external.ExternalClass"</span> <span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"destroy"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>Java 설정</em><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span>(initMethod = <span class="string">"init"</span>, destroyMethod = <span class="string">"destroy"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ExternalClass <span class="title">externalClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> ExternalClass();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ApplicationContextAware-BeanNameAware-인터페이스"><a href="#ApplicationContextAware-BeanNameAware-인터페이스" class="headerlink" title="ApplicationContextAware / BeanNameAware 인터페이스"></a>ApplicationContextAware / BeanNameAware 인터페이스</h3><p>빈 내에서 컨테이너객체와 빈이름의 제어가 필요할 경우 사용. 위 인터페이스를 구현할 경우 초기화 과정에서 각각 컨테이너와 빈 이름을 전달 받는다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeObject</span> <span class="keyword">implements</span> <span class="title">ApplicationContextAware</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> ApplicationContext context;</span><br><span class="line"></span><br><span class="line">  setApplicationContext(ApplicationContext context) &#123;</span><br><span class="line">    <span class="keyword">this</span>.context = context;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="빈-객체-범위-scope"><a href="#빈-객체-범위-scope" class="headerlink" title="빈 객체 범위 (scope)"></a>빈 객체 범위 (scope)</h2><p>스프링의 빈은 범위를 갖는데, 주요 범위는 다음 두가지가 있다</p>
 <ul>
-<li>초깃값 (생략될 수 있다)</li>
-<li>BinaryOperator<t></t></li>
+<li><p>싱글톤 범위 : 별도의 설정을 하지 않으면 스프링은  빈 객체를 한번만 생성한다. 물론 명시적으로 넣어줄 수도 있다.</p>
+</li>
+<li><p>프로토타입 범위 : 싱글톤의 반대로 매번 새로운 객체를 생성한다. 사용방법은 같으며 해당 속성값에 prototype을 입력한다. 스프링 컨테이너는 프로토타입 범위를 가진 빈의 초기화까지만 관리하므로, 컨테이너 종료시 생성된 프로토타입 빈 객체의 소멸 과정이 실행되지 않는다.</p>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = numbers.stream().reduce(<span class="number">0</span>, (a, b) -&gt; a + b);</span><br><span class="line"><span class="comment">// 초기값 : 0</span></span><br><span class="line"><span class="comment">// BinaryOperator : (a, b) -&gt; a + b</span></span><br></pre></td></tr></table></figure>
-<h1 id="스트림-만들기"><a href="#스트림-만들기" class="headerlink" title="스트림 만들기"></a>스트림 만들기</h1><p>아래의 다양한 방법으로 스트림을 만들 수 있다.</p>
-<ul>
-<li>Stream.of : 값으로 스트림 만들기</li>
-<li>Arrays.stream : 배열로 스트림 만들기</li>
-<li>File.lines : 파일로 스트림 만들기</li>
-<li>Stream.iterate : 함수로 무한스트림 만들기</li>
-<li>Stream.generate : 함수로 무한스트림 만들기</li>
-</ul>
-<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+<p>Reference : <a href="http://www.yes24.com/24/goods/13987797?scode=032&amp;OzSrank=1" target="_blank" rel="noopener">Spring 4.0 프로그래밍</a></p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>Spring</category>
       </categories>
   </entry>
   <entry>
@@ -695,36 +710,6 @@
       </categories>
   </entry>
   <entry>
-    <title>빈 라이프사이클</title>
-    <url>/2018/02/17/%EB%B9%88-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4/</url>
-    <content><![CDATA[<p>스프링 컨테이너는 다음의 두 가지 방식을 이용해서 빈의 라이프사이클을 관리할 수 있다.</p>
-<ul>
-<li>스프링이 제공하는 특정 인터페이스를 상속받아 빈을 구현한다</li>
-<li>스프링 설정에서 특정 메서드를 호출하라고 지정한다</li>
-</ul>
-<a id="more"></a>
-<h2 id="빈-라이프사이클-개요"><a href="#빈-라이프사이클-개요" class="headerlink" title="빈 라이프사이클 개요"></a>빈 라이프사이클 개요</h2><p>다음 네 단계를 거친다.<br>객체생성/프로퍼티 설정 -&gt; 초기화 -&gt; 사용 -&gt; 소멸</p>
-<p><img src="/images/spring/bean_lifecycle.png" alt="bean_lifecycle"></p>
-<h3 id="InitializingBean-DisposableBean-인터페이스"><a href="#InitializingBean-DisposableBean-인터페이스" class="headerlink" title="InitializingBean / DisposableBean 인터페이스"></a>InitializingBean / DisposableBean 인터페이스</h3><p>초기화과정/소멸과정 에서 실행될 메소드를 정의 한다. 빈 객체 생성 이외의 추가적인 초기화 작업이 필요할 때 해당 인터페이스를 구현해 사용한다. 전형적인 예가 데이터베이스 커넥션풀 기능이 있다.</p>
-<h3 id="PostConstruct-PreDestroy"><a href="#PostConstruct-PreDestroy" class="headerlink" title="@PostConstruct / @PreDestroy"></a>@PostConstruct / @PreDestroy</h3><p>각각 초기화과정/소멸 과정에서 실행될 메소드를 의미하며.. 위 InitializingBean / DisposableBean 과 내용이 같다. 다만 두 애노테이션을 사용하려면 CommonAnnotationBeanPostProcessor 전처리기를 스프링 빈으로 등록해 주어야 하는데, &lt; context:annotation-config&gt; 태그를 사용하면 된다.</p>
-<h3 id="커스텀-init-메서드와-커스텀-destroy-메서드"><a href="#커스텀-init-메서드와-커스텀-destroy-메서드" class="headerlink" title="커스텀 init 메서드와 커스텀 destroy 메서드"></a>커스텀 init 메서드와 커스텀 destroy 메서드</h3><p>외부에서 제공 받은 라이브러리가 있는데, 이 라이브러리 클래스를 스프링 빈으로 사용해야 한다고 가정하다. 해당 클래스의 초기화를 위해 init() 메서드가 있는데 @PostConstruct 애노테이션이 없다. 또한 InitializingBean 인터페이스도 상속받지 않았을때 아래와 같이 사용할 수 있다.</p>
-<p><em>XML 설정</em><br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"externalBean"</span> <span class="attr">class</span>=<span class="string">"com.external.ExternalClass"</span> <span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"destroy"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><em>Java 설정</em><br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span>(initMethod = <span class="string">"init"</span>, destroyMethod = <span class="string">"destroy"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ExternalClass <span class="title">externalClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> ExternalClass();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="ApplicationContextAware-BeanNameAware-인터페이스"><a href="#ApplicationContextAware-BeanNameAware-인터페이스" class="headerlink" title="ApplicationContextAware / BeanNameAware 인터페이스"></a>ApplicationContextAware / BeanNameAware 인터페이스</h3><p>빈 내에서 컨테이너객체와 빈이름의 제어가 필요할 경우 사용. 위 인터페이스를 구현할 경우 초기화 과정에서 각각 컨테이너와 빈 이름을 전달 받는다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeObject</span> <span class="keyword">implements</span> <span class="title">ApplicationContextAware</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> ApplicationContext context;</span><br><span class="line"></span><br><span class="line">  setApplicationContext(ApplicationContext context) &#123;</span><br><span class="line">    <span class="keyword">this</span>.context = context;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="빈-객체-범위-scope"><a href="#빈-객체-범위-scope" class="headerlink" title="빈 객체 범위 (scope)"></a>빈 객체 범위 (scope)</h2><p>스프링의 빈은 범위를 갖는데, 주요 범위는 다음 두가지가 있다</p>
-<ul>
-<li><p>싱글톤 범위 : 별도의 설정을 하지 않으면 스프링은  빈 객체를 한번만 생성한다. 물론 명시적으로 넣어줄 수도 있다.</p>
-</li>
-<li><p>프로토타입 범위 : 싱글톤의 반대로 매번 새로운 객체를 생성한다. 사용방법은 같으며 해당 속성값에 prototype을 입력한다. 스프링 컨테이너는 프로토타입 범위를 가진 빈의 초기화까지만 관리하므로, 컨테이너 종료시 생성된 프로토타입 빈 객체의 소멸 과정이 실행되지 않는다.</p>
-</li>
-</ul>
-<p>Reference : <a href="http://www.yes24.com/24/goods/13987797?scode=032&amp;OzSrank=1" target="_blank" rel="noopener">Spring 4.0 프로그래밍</a></p>
-]]></content>
-      <categories>
-        <category>Spring</category>
-      </categories>
-  </entry>
-  <entry>
     <title>스프링 MVC</title>
     <url>/2018/02/21/%EC%8A%A4%ED%94%84%EB%A7%81-MVC/</url>
     <content><![CDATA[<p>아래 그림은 스프링 기본 흐름과 주요 컴포넌트에 대해 설명한다.<br><a id="more"></a><br><img src="/images/spring/spring_mvc_process.png" alt="spring_mvc_process"></p>
@@ -760,21 +745,48 @@
       </categories>
   </entry>
   <entry>
-    <title>스트림 데이터 수집</title>
-    <url>/2018/01/14/%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A7%91/</url>
-    <content><![CDATA[<p>Collectors에서 제공하는 메서드의 기능은 크게 세 가지로 구분할 수 있다.</p>
-<ul>
-<li>스트림 요소를 하나의 값으로 리듀스하고 요약</li>
-<li>요소 그룹화</li>
-<li>요소 분할</li>
+    <title>스트림 API</title>
+    <url>/2018/01/13/%EC%8A%A4%ED%8A%B8%EB%A6%BC-API/</url>
+    <content><![CDATA[<p><strong>스트림</strong> 은 자바API에 새로 추가된 기능으로, 데이터 처리 연산을 지원하도록 소스에서 추출된 연속된 요소로 정의할 수 있다.<br><a id="more"></a><br>아래는 칼로리기준으로 요리를 정렬하는 자바7코드다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; lowCaloricDishes = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Dish dish : menu) &#123;</span><br><span class="line">  <span class="keyword">if</span> (dish.getCalories() &lt; <span class="number">400</span>) &#123;</span><br><span class="line">    lowCaloricDishes.add(d);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Collections.sort(lowCaloricDishes, <span class="keyword">new</span> Comparator&lt;Dish&gt;() &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Dish dish1, Dish dish2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Integer.compare(dish1.getCalories(), dish2.getCalories());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Lish&lt;String&gt; lowCaloricDishesName = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span>(Dish dish: lowCaloricDishes) &#123;</span><br><span class="line">  lowCaloricDishesName.add(dish.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>아래는 같은내용의 자바8코드다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; lowCaloricDishesName = menu.stream()</span><br><span class="line">                                        .filter(dish -&gt; dish.getCalories() &lt; <span class="number">400</span>)</span><br><span class="line">                                        .sorted(comparing(Dish::getCalories))</span><br><span class="line">                                        .map(Dish::getName)</span><br><span class="line">                                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h2 id="스트림의-특징"><a href="#스트림의-특징" class="headerlink" title="스트림의 특징"></a>스트림의 특징</h2><ul>
+<li>선언형 : 더 간결하고 가독성이 좋아진다.</li>
+<li>조립할 수 있음 : 유연성이 좋아진다.</li>
+<li>병렬화 : 성능이 좋아진다.</li>
 </ul>
-<a id="more"></a>
-<h1 id="리듀싱과-요약"><a href="#리듀싱과-요약" class="headerlink" title="리듀싱과 요약"></a>리듀싱과 요약</h1><h2 id="counting"><a href="#counting" class="headerlink" title="counting"></a>counting</h2><p>개수 카운팅<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> howManyDishes = menu.stream().collect(Collectors.counting());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이렇게도 가능하다..</span></span><br><span class="line">menu.stream().count();</span><br></pre></td></tr></table></figure></p>
-<h2 id="maxBy-minBy"><a href="#maxBy-minBy" class="headerlink" title="maxBy / minBy"></a>maxBy / minBy</h2><p>Comparator를 인수로 받아 최대값, 최소값을 구한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Comparator&lt;Dish&gt; dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);</span><br><span class="line"></span><br><span class="line">Optional&lt;Dish&gt; mostCalorieDish = menu.stream().collect(maxBy(dishCaloriesComparator));</span><br></pre></td></tr></table></figure></p>
-<h2 id="summing-Int-Long-Double"><a href="#summing-Int-Long-Double" class="headerlink" title="summing[Int/Long/Double]"></a>summing[Int/Long/Double]</h2><p>합계를 계산한다<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> totalCalories = menu.stream().collect(summingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure></p>
-<h2 id="averaging-Int-Long-Double"><a href="#averaging-Int-Long-Double" class="headerlink" title="averaging[Int/Long/Double]"></a>averaging[Int/Long/Double]</h2><p>평균을 계산한다<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> avgCalories = menu.stream().collect(averagingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure></p>
-<h2 id="summarizing-Int-Long-Double"><a href="#summarizing-Int-Long-Double" class="headerlink" title="summarizing[Int/Long/Double]"></a>summarizing[Int/Long/Double]</h2><p>여러가지 요약정보가 필요할때 사용한다.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IntSummaryStatistics menuStatistics = menu.stream().collect(summarizingInt(Dish::getCalories));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력결과</span></span><br><span class="line">IntSummaryStatistics &#123; count = <span class="number">9</span>, sum = <span class="number">4300</span>, min = <span class="number">120</span>, average = <span class="number">1</span>, max = <span class="number">800</span> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="스트림-이용하기"><a href="#스트림-이용하기" class="headerlink" title="스트림 이용하기"></a>스트림 이용하기</h2><p>스트림 이용 과정은 다음과 같이 세 가지로 요약할 수 있다</p>
+<ul>
+<li>질의를 수행할 <strong>데이터 소스</strong></li>
+<li>스트림 파이프라링ㄴ을 구성할 <strong>중간 연산</strong> 연결</li>
+<li>스트림 파이프라인을 실행하고 결과를 만들 <strong>최종연산</strong></li>
+</ul>
+<h1 id="스트림-활용"><a href="#스트림-활용" class="headerlink" title="스트림 활용"></a>스트림 활용</h1><h2 id="필터링과-슬라이싱"><a href="#필터링과-슬라이싱" class="headerlink" title="필터링과 슬라이싱"></a>필터링과 슬라이싱</h2><p>스트림 인터페이스는 filter 메서드를 지원한다. filter메서드는 Predicate를 인수로 받아 일치하는 모든 요소를 포함하는 스트림을 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; vegetarianMenu = menu.stream()</span><br><span class="line">                                .filter(Dish::isVegetarian) <span class="comment">// 채식요리인지 확인하는 메서드 레퍼런스</span></span><br><span class="line">                                .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><p>distinct를 사용하면 중복을 필터링한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">numbers.stream()</span><br><span class="line">.filter(i -&gt; i % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">.distinct() <span class="comment">// 중복된 요소를 제거</span></span><br><span class="line">.forEach(System.out::println);</span><br></pre></td></tr></table></figure></p>
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><p>limit를 사용하면 스트림 사이즈를 제한할 수 있다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; dishes = menu.stream()</span><br><span class="line">                        .filter(dish -&gt; dish.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                        .limit(<span class="number">3</span>) <span class="comment">// 요소수를 3개로 제한</span></span><br><span class="line">                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h3 id="skip-n"><a href="#skip-n" class="headerlink" title="skip(n)"></a>skip(n)</h3><p>skip(n)을 이용하면 n개 요소를 제외하고 나머지 요소를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Dish&gt; dishes = menu.stream()</span><br><span class="line">                        .filter(dish -&gt; dish.getCalories() &gt; <span class="number">300</span>)</span><br><span class="line">                        .skip(<span class="number">2</span>)  <span class="comment">// 2개 요소를 건너뛴다</span></span><br><span class="line">                        .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h2 id="매핑"><a href="#매핑" class="headerlink" title="매핑"></a>매핑</h2><p><strong>매핑</strong> 은 특정 객체에서 특정 데이터를 선택하는 작업으로, SQL의 테이블에서 특정 열만 선택하는 것과 같은 작업이다.</p>
+<p>아래 예는 메뉴에서 요리명만 추출하는 내용이다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String dishNames = menu.stream()</span><br><span class="line">                            .map(Dish::getName)</span><br><span class="line">                            .collect(toList());</span><br></pre></td></tr></table></figure></p>
+<h2 id="검색과-매칭"><a href="#검색과-매칭" class="headerlink" title="검색과 매칭"></a>검색과 매칭</h2><h3 id="anyMatch"><a href="#anyMatch" class="headerlink" title="anyMatch"></a>anyMatch</h3><p>Predicate가 주어진 스트림에서 적어도 한 요소와 일치하는지 확인<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(menu.stream().anyMatch(Dish::isVegetarian)) &#123;</span><br><span class="line">  ..</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="allMatch"><a href="#allMatch" class="headerlink" title="allMatch"></a>allMatch</h3><p>모든 요소가 주어진 Predicate와 일치하는지 검사<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isHealthy = menu.stream()</span><br><span class="line">                        .allMatch(dish -&gt; dish.getCalories() &lt; <span class="number">1000</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="noneMatch"><a href="#noneMatch" class="headerlink" title="noneMatch"></a>noneMatch</h3><p>주어진 Predicate와 일치하는 요소가 없는지 확인<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">boolean</span> isHealthy = menu.stream()</span><br><span class="line">                        .noneMatch(dish -&gt; dish.getCalories() &gt;= <span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="findAny"><a href="#findAny" class="headerlink" title="findAny"></a>findAny</h3><p>현재 스트림에서 임의의 요소를 반환한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Optional&lt;Dish&gt; dish = menu.stream()</span><br><span class="line">                          .filter(Dish::isVegetarian) <span class="comment">// filter와 연결해서 사용할 수 있다.</span></span><br><span class="line">                          .findAny();</span><br></pre></td></tr></table></figure></p>
+<h3 id="findFirst"><a href="#findFirst" class="headerlink" title="findFirst"></a>findFirst</h3><p>스트림 내 첫번째 요소를 불러온다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; someNumbers = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">Optional&lt;Integer&gt; firstSquareDicisibleByThree = someNumbers.stream()</span><br><span class="line">                                                           .map(x -&gt; x * x)</span><br><span class="line">                                                           .filter(x -&gt; x % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">                                                           .findFirst();  <span class="comment">// 9</span></span><br></pre></td></tr></table></figure></p>
+<p>findFirst는 병렬실행에 유용하며, 반환요소가 상관없다면 findAny를 사용해도 상관없다.</p>
+<h1 id="리듀싱"><a href="#리듀싱" class="headerlink" title="리듀싱"></a>리듀싱</h1><p>모든 요소를 반복적으로 처리하는 과정으로 함수형 프로그래밍에서는 폴드 라고 불리기도 한다.</p>
+<p>reduce는 두 개의 인수를 갖는다.</p>
+<ul>
+<li>초깃값 (생략될 수 있다)</li>
+<li>BinaryOperator<t></t></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> sum = numbers.stream().reduce(<span class="number">0</span>, (a, b) -&gt; a + b);</span><br><span class="line"><span class="comment">// 초기값 : 0</span></span><br><span class="line"><span class="comment">// BinaryOperator : (a, b) -&gt; a + b</span></span><br></pre></td></tr></table></figure>
+<h1 id="스트림-만들기"><a href="#스트림-만들기" class="headerlink" title="스트림 만들기"></a>스트림 만들기</h1><p>아래의 다양한 방법으로 스트림을 만들 수 있다.</p>
+<ul>
+<li>Stream.of : 값으로 스트림 만들기</li>
+<li>Arrays.stream : 배열로 스트림 만들기</li>
+<li>File.lines : 파일로 스트림 만들기</li>
+<li>Stream.iterate : 함수로 무한스트림 만들기</li>
+<li>Stream.generate : 함수로 무한스트림 만들기</li>
+</ul>
 <p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
 ]]></content>
       <categories>
@@ -849,6 +861,28 @@
 ]]></content>
       <categories>
         <category>성능테스트</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>스트림 데이터 수집</title>
+    <url>/2018/01/14/%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%98%EC%A7%91/</url>
+    <content><![CDATA[<p>Collectors에서 제공하는 메서드의 기능은 크게 세 가지로 구분할 수 있다.</p>
+<ul>
+<li>스트림 요소를 하나의 값으로 리듀스하고 요약</li>
+<li>요소 그룹화</li>
+<li>요소 분할</li>
+</ul>
+<a id="more"></a>
+<h1 id="리듀싱과-요약"><a href="#리듀싱과-요약" class="headerlink" title="리듀싱과 요약"></a>리듀싱과 요약</h1><h2 id="counting"><a href="#counting" class="headerlink" title="counting"></a>counting</h2><p>개수 카운팅<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> howManyDishes = menu.stream().collect(Collectors.counting());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이렇게도 가능하다..</span></span><br><span class="line">menu.stream().count();</span><br></pre></td></tr></table></figure></p>
+<h2 id="maxBy-minBy"><a href="#maxBy-minBy" class="headerlink" title="maxBy / minBy"></a>maxBy / minBy</h2><p>Comparator를 인수로 받아 최대값, 최소값을 구한다.<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Comparator&lt;Dish&gt; dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);</span><br><span class="line"></span><br><span class="line">Optional&lt;Dish&gt; mostCalorieDish = menu.stream().collect(maxBy(dishCaloriesComparator));</span><br></pre></td></tr></table></figure></p>
+<h2 id="summing-Int-Long-Double"><a href="#summing-Int-Long-Double" class="headerlink" title="summing[Int/Long/Double]"></a>summing[Int/Long/Double]</h2><p>합계를 계산한다<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> totalCalories = menu.stream().collect(summingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure></p>
+<h2 id="averaging-Int-Long-Double"><a href="#averaging-Int-Long-Double" class="headerlink" title="averaging[Int/Long/Double]"></a>averaging[Int/Long/Double]</h2><p>평균을 계산한다<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> avgCalories = menu.stream().collect(averagingInt(Dish::getCalories));</span><br></pre></td></tr></table></figure></p>
+<h2 id="summarizing-Int-Long-Double"><a href="#summarizing-Int-Long-Double" class="headerlink" title="summarizing[Int/Long/Double]"></a>summarizing[Int/Long/Double]</h2><p>여러가지 요약정보가 필요할때 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IntSummaryStatistics menuStatistics = menu.stream().collect(summarizingInt(Dish::getCalories));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 출력결과</span></span><br><span class="line">IntSummaryStatistics &#123; count = <span class="number">9</span>, sum = <span class="number">4300</span>, min = <span class="number">120</span>, average = <span class="number">1</span>, max = <span class="number">800</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>Reference : <a href="http://www.yes24.com/24/Goods/17252419?Acode=101" target="_blank" rel="noopener">Java 8 in Action</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
       </categories>
   </entry>
 </search>
